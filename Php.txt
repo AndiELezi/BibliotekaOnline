@@ -1,0 +1,19 @@
+
+/*  Do shkoni te xamp dhe pstj te direktorioa pho. Aty kerkoni nje file qe quhet php.ini dhe hapeni.
+Kerkoni per sektorin Mail function duke perdorur find .Posht asaj do shtoni kto rrjeshta.*/
+
+
+
+SMTP=smtp.gmail.com
+smtp_port=587
+sendmail_from = horizone.event@gmail.com
+sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+
+
+
+
+/*Pasi ti keni shtuar shikoni t gjitha komandat qe ndodhen te ai sektor dhe vendosini ";" para atyre 
+qe jan njesoj me kto rrjeshta  psh:
+
+SMPT=localhost  duhet ber    ;SMPT=localhost */

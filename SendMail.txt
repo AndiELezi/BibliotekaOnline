@@ -1,0 +1,11 @@
+/* do shkoni te xamp dhe do kerkoni nje file te quajtur sendMail.pasi ta hapni kerkoni nje file te quajtur sendmail.ini
+   shtoni te sektori sendmail kto rrjeshta dhe vendosni ";" para cdo komande tjt.
+
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+error_logfile=error.log
+debug_logfile=debug.log
+auth_username=horizone.event@gmail.com
+auth_password=ehorizonAAEAA
+force_sender=horizone.event@gmail.com
