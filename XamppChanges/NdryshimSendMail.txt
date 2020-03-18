@@ -1,5 +1,5 @@
 /* do shkoni te xamp dhe do kerkoni nje file te quajtur sendMail.pasi ta hapni kerkoni nje file te quajtur sendmail.ini
-   shtoni te sektori sendmail kto rrjeshta dhe vendosni ";" para cdo komande tjt.
+   shtoni te sektori sendmail kto rrjeshta dhe vendosni ";" para cdo komande tjt.*/
 
 
 smtp_server=smtp.gmail.com

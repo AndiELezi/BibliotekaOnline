@@ -1,4 +1,3 @@
-
 /*  Do shkoni te xamp dhe pstj te direktorioa pho. Aty kerkoni nje file qe quhet php.ini dhe hapeni.
 Kerkoni per sektorin Mail function duke perdorur find .Posht asaj do shtoni kto rrjeshta.*/
 
