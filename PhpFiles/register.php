@@ -32,7 +32,7 @@
   
 </form>
 
-<script src="/BiblotekaOnline/jQuery/checkRegisterInput.js"></script>
+<script src="/BibliotekaOnline/jQuery/checkRegisterInput.js"></script>
 
   </body>
   </html>
