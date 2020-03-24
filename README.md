@@ -1,2 +1,1 @@
-Duhet t behen  n fillim ndryshimet ne Xampp 
-// Dhe ky file do ndryshohet me von
+sigurohuni qe folderi ne htdocs te jete BibliotekaOnline dhe te permbaje folderat e updatuar
