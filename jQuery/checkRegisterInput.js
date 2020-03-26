@@ -19,6 +19,7 @@ $('#mbiemri').bind('keyup blur',function(){
 });
 
 //kontrollojme nese passwordi permban te pakten 8 karaktere
+//kur del nga fokusi behet kontrolli dhe afishohet warning
 $('#password').focusout(function(){
   var password=$('#password').val();
   if(password.length < 8){
@@ -26,6 +27,7 @@ $('#password').focusout(function(){
   }
 });
 
+//kur fokusohet te hiqet warning
 $('#password').focusin(function(){
     $('#errPassword').text("");
 });
