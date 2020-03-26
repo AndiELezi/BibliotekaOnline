@@ -18,6 +18,7 @@ $('#mbiemri').bind('keyup blur',function(){
     }
 });
 
+
 //kontrollojme nese passwordi permban te pakten 8 karaktere
 //kur del nga fokusi behet kontrolli dhe afishohet warning
 $('#password').focusout(function(){
