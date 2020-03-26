@@ -6,10 +6,15 @@
 </head>
 <body>
 
-  <?php 
+  <!-- <?php 
   	include "Validation.php";
-  ?>
- 
+  ?> -->
+
+<?php 
+if(isset($_POST["submit"])){
+ include "registerDatabaze.php";
+}
+ ?>
 
 <!-- jquery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
