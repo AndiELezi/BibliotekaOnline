@@ -4,7 +4,7 @@ $('#emri').bind('keyup blur',function(){
 
     var emri=$(this).val();
     if(contains_number(emri)){
-    	$('#errEmri').text("Nuk lejohen numrat");
+    	$('#errEmri').text("Emri nuk mund te permbaje numer");
     }
 });
 
@@ -14,7 +14,7 @@ $('#mbiemri').bind('keyup blur',function(){
 	$('#errMbiemri').text("");
     var mbiemri=$(this).val();
     if(contains_number(mbiemri)){
-    	$('#errMbiemri').text("Nuk lejohen numrat");
+    	$('#errMbiemri').text("Mbiemri nuk mund te permbaje numer");
     }
 });
 
