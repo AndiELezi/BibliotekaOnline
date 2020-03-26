@@ -12,13 +12,23 @@ $('#emri').bind('keyup blur',function(){
 //nese inputi mbiemer permban numer afishohet warning
 $('#mbiemri').bind('keyup blur',function(){ 
 	$('#errMbiemri').text("");
-
     var mbiemri=$(this).val();
     if(contains_number(mbiemri)){
     	$('#errMbiemri').text("Nuk lejohen numrat");
     }
 });
 
+//kontrollojme nese passwordi permban te pakten 8 karaktere
+$('#password').focusout(function(){
+  var password=$('#password').val();
+  if(password.length < 8){
+    $('#errPassword').text("Passwordi duhet te permbaje te pakten 8 karaktere");
+  }
+});
+
+$('#password').focusin(function(){
+    $('#errPassword').text("");
+});
 
 // kontrollojme nese passwordi eshte konfirmuar sakte
 $('#cPassword').bind('keyup blur',function(){ 
