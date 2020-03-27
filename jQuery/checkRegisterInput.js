@@ -45,7 +45,8 @@ $('#cPassword').bind('keyup blur',function(){
 });
 
 
-// funksion qe kthen true nese nje string permban nje numer
+// funksion qe kthen true nese nje string permban nje numer 
+//prov
 function contains_number(str){
 	for (var i = 0; i < str.length; i++) {
   		if(is_numeric_char(str.charAt(i))){
