@@ -1,5 +1,5 @@
 <?php 
- echo "test";
+
 $server='localhost';
 $usernameDB='root';
 $passwordDB='';
@@ -17,21 +17,21 @@ if($connnection->connect_error){
 
 
 
-$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `password`, `username`, `email`, `phone_nr`, `birthday`, `gender`, `user_rights`, `surname`, `activationStatus`) VALUES (?,?,?,?,?,?,?,?,?,?)");
-$stmt->bind_param('ssssssssss',$emri,$password,$username,$email,$phone_nr,$birthday,$gender,$user_rights,$mbiemri,$statusi);
+$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `password`, `username`, `email`, `phone_nr`, `birthday`, `gender`, `user_rights`, `surname`, `activationStatus`,`securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+$stmt->bind_param('sssssssssss',$emriD,$passwordD,$usernameD,$emailD,$phone_nrD,$birthdayD,$genderD,$user_rightsD,$mbiemriD,$statusiD,$securityString);
 
 
-$emri=$_POST['emri'];
-$password=password_hash($_POST["password"], PASSWORD_DEFAULT);
-$username=$_POST["username"];
-$email=$_POST["email"];
-$phone_nr="0684935250";
-$birthday=$_POST["birthday"];
-$gender=$_POST["gjinia"];
-$user_rights=3;
-$mbiemri=$_POST["mbiemri"];
-$statusi=false;
-
+$emriD=$_POST['emri'];
+$passwordD=password_hash($_POST["password"], PASSWORD_DEFAULT);
+$usernameD=$_POST["username"];
+$emailD=$_POST["email"];
+$phone_nrD="0684935250";
+$birthdayD=$_POST["birthday"];
+$genderD=$_POST["gjinia"];
+$user_rightsD=3;
+$mbiemriD=$_POST["mbiemri"];
+$statusiD=false;
+$securityString=$security;
 $stmt->execute();
 
 

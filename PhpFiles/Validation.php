@@ -1,7 +1,7 @@
 
 <?php 
 
-$isCorrect=true;
+$isCorrect=1;$security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");
 $emri=$mbiemri=$email=$username=$birthday=$gjinia=$password=$cPassword="";
 $ErrEmri=$ErrMbiemri=$ErrEmail=$ErrUsername=$ErrBirthday=$ErrGjinia=$ErrPassword=$ErrCPassword="";
 
@@ -18,12 +18,13 @@ if(isset($_POST["submit"])){
     // nqs emri permban numer afishohet nje warning
     if(containsNumbers($emri)){
   		$ErrEmri="Emri nuk mund te permbaje numer";
-  		$isCorrect=false;
+  		$isCorrect=0;
   	}
   }
 
   else{
       $ErrEmri="Vendosni emrin";
+      $isCorrect=0;
     }
 
 
@@ -39,6 +40,7 @@ if(isset($_POST["submit"])){
 
     else{
       	$ErrMbiemri="Vendosni mbiemrin";
+        $isCorrect=0;
     }
 
 
@@ -47,6 +49,7 @@ if(isset($_POST["submit"])){
   	}
     else{
       	$ErrEmail="Vendosni email";
+        $isCorrect=0;
   	}
 
   	if(!empty($_POST["username"])){
@@ -54,6 +57,7 @@ if(isset($_POST["submit"])){
   	}
     else{
       	$ErrUsername="Vendosni username";
+        $isCorrect=0;
   	}
 
     if(!empty($_POST["birthday"])){
@@ -61,6 +65,7 @@ if(isset($_POST["submit"])){
   	}
     else{
       	$ErrBirthday="Vendosni datelindjen";
+        $isCorrect=0;
     }
 
 
@@ -69,6 +74,7 @@ if(isset($_POST["submit"])){
   	}
     else{
       	$ErrGjinia="Vendosni gjinin";
+        $isCorrect=0;
     }
 
 
@@ -83,6 +89,7 @@ if(isset($_POST["submit"])){
   	}
     else{
       $ErrPassword="Vendosni passwordin";
+      $isCorrect=0;
     }
 
 
@@ -92,7 +99,7 @@ if(isset($_POST["submit"])){
     	//kontrollohet nese passwordi eshte konfirmuar sakte, nese jo afishohet warning
     	if(strcmp($password, $cPassword)==0){
   			$ErrCPassword="Passwordet nuk perputhen";
-  			$isCorrect=false;
+  			$isCorrect=0;
     	}
   	}
 
@@ -100,10 +107,17 @@ if(isset($_POST["submit"])){
       $ErrCPassword="Konfirmoni passwordin";
     }
 
+  if($isCorrect==1){
+    include "mail.php";
+    include "registerDatabaze.php";
+
+    header("Location: login.php");
+
+
+  }
+ 
   
-  //pjesa e email qe do i dergohet perdoruesit per te konfirmuar llogarine e tij
-  include "mail.php";
-   
+  
       
   }
  
