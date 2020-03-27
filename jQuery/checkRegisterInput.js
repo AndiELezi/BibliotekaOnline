@@ -4,7 +4,7 @@ $('#emri').bind('keyup blur',function(){
 
     var emri=$(this).val();
     if(contains_number(emri)){
-    	$('#errEmri').text("Nuk lejohen numrat");
+    	$('#errEmri').text("Emri nuk mund te permbaje numer");
     }
 });
 
@@ -12,13 +12,26 @@ $('#emri').bind('keyup blur',function(){
 //nese inputi mbiemer permban numer afishohet warning
 $('#mbiemri').bind('keyup blur',function(){ 
 	$('#errMbiemri').text("");
-
     var mbiemri=$(this).val();
     if(contains_number(mbiemri)){
-    	$('#errMbiemri').text("Nuk lejohen numrat");
+    	$('#errMbiemri').text("Mbiemri nuk mund te permbaje numer");
     }
 });
 
+
+//kontrollojme nese passwordi permban te pakten 8 karaktere
+//kur del nga fokusi behet kontrolli dhe afishohet warning
+$('#password').focusout(function(){
+  var password=$('#password').val();
+  if(password.length < 8){
+    $('#errPassword').text("Passwordi duhet te permbaje te pakten 8 karaktere");
+  }
+});
+
+//kur fokusohet te hiqet warning
+$('#password').focusin(function(){
+    $('#errPassword').text("");
+});
 
 // kontrollojme nese passwordi eshte konfirmuar sakte
 $('#cPassword').bind('keyup blur',function(){ 

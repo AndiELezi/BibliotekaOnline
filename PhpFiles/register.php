@@ -17,7 +17,7 @@
 
 
 <form  method="post" action="register.php"> 
-  <input type="text"  name="emri" id="emri" value="<?php echo $emri?>"  placeholder="Emri"> <span id="errEmri"><?php echo $ErrEmri ?></span><br>
+  <input type="text"  name="emri" id="emri" value="<?php echo $emri?>"  placeholder="Emri"><span id="errEmri"><?php echo $ErrEmri ?></span><br>
   <input type="text"  name="mbiemri" id="mbiemri" value="<?php echo $mbiemri?>" placeholder="Mbiemri"><span id="errMbiemri"><?php echo $ErrMbiemri?></span><br>
   <input type="email" name="email" value="<?php echo $email?>" placeholder="E-Mail"><span><?php echo $ErrEmail?></span><br>
   <input type="text"  name="username" value="<?php echo $username?>" placeholder="Username"><span><?php echo $ErrUsername?></span><br>
@@ -27,12 +27,14 @@
     <option value="Female">Female</option> 
     <option value="Other">Other</option> 
   </select>
+  <br>
   <input type="password" name="password" id="password" value="<?php echo $password?>" placeholder="Password"><span id="errPassword"><?php echo $ErrPassword?></span><br>
   <input type="password" name="cPassowrd" id="cPassword" value="<?php echo $cPassword?>" placeholder="Confirm Password"><span id="errCPassword"><?php echo $ErrCPassword?></span><br>
   <input type="submit" name="submit">
   
 </form>
 
+<!-- jQyery qe kontrollon nese inputi perdoruesit eshte i pranueshem -->
 <script src="/BibliotekaOnline/jQuery/checkRegisterInput.js"></script>
 
   </body>
