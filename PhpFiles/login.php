@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login WebPage</title>
-	<link rel="stylesheet" type="text/css" href="style1.css" >
+	<title>Login</title>
 <body>
-	<div class="loginbox" >
-
-		<img src="kot.png" class="kot">
-		<h1>Login here</h1>
-		<form>
-			<p>Username</p>
-			<input type="text" name="" placeholder="Enter Username">
-			<p>Password</p>
-			<input type="Password" name="" placeholder="Enter Password">
-			<input type="submit" name="" value="Login">
-			</p>
-			<p class="prove">Dont have an account? <a href="Register.html">Register</a></p>
-			<a href="#">Lost your password?</a><br>
-		</form>
-	</div>
-	
+	<form method="Post" action="Login.php">
+		Username : <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="username" ><span id="errUsername"><?php echo $errUsername;?> </span><br>
+		Password : <input type="text" id="password" name="password" value="<?php echo $password;?>" placeholder="password"><span id="errPassword"><?php echo $errPassword; ?></span><br>
+		<input type="submit" name="submit">
+		<p class="Duhet Rregullu"> <a href="Register.php">Register</a></p> <!-- Ket e shkrujta njeher kshu se di si do e bejm -->
+			<a href="Forgot.html">Lost your password?</a><br> <!--kjo duhet tna coj ne nje faqe qe kerko email -->
+	</form>
 </body>
 </head>
 </html>
