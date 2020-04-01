@@ -45,6 +45,46 @@ $('#cPassword').bind('keyup blur',function(){
 });
 
 
+
+$('#username').bind('keyup blur',function(){ 
+  $('#errUsername').text("");
+    var username=$(this).val();
+   if(username.length>0){
+jQuery.ajax({
+url: "checkAvailability.php",
+data:'username='+ username,
+type: "POST",
+success:function(data){
+$('#errUsername').text(data);
+},
+error:function (){}
+});
+}
+
+});
+
+
+
+$('#email').bind('keyup blur',function(){ 
+  $('#errEmail').text("");
+    var email=$(this).val();
+   if(email.length>0){
+jQuery.ajax({
+url: "checkAvailability.php",
+data:'email='+ email,
+type: "POST",
+success:function(data){
+$('#errEmail').text(data);
+},
+error:function (){}
+});
+}
+
+});
+
+
+
+
 // funksion qe kthen true nese nje string permban nje numer 
 //prov
 function contains_number(str){

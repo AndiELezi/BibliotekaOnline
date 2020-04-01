@@ -19,8 +19,8 @@
 <form  method="post" action="register.php"> 
   <input type="text"  name="emri" id="emri" value="<?php echo $emri?>"  placeholder="Emri"><span id="errEmri"><?php echo $ErrEmri ?></span><br>
   <input type="text"  name="mbiemri" id="mbiemri" value="<?php echo $mbiemri?>" placeholder="Mbiemri"><span id="errMbiemri"><?php echo $ErrMbiemri?></span><br>
-  <input type="email" name="email" value="<?php echo $email?>" placeholder="E-Mail"><span><?php echo $ErrEmail?></span><br>
-  <input type="text"  name="username" value="<?php echo $username?>" placeholder="Username"><span><?php echo $ErrUsername?></span><br>
+  <input type="email" name="email" id="email" value="<?php echo $email?>" placeholder="E-Mail"><span id="errEmail"><?php echo $ErrEmail?></span><br>
+  <input type="text"  name="username" id="username" value="<?php echo $username?>" placeholder="Username"><span id="errUsername"><?php echo $ErrUsername?></span><br>
   <input type="date" name="birthday" min='1900-01-01' max='2020-01-01' value="<?php echo $birthday?>"> <span><?php echo $ErrBirthday?></span><br>
   <select name="gjinia"value="<?php echo $gjinia?>"><span><?php echo $ErrGjinia?></span>
     <option value="Male">Male</option> 
