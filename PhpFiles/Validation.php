@@ -12,6 +12,10 @@ function containsNumbers($String){
 
 if(isset($_POST["submit"])){
 
+
+include "checkAvailabilityValidation.php";
+
+
   if(!empty($_POST["emri"])){
     $emri=$_POST["emri"];
 
