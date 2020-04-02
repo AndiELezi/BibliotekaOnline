@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2020 at 05:46 PM
+-- Generation Time: Apr 02, 2020 at 01:29 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -151,8 +151,16 @@ CREATE TABLE `users` (
   `gender` varchar(1) NOT NULL,
   `user_rights` int(11) DEFAULT NULL,
   `surname` varchar(20) DEFAULT NULL,
-  `activationStatus` tinyint(1) NOT NULL
+  `activationStatus` tinyint(1) NOT NULL,
+  `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `username`, `email`, `phone_nr`, `birthday`, `gender`, `user_rights`, `surname`, `activationStatus`, `securityString`) VALUES
+(23, 'andi', '$2y$10$i366LCmK4IKWPQ65PwyzgOM', 'andi06121998', 'andielezi52@gmail.com', '0684935250', '1998-06-12', 'M', 3, 'elezi', 1, 'e13yoqmxi7j0gck5h4zv82dpusb9tnwafrl6');
 
 -- --------------------------------------------------------
 
@@ -283,7 +291,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
