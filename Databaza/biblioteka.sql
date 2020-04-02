@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2020 at 01:29 PM
+-- Generation Time: Apr 02, 2020 at 02:33 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -143,7 +143,7 @@ CREATE TABLE `publish_house` (
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
   `phone_nr` varchar(15) NOT NULL,
@@ -154,13 +154,6 @@ CREATE TABLE `users` (
   `activationStatus` tinyint(1) NOT NULL,
   `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `password`, `username`, `email`, `phone_nr`, `birthday`, `gender`, `user_rights`, `surname`, `activationStatus`, `securityString`) VALUES
-(23, 'andi', '$2y$10$i366LCmK4IKWPQ65PwyzgOM', 'andi06121998', 'andielezi52@gmail.com', '0684935250', '1998-06-12', 'M', 3, 'elezi', 1, 'e13yoqmxi7j0gck5h4zv82dpusb9tnwafrl6');
 
 -- --------------------------------------------------------
 
@@ -291,7 +284,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_rights`

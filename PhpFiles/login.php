@@ -27,8 +27,8 @@
 		$result=$connnection->query($sql);
 		if($result->num_rows>0){
 				$passwordResult=$result->fetch_assoc();
-				$passwordResult="'".$passwordResult["password"]."'";
-				if(!password_verify($passwordToCheck, $passwordResult)){
+			
+				if(!password_verify($passwordToCheck, $passwordResult["password"])){
 					$errPassword="Incorrect password";
 				}
 		}
