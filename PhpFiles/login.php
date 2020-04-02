@@ -28,7 +28,15 @@
 		if($result->num_rows<1){
 			$errUsername="This user doesn't exist";
 		}
-	}
+
+		$sql="SELECT password FROM users WHERE username='{$usernameToCheck}'";
+		$result=$connnection->query($sql);
+		
+		if($result->num_rows>0){
+			$password=$result->fetch_assoc();
+			$errPassword=$password;
+		}
+	}	
 
 		if(isset($_POST["submit"])){
 			if(!empty($_POST["username"])){
