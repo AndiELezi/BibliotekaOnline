@@ -11,6 +11,8 @@
 	$errPassword="";
 
 	function checkUsernameAvailability($usernameToCheck){
+		global $errUsername;
+		global $errPassword;
 		$server='localhost';
 		$usernameDB='root';
 		$passwordDB='';
