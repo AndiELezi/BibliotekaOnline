@@ -9,10 +9,12 @@
 	$password="";
 	$errUsername="";
 	$errPassword="";
+	$isCorrect=false;
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
 		global $errUsername;
 		global $errPassword;
+		global $isCorrect;
 		$server='localhost';
 		$usernameDB='root';
 		$passwordDB='';
@@ -30,6 +32,14 @@
 			
 				if(!password_verify($passwordToCheck, $passwordResult["password"])){
 					$errPassword="Incorrect password";
+				}
+				else{
+					$sql="SELECT activationStatus FROM users WHERE username='{$usernameToCheck}'";
+					$result=$connnection->query($sql);
+					$activationStatus=$result->fetch_assoc();
+					if($activationStatus["activationStatus"]==1){
+						$isCorrect=true;
+					}
 				}
 		}
 		else{
@@ -54,6 +64,12 @@
 				$errUsername="Shkruani username";
 			}
 			
+			if($isCorrect){
+				header("Location: home.php");
+			}
+			else{
+				// alert user to confirm his email
+			}
 
 		}
 	?>
