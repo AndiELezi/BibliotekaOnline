@@ -1,0 +1,17 @@
+user:id,emri,mbiemri,username,paswordi,email,datlindja,gjinia,activationStatus,nrTelefoni,userRights,piket,securityString,FotoProfili;
+userRights:id,description;
+autor:id,emer,vendlindje,datlindje,kontakti;
+book:isbn,titull,vitiPublikimit,publishHouse,sasia,cmimi,piketRezervimit;
+categories:id,description;
+book_author:bookId,authorID;
+book_category:bookID,bookCategory;
+book_Rezervation:userId,bookID,rezervationTime,returnTime,DelayFine;
+hall_booking:libraryHall,booking_date,userID;
+libraryHalls:id,kapaciteti,openSeats,LibrarianID;
+publishHouse:Id,Name;
+Vendet:id,libraryHalls,statusi;
+LibratOnline:id,idPerdoruesi,kategori,titull,dataNgarkimit,like;
+Review:idReview,idPerdoruesit,idLibrit,koha,pershkrimi,liked;
+
+
+
