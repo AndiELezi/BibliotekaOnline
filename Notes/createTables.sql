@@ -40,6 +40,7 @@ publish_house int not null,
 quantity int not null,
 price int not null,
 reservation_points int not null,
+cover_photo varchar(100),
 CONSTRAINT fk_publish_house FOREIGN KEY(publish_house) REFERENCES publish_house(id)
 )
 
