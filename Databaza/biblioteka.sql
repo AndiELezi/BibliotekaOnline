@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2020 at 06:12 PM
+-- Generation Time: Apr 05, 2020 at 06:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -203,13 +203,6 @@ CREATE TABLE `users` (
   `activationStatus` tinyint(1) NOT NULL,
   `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`) VALUES
-(6, 'Ardit', 'Kallaku', 'ak', 'kallaku.ardit@gmail.com', NULL, '$2y$10$XQw1sLNpJWKZUe7izRgqfeDkVwiDl0MZjxERY0lZFr82faqai1l7S', '1999-09-06', 'M', 0, 3, NULL, 1, 'om7nh8k5d4prxwbctl9sif630zjgvae1qu2y');
 
 -- --------------------------------------------------------
 
