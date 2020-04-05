@@ -3,8 +3,8 @@
 
 $isCorrect=1;
 $security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");
-$emri=$mbiemri=$email=$username=$birthday=$gjinia=$password=$cPassword="";
-$phone_nr="";
+$emri=$mbiemri=$phone_nr=$email=$username=$birthday=$gjinia=$password=$cPassword="";
+
 $ErrEmri=$ErrMbiemri=$ErrEmail=$ErrUsername=$ErrBirthday=$ErrGjinia=$ErrPassword=$ErrCPassword="";
 
 //funksion qe kontrollon nese nje string permban nje numer

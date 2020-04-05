@@ -17,14 +17,18 @@ if($connnection->connect_error){
 //duhet bere dhe shtimi phone_nr ne database nqs !empty
 
 
-$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`, `password`, `birthday`, `gender`, `points`, `user_rights`, `activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-$stmt->bind_param('sssssssssss',$nameD,$surnameD,$usernameD,$emailD,$passwordD,$birthdayD,$genderD,$pointsD,$user_rightsD,$statusiD,$securityString);
+$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`,`mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+$stmt->bind_param('ssssssssssss',$nameD,$surnameD,$usernameD,$emailD,$phone_nr,$passwordD,$birthdayD,$genderD,$pointsD,$user_rightsD,$statusiD,$securityString);
 
 
 $nameD=$_POST['emri'];
 $surnameD=$_POST["mbiemri"];
 $usernameD=$_POST["username"];
 $emailD=$_POST["email"];
+$phone_nr=null;
+if(!empty($_POST["phone_nr"])){
+	$phone_nr=$_POST["phone_nr"];
+}
 $passwordD=password_hash($_POST["password"], PASSWORD_DEFAULT);
 $birthdayD=$_POST["birthday"];
 $genderD=$_POST["gjinia"];
