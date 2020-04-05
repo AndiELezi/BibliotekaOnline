@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2020 at 04:59 PM
+-- Generation Time: Apr 05, 2020 at 06:12 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -204,6 +204,13 @@ CREATE TABLE `users` (
   `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`) VALUES
+(6, 'Ardit', 'Kallaku', 'ak', 'kallaku.ardit@gmail.com', NULL, '$2y$10$XQw1sLNpJWKZUe7izRgqfeDkVwiDl0MZjxERY0lZFr82faqai1l7S', '1999-09-06', 'M', 0, 3, NULL, 1, 'om7nh8k5d4prxwbctl9sif630zjgvae1qu2y');
+
 -- --------------------------------------------------------
 
 --
@@ -214,6 +221,15 @@ CREATE TABLE `user_rights` (
   `id` int(11) NOT NULL,
   `description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_rights`
+--
+
+INSERT INTO `user_rights` (`id`, `description`) VALUES
+(1, 'Administrator'),
+(2, 'Librarian'),
+(3, 'Perdorues normal');
 
 --
 -- Indexes for dumped tables
@@ -359,13 +375,13 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
 --
 ALTER TABLE `user_rights`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

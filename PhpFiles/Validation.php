@@ -1,8 +1,10 @@
 
 <?php 
 
-$isCorrect=1;$security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");
+$isCorrect=1;
+$security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");
 $emri=$mbiemri=$email=$username=$birthday=$gjinia=$password=$cPassword="";
+$phone_nr="";
 $ErrEmri=$ErrMbiemri=$ErrEmail=$ErrUsername=$ErrBirthday=$ErrGjinia=$ErrPassword=$ErrCPassword="";
 
 //funksion qe kontrollon nese nje string permban nje numer
@@ -55,6 +57,10 @@ include "checkAvailabilityValidation.php";
       	$ErrEmail="Vendosni email";
         $isCorrect=0;
   	}
+
+    if(!empty($_POST["phone_nr"])){
+      $phone_nr=$_POST["phone_nr"];
+    }
 
   	if(!empty($_POST["username"])){
     	$username=$_POST["username"];
