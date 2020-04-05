@@ -55,7 +55,7 @@ description varchar(50) not null
 create table book_author(
 book_id varchar(30) not null,
 author_id int not null,
-CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES book(id),
+CONSTRAINT fk_book_id FOREIGN KEY (book_id) REFERENCES book(ISBN),
 CONSTRAINT fk_author_id FOREIGN KEY (author_id) REFERENCES author(id),
 PRIMARY KEY (book_id,author_id)
 )

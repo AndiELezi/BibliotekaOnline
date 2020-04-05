@@ -54,7 +54,7 @@ likes int not null,
 cover_photo varchar(100),
 description varchar(200),
 CONSTRAINT fk_user_on_id FOREIGN KEY (user_id) REFERENCES users(id),
-CONSTRAINT fk_category_online_id FOREIGN KEY (category_id) REFERENCES (categories)(id)
+CONSTRAINT fk_category_online_id FOREIGN KEY (category_id) REFERENCES categories(id)
 
 )
 

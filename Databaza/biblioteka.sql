@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2020 at 02:33 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.3.11
+-- Generation Time: Apr 05, 2020 at 04:59 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `author` (
   `id` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `full_name` varchar(30) NOT NULL,
   `birthplace` varchar(30) NOT NULL,
   `birthday` date NOT NULL,
   `contact` varchar(50) NOT NULL
@@ -48,7 +48,10 @@ CREATE TABLE `book` (
   `publication_year` date NOT NULL,
   `publish_house` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `reservation_points` int(11) NOT NULL,
+  `cover_photo` varchar(100) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -126,6 +129,23 @@ CREATE TABLE `library_halls` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `online_books`
+--
+
+CREATE TABLE `online_books` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `title` varchar(40) NOT NULL,
+  `publish_date` date NOT NULL,
+  `likes` int(11) NOT NULL,
+  `cover_photo` varchar(100) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `publish_house`
 --
 
@@ -137,20 +157,49 @@ CREATE TABLE `publish_house` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `id_review` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `id_book` int(11) NOT NULL,
+  `time_review` date NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `liked` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seats`
+--
+
+CREATE TABLE `seats` (
+  `id` int(11) NOT NULL,
+  `library_hall_id` int(11) NOT NULL,
+  `statusi` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `password` varchar(200) NOT NULL,
+  `surname` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `phone_nr` varchar(15) NOT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `password` varchar(200) NOT NULL,
   `birthday` date NOT NULL,
   `gender` varchar(1) NOT NULL,
-  `user_rights` int(11) DEFAULT NULL,
-  `surname` varchar(20) DEFAULT NULL,
+  `points` int(11) NOT NULL,
+  `user_rights` int(11) NOT NULL,
+  `profile_photo` varchar(100) DEFAULT NULL,
   `activationStatus` tinyint(1) NOT NULL,
   `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -165,15 +214,6 @@ CREATE TABLE `user_rights` (
   `id` int(11) NOT NULL,
   `description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user_rights`
---
-
-INSERT INTO `user_rights` (`id`, `description`) VALUES
-(1, 'Admin'),
-(2, 'Librarian'),
-(3, 'User');
 
 --
 -- Indexes for dumped tables
@@ -234,10 +274,33 @@ ALTER TABLE `library_halls`
   ADD KEY `fk_librarian_id` (`librarian_id`);
 
 --
+-- Indexes for table `online_books`
+--
+ALTER TABLE `online_books`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user_on_id` (`user_id`),
+  ADD KEY `fk_category_online_id` (`category_id`);
+
+--
 -- Indexes for table `publish_house`
 --
 ALTER TABLE `publish_house`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id_review`),
+  ADD KEY `fk_user_review_id` (`user_id`),
+  ADD KEY `fk_book_review_id` (`id_book`);
+
+--
+-- Indexes for table `seats`
+--
+ALTER TABLE `seats`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_library_hall_id` (`library_hall_id`);
 
 --
 -- Indexes for table `users`
@@ -275,22 +338,34 @@ ALTER TABLE `library_halls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `online_books`
+--
+ALTER TABLE `online_books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
 --
 ALTER TABLE `user_rights`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -327,6 +402,7 @@ ALTER TABLE `book_reservation`
 -- Constraints for table `hall_booking`
 --
 ALTER TABLE `hall_booking`
+  ADD CONSTRAINT `fk_library_hall` FOREIGN KEY (`library_hall`) REFERENCES `library_halls` (`id`),
   ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
@@ -334,6 +410,26 @@ ALTER TABLE `hall_booking`
 --
 ALTER TABLE `library_halls`
   ADD CONSTRAINT `fk_librarian_id` FOREIGN KEY (`librarian_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `online_books`
+--
+ALTER TABLE `online_books`
+  ADD CONSTRAINT `fk_category_online_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `fk_user_on_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `fk_book_review_id` FOREIGN KEY (`id_book`) REFERENCES `online_books` (`id`),
+  ADD CONSTRAINT `fk_user_review_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `seats`
+--
+ALTER TABLE `seats`
+  ADD CONSTRAINT `fk_library_hall_id` FOREIGN KEY (`library_hall_id`) REFERENCES `library_halls` (`id`);
 
 --
 -- Constraints for table `users`
