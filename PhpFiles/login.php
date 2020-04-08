@@ -1,3 +1,8 @@
+<?php 
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +17,7 @@
 	$isCorrect=false;
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
+		global $connnection;
 		global $errUsername;
 		global $errPassword;
 		global $isCorrect;
@@ -65,6 +71,8 @@
 			}
 			
 			if($isCorrect){
+				$connnection->close();
+				$_SESSION["username"]=$_POST["username"];
 				header("Location: home.php");
 			}
 			else{
