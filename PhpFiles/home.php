@@ -1,5 +1,7 @@
 <?php
 session_start();
+//kjo ktu m duket e perseritur shum her...me mir ta vendosim ne nje file tjt dhe i japim include
+		
 $server='localhost';
 		$usernameDB='root';
 		$passwordDB='';
@@ -38,8 +40,7 @@ $server='localhost';
 		<img src="/BibliotekaOnline/AppImages/search.png" >
 		<div>
 			<?php
-			//kjo ktu m duket e perseritur shum her...me mir ta vendosim ne nje file tjt dhe i japim include
-		
+			
 				echo $user["name"]." ".$user["surname"]." ".$user["points"];
 				$profilePhotoPath="/BibliotekaOnline/UserImages/";
 				if(empty($user["profile_photo"])){
