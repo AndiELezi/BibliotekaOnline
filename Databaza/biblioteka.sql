@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2020 at 06:16 PM
+-- Generation Time: Apr 12, 2020 at 01:37 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -51,8 +50,21 @@ CREATE TABLE `book` (
   `price` int(11) NOT NULL,
   `reservation_points` int(11) NOT NULL,
   `cover_photo` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL
+  `description` varchar(200) DEFAULT NULL,
+  `likes` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`) VALUES
+('1', 'A', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 10),
+('2', 'A', '2001-12-12', 1, 1, 10, 0, 'b.jpg', 'blablabla', 3),
+('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12),
+('4', 'A', '0000-00-00', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14),
+('5', 'A', '2005-12-12', 1, 1, 10, 100, 'e.jpg', 'blablabla', 18),
+('6', 'A', '2006-12-12', 1, 1, 10, 0, 'f.jpg', 'blablabla', 23);
 
 -- --------------------------------------------------------
 
@@ -101,6 +113,19 @@ CREATE TABLE `categories` (
   `description` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `description`) VALUES
+(1, 'adventure'),
+(2, 'romance'),
+(3, 'thriller'),
+(4, 'action'),
+(5, 'mystery'),
+(6, 'sci-fi'),
+(7, 'comedy');
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +168,20 @@ CREATE TABLE `online_books` (
   `description` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `online_books`
+--
+
+INSERT INTO `online_books` (`id`, `user_id`, `category_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`) VALUES
+(1, 9, 1, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
+(2, 9, 1, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
+(3, 9, 1, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
+(4, 9, 1, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
+(5, 9, 1, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
+(6, 9, 1, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
+(7, 9, 1, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
+(8, 9, 1, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
+
 -- --------------------------------------------------------
 
 --
@@ -153,6 +192,13 @@ CREATE TABLE `publish_house` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `publish_house`
+--
+
+INSERT INTO `publish_house` (`id`, `name`) VALUES
+(1, 'test');
 
 -- --------------------------------------------------------
 
@@ -203,6 +249,13 @@ CREATE TABLE `users` (
   `activationStatus` tinyint(1) NOT NULL,
   `securityString` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`) VALUES
+(9, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+3556849250', '$2y$10$x1nul6dQXAfs6H9hmkb08uA7Hsuef3alpzf0h0BYsbq3IoyMuf.ie', '1998-06-12', 'M', 0, 3, 'andi.jpg', 1, 'hbs3x8ciz75juqya1ew9pv2d4frgkl0tnmo6');
 
 -- --------------------------------------------------------
 
@@ -332,13 +385,13 @@ ALTER TABLE `user_rights`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `library_halls`
@@ -350,13 +403,13 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -368,7 +421,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
