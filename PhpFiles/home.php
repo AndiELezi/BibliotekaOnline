@@ -6,25 +6,25 @@ $server='localhost';
 		$usernameDB='root';
 		$passwordDB='';
 		$databaze="biblioteka";
-		$connnection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
+		$connection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
 
-		if($connnection->connect_error){
+		if($connection->connect_error){
 			die("gabim ne lidhjen ne databaze");
 		} 
 		$username=$_SESSION["username"];
 		$sql="SELECT `name`,`surname`,`points`,`profile_photo` FROM users WHERE username='{$username}'";
-		$result=$connnection->query($sql);
+		$result=$connection->query($sql);
 				$user = $result->fetch_assoc();
 		$sql="SELECT `ISBN`,cover_photo FROM book ORDER BY publication_year DESC";
-		$libratSipasDates=$connnection->query($sql);	
+		$libratSipasDates=$connection->query($sql);	
 		$sql="SELECT `ISBN`,cover_photo FROM book ORDER BY likes DESC";
-		$libratSipasPelqimeve=$connnection->query($sql);
+		$libratSipasPelqimeve=$connection->query($sql);
 		$sql="SELECT `id`,cover_photo FROM online_books ORDER BY likes DESC";
-		$libratOnlineSipasPelqimeve=$connnection->query($sql);
+		$libratOnlineSipasPelqimeve=$connection->query($sql);
 		$sql="SELECT `id`,cover_photo FROM online_books ORDER BY publish_date DESC";
-		$libratOnlineSipasDates=$connnection->query($sql);
+		$libratOnlineSipasDates=$connection->query($sql);
 		$sql="SELECT `ISBN`,cover_photo FROM book WHERE reservation_points!=0 ORDER BY reservation_points DESC";
-		$libratPremium=$connnection->query($sql);
+		$libratPremium=$connection->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,7 +69,7 @@ $server='localhost';
 			</div>
 				<br>
 			
-
+<!----------------do gjej na nje menyr me t mir me for per kto 5 divet po pertoja tn----------------------->
 <!----------Div par -------------------->
 
 			<div>
