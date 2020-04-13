@@ -33,7 +33,7 @@ $server='localhost';
 	<link rel="stylesheet" type="text/css" href="/BibliotekaOnline/Styles/home.css">
 </head>
 <body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<div>
 		<a href="home.php"><img src="/BibliotekaOnline/AppImages/libraryLogo.ico"></a>
@@ -42,6 +42,7 @@ $server='localhost';
 			<li><a href="reservation.php">Reservation</a></li>
 			<li><a href="myBooks.php">My Books</a></li>
 		</ul>
+		<form action="search.php" method="get">
 		<input type="text" name="search">
 		<select name="filter">
 			<option value="title">Title</option>
@@ -50,9 +51,12 @@ $server='localhost';
 			<option value="advanced">Advanced</option>
 		<!--vendsosim dhe opsione shtes pstj-->
 		</select>
-		<img src="/BibliotekaOnline/AppImages/search.png" >
+		<input type="submit" name="search" value="search">
+		</form>
 	</div>
-		<div id="profile">
+	<br>
+		<a href="profile.php">
+			<div  id="profili">
 			<?php
 			
 				echo $user["name"]." ".$user["surname"]." ".$user["points"];
@@ -67,6 +71,7 @@ $server='localhost';
 				?>
 			<img src="<?php  echo $profilePhotoPath  ?>">	
 			</div>
+		</a>
 				<br>
 			
 <!----------------do gjej na nje menyr me t mir me for per kto 5 divet po pertoja tn----------------------->

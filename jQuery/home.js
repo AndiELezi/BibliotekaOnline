@@ -1,9 +1,9 @@
 var slideAktual=[1,1,1,1,1];
 var slideName=["slidet1","slidet2","slidet3","slidet4","slidet5"];
+
 for(var i=0;i<5;i++){
 	showSlide(1,i);
 }
-
 
 	function slide(n,nS){
 			slideAktual[nS]+=n;
@@ -33,4 +33,5 @@ for(var i=0;i<5;i++){
  
   slides[slideAktual[nS]-1].style.display = "block";
 	}
+
 
