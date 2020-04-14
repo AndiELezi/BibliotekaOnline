@@ -17,8 +17,8 @@ if($connnection->connect_error){
 //duhet bere dhe shtimi phone_nr ne database nqs !empty
 
 
-$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`,`mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-$stmt->bind_param('ssssssssssss',$nameD,$surnameD,$usernameD,$emailD,$phone_nr,$passwordD,$birthdayD,$genderD,$pointsD,$user_rightsD,$statusiD,$securityString);
+$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`,`mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`,profile_photo,`activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+$stmt->bind_param('sssssssssssss',$nameD,$surnameD,$usernameD,$emailD,$phone_nr,$passwordD,$birthdayD,$genderD,$pointsD,$user_rightsD,$profile_pohoto,$statusiD,$securityString);
 
 
 $nameD=$_POST['emri'];
@@ -34,6 +34,7 @@ $birthdayD=$_POST["birthday"];
 $genderD=$_POST["gjinia"];
 $pointsD=0;
 $user_rightsD=3;
+$profile_photo='default.png';
 $statusiD=0;
 $securityString=$security;
 $stmt->execute();
