@@ -27,7 +27,7 @@ $allowed=array('jpg','jpeg','png');
 if(in_array($fileExtension,$allowed)){
 	if($fileError===0){
 		$username=$_SESSION["username"];
-		$fileNewName="\\".$_SESSION["username"].".".$fileExtension;
+		$fileNewName="\\".$_SESSION["username"].".jpg";
 		$fileDestination='C:\xampp\htdocs\BibliotekaOnline\UserImages'.$fileNewName;
 		$sql="SELECT profile_photo FROM users WHERE `username`='{$username}'";
 		$result=$connection->query($sql);
@@ -36,12 +36,12 @@ if(in_array($fileExtension,$allowed)){
 				unlink($fileDestination);
 		}
 		move_uploaded_file($fileTempName, $fileDestination);
-		$profilePhoto=$_SESSION["username"].".".$fileExtension;
+		$profilePhoto=$_SESSION["username"].".jpg";
 		$sql="UPDATE users SET `profile_photo`='{$profilePhoto}' WHERE `username`='{$username}'";
 		$connection->query($sql);
 		header("Location:profile.php");
-
 		}
+
 	else{
 		//dicka nqs ndodh gabim n uplodim;
 		}	
