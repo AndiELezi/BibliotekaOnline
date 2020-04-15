@@ -2,15 +2,8 @@
 session_start();
 
 
-$server='localhost';
-		$usernameDB='root';
-		$passwordDB='';
-		$databaze="biblioteka";
-		$connection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
+include "functions/DBconnection.php";
 
-		if($connection->connect_error){
-			die("gabim ne lidhjen ne databaze");
-		} 
 		$username=$_SESSION["username"];
 		$sql="SELECT `name`,`surname`,`points`,`profile_photo`,`email`,`mobile`,`birthday`,`gender` FROM users WHERE username='{$username}'";
 		$result=$connection->query($sql);

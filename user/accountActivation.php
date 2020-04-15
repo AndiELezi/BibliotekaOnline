@@ -1,16 +1,9 @@
 <?php 
 
-$server='localhost';
-$usernameDB='root';
-$passwordDB='';
-$databaze="biblioteka";
+include "functions/DBconnection.php";
 $username=$_GET["username"];
 $securityString=$_GET["securityStringMail"];
-$connnection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
 
-if($connnection->connect_error){
-	die("gabim ne lidhjen ne databaze");
-} 
 $sql="SELECT name FROM users WHERE username='{$username}' AND securityString='{$securityString}'";
 $result=$connnection->query($sql);
 if($result->num_rows>0){

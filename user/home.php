@@ -2,15 +2,7 @@
 session_start();
 //kjo ktu m duket e perseritur shum her...me mir ta vendosim ne nje file tjt dhe i japim include
 		
-$server='localhost';
-		$usernameDB='root';
-		$passwordDB='';
-		$databaze="biblioteka";
-		$connection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
-
-		if($connection->connect_error){
-			die("gabim ne lidhjen ne databaze");
-		} 
+	include "functions/DBconnection.php"; 
 		$username=$_SESSION["username"];
 		$sql="SELECT `name`,`surname`,`points`,`profile_photo` FROM users WHERE username='{$username}'";
 		$result=$connection->query($sql);

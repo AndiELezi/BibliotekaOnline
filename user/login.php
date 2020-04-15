@@ -21,15 +21,7 @@ session_start();
 		global $errUsername;
 		global $errPassword;
 		global $isCorrect;
-		$server='localhost';
-		$usernameDB='root';
-		$passwordDB='';
-		$databaze="biblioteka";
-		$connnection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
-
-		if($connnection->connect_error){
-			die("gabim ne lidhjen ne databaze");
-		} 
+		include "functions/DBconnection.php";
 
 		$sql="SELECT password FROM users WHERE username='{$usernameToCheck}'";
 		$result=$connnection->query($sql);

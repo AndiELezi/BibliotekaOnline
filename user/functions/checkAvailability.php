@@ -15,7 +15,7 @@ if($connnection->connect_error){
 $sql="SELECT name FROM users WHERE username='{$username}'";
 $result=$connnection->query($sql);
 if($result->num_rows>0){
-	echo "username alredy taken";
+	echo "username already taken";
 }
 else{
 
@@ -41,7 +41,7 @@ if($connnection->connect_error){
 $sql="SELECT name FROM users WHERE email='{$email}'";
 $result=$connnection->query($sql);
 if($result->num_rows>0){
-	echo "email alredy taken";
+	echo "email already taken";
 }
 else{
 
