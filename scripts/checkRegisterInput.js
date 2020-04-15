@@ -51,7 +51,7 @@ $('#username').bind('keyup blur',function(){
     var username=$(this).val();
    if(username.length>0){
 jQuery.ajax({
-url: "checkAvailability.php",
+url: "localhost/BibliotekaOnline/user/functions/checkAvailability.php",
 data:'username='+ username,
 type: "POST",
 success:function(data){
@@ -70,7 +70,7 @@ $('#email').bind('keyup blur',function(){
     var email=$(this).val();
    if(email.length>0){
 jQuery.ajax({
-url: "checkAvailability.php",
+url: "/user/functions/checkAvailability.php",
 data:'email='+ email,
 type: "POST",
 success:function(data){

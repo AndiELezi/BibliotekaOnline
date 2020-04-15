@@ -15,7 +15,7 @@ function containsNumbers($String){
 if(isset($_POST["submit"])){
 
 
-include "checkAvailabilityValidation.php";
+include "functions/checkAvailabilityValidation.php";
 
 
   if(!empty($_POST["emri"])){

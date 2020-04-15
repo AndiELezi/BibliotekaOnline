@@ -39,7 +39,7 @@ if(in_array($fileExtension,$allowed)){
 		$profilePhoto=$_SESSION["username"].".jpg";
 		$sql="UPDATE users SET `profile_photo`='{$profilePhoto}' WHERE `username`='{$username}'";
 		$connection->query($sql);
-		header("Location:/BibliotekaOnline/user/profile.php");
+		header("Location: /BibliotekaOnline/user/profile.php");
 		}
 
 	else{
