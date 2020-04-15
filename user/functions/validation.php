@@ -118,10 +118,10 @@ include "checkAvailabilityValidation.php";
     }
 
   if($isCorrect==1){
-    include "mail.php";
+    include "activationMail.php";
     include "registerDatabaze.php";
 
-    header("Location: login.php");
+    header("Location: BibliotekaOnline/user/login.php");
 
 
   }
