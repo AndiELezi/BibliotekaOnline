@@ -40,7 +40,7 @@ include "functions/checkAvailabilityValidation.php";
     	// nqs mbiemri permban numer afishohet nje warning
     	if(containsNumbers($mbiemri)){
   			$ErrMbiemri="Mbiemri nuk mund te permbaje numer";
-  			$isCorrect=false;
+  			$isCorrect=0;
   		}
   	}
 
@@ -94,7 +94,7 @@ include "functions/checkAvailabilityValidation.php";
     	//nese passwordi eshte me i shkurter se 8 karaktere afishohet warning
     	if(strlen($password)<8){
     		$ErrPassword="Passwordi duhet te permbaje te pakten 8 karaktere";
-    		$isCorrect=false;
+    		$isCorrect=0;
     	}
   	}
     else{
@@ -107,7 +107,7 @@ include "functions/checkAvailabilityValidation.php";
     	$cPassword=$_POST["cPassword"];
 
     	//kontrollohet nese passwordi eshte konfirmuar sakte, nese jo afishohet warning
-    	if(strcmp($password, $cPassword)==0){
+    	if(strcmp($password, $cPassword)!==0){
   			$ErrCPassword="Passwordet nuk perputhen";
   			$isCorrect=0;
     	}
@@ -115,9 +115,10 @@ include "functions/checkAvailabilityValidation.php";
 
     else{
       $ErrCPassword="Konfirmoni passwordin";
+        $isCorrect=0;
     }
 
-  if($isCorrect==1){
+  if($isCorrect===1){
     include "activationMail.php";
     include "registerDatabaze.php";
 

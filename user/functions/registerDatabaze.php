@@ -1,15 +1,6 @@
 <?php 
 
-$server='localhost';
-$usernameDB='root';
-$passwordDB='';
-$databaze="biblioteka";
-
-$connnection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
-
-if($connnection->connect_error){
-	die("gabim ne lidhjen ne databaze");
-} 
+include "functions/DBconnection.php";
 
 
 
@@ -17,7 +8,7 @@ if($connnection->connect_error){
 //duhet bere dhe shtimi phone_nr ne database nqs !empty
 
 
-$stmt = $connnection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`,`mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`,profile_photo,`activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+$stmt = $connection->prepare("INSERT INTO `users`( `name`, `surname`, `username`, `email`,`mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`,profile_photo,`activationStatus`, `securityString`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 $stmt->bind_param('sssssssssssss',$nameD,$surnameD,$usernameD,$emailD,$phone_nr,$passwordD,$birthdayD,$genderD,$pointsD,$user_rightsD,$profile_pohoto,$statusiD,$securityString);
 
 

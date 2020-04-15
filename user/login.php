@@ -17,14 +17,14 @@ session_start();
 	$isCorrect=false;
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
-		global $connnection;
+		global $connection;
 		global $errUsername;
 		global $errPassword;
 		global $isCorrect;
 		include "functions/DBconnection.php";
 
 		$sql="SELECT password FROM users WHERE username='{$usernameToCheck}'";
-		$result=$connnection->query($sql);
+		$result=$connection->query($sql);
 		if($result->num_rows>0){
 				$passwordResult=$result->fetch_assoc();
 			
@@ -33,7 +33,7 @@ session_start();
 				}
 				else{
 					$sql="SELECT activationStatus FROM users WHERE username='{$usernameToCheck}'";
-					$result=$connnection->query($sql);
+					$result=$connection->query($sql);
 					$activationStatus=$result->fetch_assoc();
 					if($activationStatus["activationStatus"]==1){
 						$isCorrect=true;
@@ -63,7 +63,7 @@ session_start();
 			}
 			
 			if($isCorrect){
-				$connnection->close();
+				$connection->close();
 				$_SESSION["username"]=$_POST["username"];
 				header("Location: home.php");
 			}

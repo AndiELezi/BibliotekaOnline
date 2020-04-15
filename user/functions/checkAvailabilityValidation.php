@@ -7,7 +7,7 @@ $email=$_POST["email"];
 
 
 $sql="SELECT name FROM users WHERE username='{$username}'";
-$result=$connnection->query($sql);
+$result=$connection->query($sql);
 
 if($result->num_rows>0){
 	$ErrUsername="username already taken";
@@ -15,12 +15,12 @@ if($result->num_rows>0){
 }
 
 $sql="SELECT name FROM users WHERE email='{$email}'";
-$result=$connnection->query($sql);
+$result=$connection->query($sql);
 if($result->num_rows>0){
 	$ErrEmail="email already taken";
 	$isCorrect=0;
 }
-$connnection->close();
+$connection->close();
 
 
 

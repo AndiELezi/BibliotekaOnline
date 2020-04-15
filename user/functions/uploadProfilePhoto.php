@@ -1,14 +1,8 @@
 <?php
 session_start();
-$server='localhost';
-		$usernameDB='root';
-		$passwordDB='';
-		$databaze="biblioteka";
-		$connection=new mysqli($server,$usernameDB,$passwordDB,$databaze);
 
-		if($connection->connect_error){
-			die("gabim ne lidhjen ne databaze");
-		} 
+include "DBconnection.php";
+
 if(isset($_POST["change"])){
 $file=$_FILES["profilePhoto"];
 $fileName=$_FILES["profilePhoto"]["name"];
