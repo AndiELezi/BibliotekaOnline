@@ -6,7 +6,7 @@
 </head>
 <body>
    <?php 
-  	include "Validation.php";
+  	include "functions/validation.php";
   ?> 
 
 
@@ -36,7 +36,7 @@
 </form>
 
 <!-- jQyery qe kontrollon nese inputi perdoruesit eshte i pranueshem -->
-<script src="/BibliotekaOnline/jQuery/checkRegisterInput.js"></script>
+<script src="/BibliotekaOnline/scripts/checkRegisterInput.js"></script>
 
   </body>
   </html>
