@@ -36,7 +36,7 @@ $server='localhost';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<div>
-		<a href="home.php"><img src="/BibliotekaOnline/AppImages/libraryLogo.ico"></a>
+		<a href="home.php"><img src="/BibliotekaOnline/images/app/libraryLogo.ico"></a>
 		<ul>
 			<li><a href="browse.php"> Browse </a></li>
 			<li><a href="reservation.php">Reservation</a></li>
@@ -60,7 +60,7 @@ $server='localhost';
 			<?php
 			
 				echo $user["name"]." ".$user["surname"]." ".$user["points"];
-				$profilePhotoPath="/BibliotekaOnline/UserImages/";
+				$profilePhotoPath="/BibliotekaOnline/images/users/";
 				if(empty($user["profile_photo"])){
 						$profilePhotoPath.="default.jpg";
 				}
@@ -87,7 +87,7 @@ $server='localhost';
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratSipasDates->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/BookImages/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -122,7 +122,7 @@ $server='localhost';
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratSipasPelqimeve->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/BookImages/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -157,7 +157,7 @@ $server='localhost';
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratOnlineSipasPelqimeve->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/BookImages/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -192,7 +192,7 @@ $server='localhost';
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratOnlineSipasDates->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/BookImages/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -225,7 +225,7 @@ $server='localhost';
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratPremium->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/BookImages/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -249,5 +249,5 @@ $server='localhost';
 	<!-------------Ktu do vendoset Footeri----------->		
 
 </body>
-<script type="text/javascript" src="/BibliotekaOnline/jQuery/home.js"></script>
+<script type="text/javascript" src="/BibliotekaOnline/scripts/home.js"></script>
 </html>
