@@ -6,7 +6,7 @@
 </head>
 <body>
    <?php 
-  	include "functions/validation.php";
+  	include "/functions/validation.php";
   ?> 
 
 

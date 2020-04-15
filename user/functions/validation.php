@@ -121,7 +121,7 @@ include "checkAvailabilityValidation.php";
     include "activationMail.php";
     include "registerDatabaze.php";
 
-    header("Location: BibliotekaOnline/user/login.php");
+    header("Location: /BibliotekaOnline/user/login.php");
 
 
   }

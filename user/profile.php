@@ -17,7 +17,7 @@ $server='localhost';
 				$user = $result->fetch_assoc();
 
  ?>
- <form  action="functions/uploadProfilePhoto.php" method="POST" enctype="multipart/form-data">
+ <form  action="/functions/uploadProfilePhoto.php" method="POST" enctype="multipart/form-data">
  	
  	<input type="file" name="profilePhoto">
  	<input type="submit" value="change" name="change">
