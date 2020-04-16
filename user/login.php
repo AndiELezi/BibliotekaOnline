@@ -15,12 +15,14 @@ session_start();
 	$errUsername="";
 	$errPassword="";
 	$isCorrect=false;
+	$isActivated=false;
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
 		global $connection;
 		global $errUsername;
 		global $errPassword;
 		global $isCorrect;
+		global $isActivated;
 		include "functions/DBconnection.php";
 
 		$sql="SELECT password FROM users WHERE username='{$usernameToCheck}'";
@@ -37,6 +39,7 @@ session_start();
 					$activationStatus=$result->fetch_assoc();
 					if($activationStatus["activationStatus"]==1){
 						$isCorrect=true;
+						$isActivated=true;
 					}
 				}
 		}
@@ -62,13 +65,15 @@ session_start();
 				$errUsername="Shkruani username";
 			}
 			
-			if($isCorrect){
+			if($isCorrect && $isActivated){
 				$connection->close();
 				$_SESSION["username"]=$_POST["username"];
 				header("Location: home.php");
 			}
-			else{
+			else if(!$isActivated){
 				// alert user to confirm his email
+				$connection->close();
+				header("Location: accountActivation.php?username=$username");
 			}
 
 		}
