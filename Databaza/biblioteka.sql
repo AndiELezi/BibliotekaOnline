@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2020 at 01:37 PM
+-- Generation Time: Apr 16, 2020 at 09:05 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -247,15 +248,16 @@ CREATE TABLE `users` (
   `user_rights` int(11) NOT NULL,
   `profile_photo` varchar(100) DEFAULT NULL,
   `activationStatus` tinyint(1) NOT NULL,
-  `securityString` varchar(40) NOT NULL
+  `securityString` varchar(40) NOT NULL,
+  `recoverPasswordToken` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`) VALUES
-(9, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+3556849250', '$2y$10$x1nul6dQXAfs6H9hmkb08uA7Hsuef3alpzf0h0BYsbq3IoyMuf.ie', '1998-06-12', 'M', 0, 3, 'andi.jpg', 1, 'hbs3x8ciz75juqya1ew9pv2d4frgkl0tnmo6');
+INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
+(9, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+3556849250', '$2y$10$x1nul6dQXAfs6H9hmkb08uA7Hsuef3alpzf0h0BYsbq3IoyMuf.ie', '1998-06-12', 'M', 0, 3, 'andi.jpg', 1, 'hbs3x8ciz75juqya1ew9pv2d4frgkl0tnmo6', '');
 
 -- --------------------------------------------------------
 
@@ -421,7 +423,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
