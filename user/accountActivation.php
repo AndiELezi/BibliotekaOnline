@@ -30,6 +30,7 @@
 		<form method="post">
 			<input type="submit" name="resend" value="Resend Email">
 		</form>
+		<a href="//localhost/BibliotekaOnline/user/login.php">Login</a>
 
 <?php
 		if(array_key_exists('resend', $_POST)){
@@ -40,5 +41,3 @@
 	$connection->close();
 
 ?>
-
-<a href="//localhost/BibliotekaOnline/user/login.php">Login</a>
