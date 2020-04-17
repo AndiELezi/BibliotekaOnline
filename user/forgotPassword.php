@@ -1,9 +1,11 @@
 <?php
 $errEmail="";
+$mailState="";
 	if (isset($_POST["submit"])) {
 		if (!empty($_POST["email"])) {
 			$email=$_POST["email"];
 			include "functions/recoverPasswordMail.php";
+			$mailState="Email sent!";
 		}
 		else{
 			$errEmail="Please enter your email";
@@ -17,5 +19,7 @@ $errEmail="";
 	<span><?php echo $errEmail; ?></span> <br>
 	<input type="email" name="email" placeholder="Enter your email here">
 	<input type="submit" name="submit">
+	<br>
+	<span><?php echo $mailState ?></span>
 </form>
 

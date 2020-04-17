@@ -34,11 +34,11 @@ session_start();
 					$errPassword="Incorrect password";
 				}
 				else{
+					$isCorrect=true;
 					$sql="SELECT activationStatus FROM users WHERE username='{$usernameToCheck}'";
 					$result=$connection->query($sql);
 					$activationStatus=$result->fetch_assoc();
 					if($activationStatus["activationStatus"]==1){
-						$isCorrect=true;
 						$isActivated=true;
 					}
 				}
@@ -70,12 +70,12 @@ session_start();
 				$_SESSION["username"]=$_POST["username"];
 				header("Location: home.php");
 			}
-			else if(!$isActivated){
+
+			else if($isCorrect && !$isActivated){
 				// alert user to confirm his email
 				$connection->close();
 				header("Location: accountActivation.php?username=$username");
 			}
-
 		}
 	?>
 
