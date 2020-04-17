@@ -1,4 +1,5 @@
 // nese inputi emri permban numer afishohet warning
+
 $('#emri').bind('keyup blur',function(){ 
 	$('#errEmri').text("");
 
@@ -98,3 +99,6 @@ function contains_number(str){
 
 //funksion qe kontrollon nese nje char eshte numer
 function is_numeric_char(c) { return /\d/.test(c); }
+
+
+
