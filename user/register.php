@@ -31,7 +31,8 @@
   <br>
   <input type="password" name="password" id="password" value="<?php echo $password?>" placeholder="Password"><span id="errPassword"><?php echo $ErrPassword?></span><br>
   <input type="password" name="cPassword" id="cPassword" value="<?php echo $cPassword?>" placeholder="Confirm Password"><span id="errCPassword"><?php echo $ErrCPassword?></span><br>
-  <input type="submit" name="submit">
+  <input type="submit" name="submit"><br>
+  Already have an account? <a href="login.php">Login</a>
   
 </form>
 
