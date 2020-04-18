@@ -27,9 +27,27 @@ if(isset($_GET["isbn"])){
 
 
 else if (isset($_GET["id"])){
-	echo "id";
+	$id=$_GET["id"];
+	$sql="SELECT * from online_books where id='{$id}'";
+	$resultOnlineBook=$connection->query($sql);
+	$online_books=$resultOnlineBook->fetch_assoc();
+	$sql="SELECT name from users INNER JOIN online_books on online_books.user_id=users.id where online_books.id='{$id}'";
+	$resultOnlineBookUser=$connection->query($sql);
+	$categories=$online_books["category_id"];
+	$sql="SELECT description from categories where id='{$categories}'";
+	$onlineBookCategory=$connection->query($sql);
+	$online_books_Category=$onlineBookCategory->fetch_assoc();
+	$image_path_online_books="/BibliotekaOnline/images/onlineBooks/";
+	$image_path_online_books.=$online_books["cover_photo"];
+	echo "<img src='$image_path_online_books'>"."<br>";
+	echo "id ".$online_books["id"]."<br>". "titulli ".$online_books["title"]."<br>"."category: ".$online_books_Category["description"]."<br>".$online_books["publish_date"]."<br>". $online_books["likes"]."<br>".$online_books["description"]."<br>";
+
+	while ($bookUser=$resultOnlineBookUser->fetch_assoc()) {
+		echo $bookUser["name"]. " ";
+	}
 }
-else{
+
+		else{
 	//ktu do bejm dicka ;
 }
 
