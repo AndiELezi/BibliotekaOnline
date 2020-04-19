@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2020 at 05:08 PM
+-- Generation Time: Apr 19, 2020 at 05:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -198,14 +198,14 @@ CREATE TABLE `online_books` (
 --
 
 INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`) VALUES
-(1, 9, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
-(2, 9, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
-(3, 9, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
-(4, 9, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
-(5, 9, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
-(6, 9, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
-(7, 9, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
-(8, 9, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
+(1, 15, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
+(2, 15, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
+(3, 15, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
+(4, 15, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
+(5, 15, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
+(6, 15, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
+(7, 15, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
+(8, 15, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
 
 -- --------------------------------------------------------
 
@@ -267,7 +267,7 @@ CREATE TABLE `users` (
   `mobile` varchar(15) DEFAULT NULL,
   `password` varchar(200) NOT NULL,
   `birthday` date NOT NULL,
-  `gender` varchar(1) NOT NULL,
+  `gender` varchar(10) NOT NULL,
   `points` int(11) NOT NULL,
   `user_rights` int(11) NOT NULL,
   `profile_photo` varchar(100) DEFAULT NULL,
@@ -281,7 +281,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(9, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+3556849250', '$2y$10$x1nul6dQXAfs6H9hmkb08uA7Hsuef3alpzf0h0BYsbq3IoyMuf.ie', '1998-06-12', 'M', 0, 3, 'andi.jpg', 1, 'hbs3x8ciz75juqya1ew9pv2d4frgkl0tnmo6', '');
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 0, 3, NULL, 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
 
 -- --------------------------------------------------------
 
@@ -467,7 +467,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
@@ -505,6 +505,12 @@ ALTER TABLE `book_categories`
 ALTER TABLE `book_online_categories`
   ADD CONSTRAINT `fk_book_online_id` FOREIGN KEY (`book_online_id`) REFERENCES `online_books` (`id`),
   ADD CONSTRAINT `fk_category_online_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+
+--
+-- Constraints for table `online_books`
+--
+ALTER TABLE `online_books`
+  ADD CONSTRAINT `fk_user_online_book` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
