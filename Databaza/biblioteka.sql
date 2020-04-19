@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2020 at 09:05 PM
+-- Generation Time: Apr 19, 2020 at 05:08 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,6 +34,13 @@ CREATE TABLE `author` (
   `birthday` date NOT NULL,
   `contact` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `author`
+--
+
+INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VALUES
+(1, 'a', 'a', '2020-04-01', 'a');
 
 -- --------------------------------------------------------
 
@@ -78,6 +84,14 @@ CREATE TABLE `book_author` (
   `author_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book_author`
+--
+
+INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
+('1', 1),
+('2', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -87,6 +101,17 @@ CREATE TABLE `book_author` (
 CREATE TABLE `book_categories` (
   `book_id` varchar(30) NOT NULL,
   `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_online_categories`
+--
+
+CREATE TABLE `book_online_categories` (
+  `book_online_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -161,7 +186,6 @@ CREATE TABLE `library_halls` (
 CREATE TABLE `online_books` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
   `title` varchar(40) NOT NULL,
   `publish_date` date NOT NULL,
   `likes` int(11) NOT NULL,
@@ -173,15 +197,15 @@ CREATE TABLE `online_books` (
 -- Dumping data for table `online_books`
 --
 
-INSERT INTO `online_books` (`id`, `user_id`, `category_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`) VALUES
-(1, 9, 1, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
-(2, 9, 1, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
-(3, 9, 1, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
-(4, 9, 1, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
-(5, 9, 1, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
-(6, 9, 1, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
-(7, 9, 1, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
-(8, 9, 1, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
+INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`) VALUES
+(1, 9, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
+(2, 9, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
+(3, 9, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
+(4, 9, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
+(5, 9, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
+(6, 9, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
+(7, 9, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
+(8, 9, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
 
 -- --------------------------------------------------------
 
@@ -279,6 +303,26 @@ INSERT INTO `user_rights` (`id`, `description`) VALUES
 (2, 'Librarian'),
 (3, 'Perdorues normal');
 
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_auth_name_book_isbn`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_auth_name_book_isbn` (
+`full_name` varchar(30)
+,`book_id` varchar(30)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_auth_name_book_isbn`
+--
+DROP TABLE IF EXISTS `v_auth_name_book_isbn`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_auth_name_book_isbn`  AS  select `author`.`full_name` AS `full_name`,`book_author`.`book_id` AS `book_id` from (`author` join `book_author` on(`author`.`id` = `book_author`.`author_id`)) ;
+
 --
 -- Indexes for dumped tables
 --
@@ -309,6 +353,13 @@ ALTER TABLE `book_author`
 ALTER TABLE `book_categories`
   ADD PRIMARY KEY (`book_id`,`category_id`),
   ADD KEY `fk_category_id` (`category_id`);
+
+--
+-- Indexes for table `book_online_categories`
+--
+ALTER TABLE `book_online_categories`
+  ADD KEY `book_online_id` (`book_online_id`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `book_reservation`
@@ -342,8 +393,7 @@ ALTER TABLE `library_halls`
 --
 ALTER TABLE `online_books`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_user_on_id` (`user_id`),
-  ADD KEY `fk_category_online_id` (`category_id`);
+  ADD KEY `fk_user_on_id` (`user_id`);
 
 --
 -- Indexes for table `publish_house`
@@ -402,12 +452,6 @@ ALTER TABLE `library_halls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `online_books`
---
-ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
@@ -456,50 +500,11 @@ ALTER TABLE `book_categories`
   ADD CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
 --
--- Constraints for table `book_reservation`
+-- Constraints for table `book_online_categories`
 --
-ALTER TABLE `book_reservation`
-  ADD CONSTRAINT `fk_book_id_br` FOREIGN KEY (`book_id`) REFERENCES `book` (`ISBN`),
-  ADD CONSTRAINT `fk_user_id_br` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `hall_booking`
---
-ALTER TABLE `hall_booking`
-  ADD CONSTRAINT `fk_library_hall` FOREIGN KEY (`library_hall`) REFERENCES `library_halls` (`id`),
-  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `library_halls`
---
-ALTER TABLE `library_halls`
-  ADD CONSTRAINT `fk_librarian_id` FOREIGN KEY (`librarian_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `online_books`
---
-ALTER TABLE `online_books`
-  ADD CONSTRAINT `fk_category_online_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
-  ADD CONSTRAINT `fk_user_on_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `review`
---
-ALTER TABLE `review`
-  ADD CONSTRAINT `fk_book_review_id` FOREIGN KEY (`id_book`) REFERENCES `online_books` (`id`),
-  ADD CONSTRAINT `fk_user_review_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `seats`
---
-ALTER TABLE `seats`
-  ADD CONSTRAINT `fk_library_hall_id` FOREIGN KEY (`library_hall_id`) REFERENCES `library_halls` (`id`);
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `fk_user_rights` FOREIGN KEY (`user_rights`) REFERENCES `user_rights` (`id`);
+ALTER TABLE `book_online_categories`
+  ADD CONSTRAINT `fk_book_online_id` FOREIGN KEY (`book_online_id`) REFERENCES `online_books` (`id`),
+  ADD CONSTRAINT `fk_category_online_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
