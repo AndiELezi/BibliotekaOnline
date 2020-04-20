@@ -21,16 +21,18 @@ $allowed=array('jpg','jpeg','png');
 if(in_array($fileExtension,$allowed)){
 	if($fileError===0){
 		$username=$_SESSION["username"];
-		$fileNewName="\\".$_SESSION["username"].".jpg";
+		$randString=str_shuffle("qwertyuioplkjhgfdsa");
+		$fileNewName="\\".$_SESSION["username"].$randString.".jpg";
 		$fileDestination='C:\xampp\htdocs\BibliotekaOnline\images\users'.$fileNewName;
 		$sql="SELECT profile_photo FROM users WHERE `username`='{$username}'";
 		$result=$connection->query($sql);
 		$profileArray=$result->fetch_assoc();
+		$fileDestinationToDelete='C:\xampp\htdocs\BibliotekaOnline\images\users\\'.$profileArray["profile_photo"];
 		if(strcmp("default.jpg", $profileArray["profile_photo"])!==0){
-				unlink($fileDestination);
+				unlink($fileDestinationToDelete);
 		}
 		move_uploaded_file($fileTempName, $fileDestination);
-		$profilePhoto=$_SESSION["username"].".jpg";
+		$profilePhoto=$_SESSION["username"].$randString.".jpg";
 		$sql="UPDATE users SET `profile_photo`='{$profilePhoto}' WHERE `username`='{$username}'";
 		$connection->query($sql);
 		header("Location://localhost/BibliotekaOnline/user/profile.php");

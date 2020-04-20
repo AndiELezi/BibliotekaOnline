@@ -6,7 +6,7 @@ if(isset($_GET["isbn"])){
 	$sql="SELECT * from book WHERE isbn='{$isbn}'";
 	$resultBook=$connection->query($sql);
 	$book=$resultBook->fetch_assoc();
-	$sql="SELECT full_name FROM v_auth_name_book_isbn WHERE book_id='{$isbn}'";
+	$sql="SELECT full_name FROM v_author_book WHERE isbn='{$isbn}'";
 	$resultAuthor=$connection->query($sql);
 	$publishHouseId=$book["publish_house"];
 	$sql="SELECT name FROM publish_house WHERE id='{$publishHouseId}'";

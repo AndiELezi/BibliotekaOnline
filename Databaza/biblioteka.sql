@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2020 at 05:25 PM
+-- Generation Time: Apr 20, 2020 at 06:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -71,7 +71,9 @@ INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quant
 ('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12),
 ('4', 'A', '0000-00-00', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14),
 ('5', 'A', '2005-12-12', 1, 1, 10, 100, 'e.jpg', 'blablabla', 18),
-('6', 'A', '2006-12-12', 1, 1, 10, 0, 'f.jpg', 'blablabla', 23);
+('6', 'A', '2006-12-12', 1, 1, 10, 0, 'f.jpg', 'blablabla', 23),
+('8', 'banana', '2020-04-01', 1, 1, 12, 12, 'banana.jpg', 'asdasdasd', 10),
+('9', 'hello', '2020-04-01', 1, 10, 10, 10, 'hello.jpg', 'sdaasda', 10);
 
 -- --------------------------------------------------------
 
@@ -205,7 +207,9 @@ INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `
 (5, 15, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
 (6, 15, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
 (7, 15, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
-(8, 15, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl');
+(8, 15, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl'),
+(9, 15, 'hello', '2020-04-01', 10, 'hello.jpg', 'asdasd'),
+(10, 15, 'banana', '2020-04-01', 10, 'banana.jpg', 'asdasdasd');
 
 -- --------------------------------------------------------
 
@@ -281,7 +285,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 0, 3, NULL, 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 0, 3, 'andi06121998rjhdtsoukyqgeiplfwa.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
 
 -- --------------------------------------------------------
 
@@ -306,22 +310,69 @@ INSERT INTO `user_rights` (`id`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `v_auth_name_book_isbn`
+-- Stand-in structure for view `v_author_book`
 -- (See below for the actual view)
 --
-CREATE TABLE `v_auth_name_book_isbn` (
-`full_name` varchar(30)
-,`book_id` varchar(30)
+CREATE TABLE `v_author_book` (
+`author_Id` int(11)
+,`full_name` varchar(30)
+,`birthplace` varchar(30)
+,`birthday` date
+,`contact` varchar(50)
+,`ISBN` varchar(30)
+,`title` varchar(50)
+,`publication_year` date
+,`quantity` int(11)
+,`price` int(11)
+,`reservation_points` int(11)
+,`cover_photo` varchar(100)
+,`description` varchar(200)
+,`likes` int(11)
 );
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `v_auth_name_book_isbn`
+-- Stand-in structure for view `v_user_online_books`
+-- (See below for the actual view)
 --
-DROP TABLE IF EXISTS `v_auth_name_book_isbn`;
+CREATE TABLE `v_user_online_books` (
+`user_id` int(11)
+,`name` varchar(30)
+,`surname` varchar(30)
+,`username` varchar(30)
+,`email` varchar(40)
+,`mobile` varchar(15)
+,`birthday` date
+,`gender` varchar(10)
+,`points` int(11)
+,`user_rights` int(11)
+,`profile_photo` varchar(100)
+,`book_id` int(11)
+,`title` varchar(40)
+,`publish_date` date
+,`likes` int(11)
+,`cover_photo` varchar(100)
+,`description` varchar(200)
+);
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_auth_name_book_isbn`  AS  select `author`.`full_name` AS `full_name`,`book_author`.`book_id` AS `book_id` from (`author` join `book_author` on(`author`.`id` = `book_author`.`author_id`)) ;
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_author_book`
+--
+DROP TABLE IF EXISTS `v_author_book`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_author_book`  AS  select `author`.`id` AS `author_Id`,`author`.`full_name` AS `full_name`,`author`.`birthplace` AS `birthplace`,`author`.`birthday` AS `birthday`,`author`.`contact` AS `contact`,`book`.`ISBN` AS `ISBN`,`book`.`title` AS `title`,`book`.`publication_year` AS `publication_year`,`book`.`quantity` AS `quantity`,`book`.`price` AS `price`,`book`.`reservation_points` AS `reservation_points`,`book`.`cover_photo` AS `cover_photo`,`book`.`description` AS `description`,`book`.`likes` AS `likes` from ((`author` join `book_author` on(`author`.`id` = `book_author`.`author_id`)) join `book` on(`book`.`ISBN` = `book_author`.`book_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_user_online_books`
+--
+DROP TABLE IF EXISTS `v_user_online_books`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_user_online_books`  AS  select `users`.`id` AS `user_id`,`users`.`name` AS `name`,`users`.`surname` AS `surname`,`users`.`username` AS `username`,`users`.`email` AS `email`,`users`.`mobile` AS `mobile`,`users`.`birthday` AS `birthday`,`users`.`gender` AS `gender`,`users`.`points` AS `points`,`users`.`user_rights` AS `user_rights`,`users`.`profile_photo` AS `profile_photo`,`online_books`.`id` AS `book_id`,`online_books`.`title` AS `title`,`online_books`.`publish_date` AS `publish_date`,`online_books`.`likes` AS `likes`,`online_books`.`cover_photo` AS `cover_photo`,`online_books`.`description` AS `description` from (`users` join `online_books` on(`users`.`id` = `online_books`.`user_id`)) ;
 
 --
 -- Indexes for dumped tables

@@ -35,7 +35,7 @@ session_start();
 			<li><a href="myBooks.php">My Books</a></li>
 		</ul>
 		<form action="search.php" method="get">
-		<input type="text" name="search">
+		<input type="text" name="searchQuery">
 		<select name="filter">
 			<option value="title">Title</option>
 			<option value="author">Author</option>
