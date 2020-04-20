@@ -68,7 +68,7 @@ include "functions/DBconnection.php";
 			}
 		}
 		else{
-			echo "Wrong link";
+			header("HTTP/1.0 404 Not Found");
 		}	
 	}
 
