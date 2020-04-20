@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2020 at 06:32 PM
+-- Generation Time: Apr 20, 2020 at 09:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -40,7 +40,8 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VALUES
-(1, 'a', 'a', '2020-04-01', 'a');
+(1, 'a', 'a', '2020-04-01', 'a'),
+(2, 'b', 'b', '2020-04-01', 'b');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,9 @@ CREATE TABLE `book_author` (
 
 INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
 ('1', 1),
-('2', 1);
+('1', 2),
+('2', 1),
+('9', 1);
 
 -- --------------------------------------------------------
 
@@ -333,6 +336,25 @@ CREATE TABLE `v_author_book` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_publish_house_book`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_publish_house_book` (
+`ISBN` varchar(30)
+,`title` varchar(50)
+,`publication_year` date
+,`quantity` int(11)
+,`price` int(11)
+,`reservation_points` int(11)
+,`cover_photo` varchar(100)
+,`description` varchar(200)
+,`likes` int(11)
+,`publish_house_name` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `v_user_online_books`
 -- (See below for the actual view)
 --
@@ -364,6 +386,15 @@ CREATE TABLE `v_user_online_books` (
 DROP TABLE IF EXISTS `v_author_book`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_author_book`  AS  select `author`.`id` AS `author_Id`,`author`.`full_name` AS `full_name`,`author`.`birthplace` AS `birthplace`,`author`.`birthday` AS `birthday`,`author`.`contact` AS `contact`,`book`.`ISBN` AS `ISBN`,`book`.`title` AS `title`,`book`.`publication_year` AS `publication_year`,`book`.`quantity` AS `quantity`,`book`.`price` AS `price`,`book`.`reservation_points` AS `reservation_points`,`book`.`cover_photo` AS `cover_photo`,`book`.`description` AS `description`,`book`.`likes` AS `likes` from ((`author` join `book_author` on(`author`.`id` = `book_author`.`author_id`)) join `book` on(`book`.`ISBN` = `book_author`.`book_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_publish_house_book`
+--
+DROP TABLE IF EXISTS `v_publish_house_book`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_publish_house_book`  AS  select `book`.`ISBN` AS `ISBN`,`book`.`title` AS `title`,`book`.`publication_year` AS `publication_year`,`book`.`quantity` AS `quantity`,`book`.`price` AS `price`,`book`.`reservation_points` AS `reservation_points`,`book`.`cover_photo` AS `cover_photo`,`book`.`description` AS `description`,`book`.`likes` AS `likes`,`publish_house`.`name` AS `publish_house_name` from (`book` join `publish_house` on(`book`.`publish_house` = `publish_house`.`id`)) ;
 
 -- --------------------------------------------------------
 

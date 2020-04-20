@@ -23,13 +23,23 @@ $searchQuery=$_GET["searchQuery"];
 		$onlineBooksResult=$connection->query($sql);
 
 	}
+	else if(strcmp($_GET["filter"],"publishHouse")==0){
+		$sql="SELECT ISBN,cover_photo,title FROM v_publish_house_book WHERE publish_house_name LIKE \"%{$searchQuery}%\"";
+		$offlineBooksResult=$connection->query($sql);
+		//ktu do mendojm dicka tjt po me pak fjal dua t m sjelli dicka bosh;
+		$sql="SELECT ISBN,cover_photo,title FROM v_publish_house_book WHERE ISBN=-2";
+		$onlineBooksResult=$connection->query($sql);
+		
+	}
 
+
+	/*tn do bej ndertimin e div per online dhe per ofline*/
 
 
 
 }
-else{
-	echo "error";
+else if(isset($_GET["AdvanceSearch"])){
+	//kjo do jet per rastin kur behet nje kerkim i avancuar qe do na vij nga faqja avanceSearch.php po se kam menduar se ca paramatrash do ket tn per tn
 
 }
 
