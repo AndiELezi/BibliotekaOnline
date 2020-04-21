@@ -11,7 +11,7 @@ $searchQuery=$_GET["searchQuery"];
  	$sql="SELECT ISBN,cover_photo,title FROM book WHERE title LIKE \"%{$searchQuery}%\"";
  	$offlineBooksResult=$connection->query($sql);
  	$sql="SELECT id,cover_photo,title FROM online_books WHERE title LIKE \"%{$searchQuery}%\"";
- 	$online_books=$connection->query($sql);
+ 	$onlineBooksResult=$connection->query($sql);
 
 	}	
 
@@ -31,12 +31,85 @@ $searchQuery=$_GET["searchQuery"];
 		$onlineBooksResult=$connection->query($sql);
 		
 	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" type="text/css" href="/BibliotekaOnline/Styles/search.css">
+</head>
+<body>
 
 
-	/*tn do bej ndertimin e div per online dhe per ofline*/
+<!----------online-------------------->
+<input type="radio" id="online" name="tipi" value="online" onchange="ndryshoDiv(-1)" checked >Online
+<input type="radio" id="offline" name="tipi" value="offline" onchange="ndryshoDiv(1)">Offline
+
+			<div>
+				<?php
+				 $ok=true;
+				
+					while ($ok) {
+						
+						echo "<div class='online'>";
+						for($j=0;$j<4;$j++){
+						
+							if($i=$onlineBooksResult->fetch_assoc()){
+								echo "<a href='book.php?id=".$i["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>"."</a>";
+								echo $i["title"];
+								echo "<br>";
+								
+							}
+							else{
+								$ok=false;
+								break;		
+							}
+							
+						}
+						echo "</div>";
+					}
+
+				  ?>
+
+			</div>	
+		
 
 
+<!------------------offline -------------------------->
+			<div>
+				<?php
+				 $ok=true;
+				
+					while ($ok ) {
+						
+						echo "<div class='offline'>";
+						for($j=0;$j<4;$j++){
+						
+							if($i=$offlineBooksResult->fetch_assoc()){
+								echo "<a href='book.php?isbn=".$i["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>"."</a>";
+									echo $i["title"];
+									echo "<br>";
+							}
+							else{
+								$ok=false;
+								break;		
+							}
+							
+						}
+						echo "</div>";
+					}
 
+				  ?>
+
+			</div>	
+			<button onclick="slide(-1)">prev</button>
+			<button onclick="slide(1)">next</button>
+</body>
+<script type="text/javascript" src="/BibliotekaOnline/scripts/search.js"></script>
+</html>
+
+
+<?php
 }
 else if(isset($_GET["AdvanceSearch"])){
 	//kjo do jet per rastin kur behet nje kerkim i avancuar qe do na vij nga faqja avanceSearch.php po se kam menduar se ca paramatrash do ket tn per tn
