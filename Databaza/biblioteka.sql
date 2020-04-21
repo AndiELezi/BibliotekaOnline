@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2020 at 09:25 PM
+-- Generation Time: Apr 21, 2020 at 12:31 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -40,8 +41,7 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VALUES
-(1, 'a', 'a', '2020-04-01', 'a'),
-(2, 'b', 'b', '2020-04-01', 'b');
+(1, 'a', 'a', '2020-04-01', 'a');
 
 -- --------------------------------------------------------
 
@@ -93,9 +93,7 @@ CREATE TABLE `book_author` (
 
 INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
 ('1', 1),
-('1', 2),
-('2', 1),
-('9', 1);
+('2', 1);
 
 -- --------------------------------------------------------
 
@@ -108,6 +106,20 @@ CREATE TABLE `book_categories` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book_categories`
+--
+
+INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
+('1', 1),
+('1', 2),
+('1', 3),
+('2', 1),
+('2', 5),
+('3', 4),
+('4', 4),
+('4', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -118,6 +130,20 @@ CREATE TABLE `book_online_categories` (
   `book_online_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_online_categories`
+--
+
+INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 2),
+(2, 3),
+(3, 5),
+(3, 1),
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -336,20 +362,38 @@ CREATE TABLE `v_author_book` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `v_publish_house_book`
+-- Stand-in structure for view `v_book_categories`
 -- (See below for the actual view)
 --
-CREATE TABLE `v_publish_house_book` (
+CREATE TABLE `v_book_categories` (
 `ISBN` varchar(30)
 ,`title` varchar(50)
+,`c_description` varchar(50)
 ,`publication_year` date
+,`publish_house` int(11)
 ,`quantity` int(11)
 ,`price` int(11)
 ,`reservation_points` int(11)
 ,`cover_photo` varchar(100)
 ,`description` varchar(200)
 ,`likes` int(11)
-,`publish_house_name` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `v_online_books_categories`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_online_books_categories` (
+`id` int(11)
+,`user_id` int(11)
+,`title` varchar(40)
+,`c_description` varchar(50)
+,`publish_date` date
+,`likes` int(11)
+,`cover_photo` varchar(100)
+,`description` varchar(200)
 );
 
 -- --------------------------------------------------------
@@ -390,11 +434,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `v_publish_house_book`
+-- Structure for view `v_book_categories`
 --
-DROP TABLE IF EXISTS `v_publish_house_book`;
+DROP TABLE IF EXISTS `v_book_categories`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_publish_house_book`  AS  select `book`.`ISBN` AS `ISBN`,`book`.`title` AS `title`,`book`.`publication_year` AS `publication_year`,`book`.`quantity` AS `quantity`,`book`.`price` AS `price`,`book`.`reservation_points` AS `reservation_points`,`book`.`cover_photo` AS `cover_photo`,`book`.`description` AS `description`,`book`.`likes` AS `likes`,`publish_house`.`name` AS `publish_house_name` from (`book` join `publish_house` on(`book`.`publish_house` = `publish_house`.`id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_book_categories`  AS  select `b`.`ISBN` AS `ISBN`,`b`.`title` AS `title`,`c`.`description` AS `c_description`,`b`.`publication_year` AS `publication_year`,`b`.`publish_house` AS `publish_house`,`b`.`quantity` AS `quantity`,`b`.`price` AS `price`,`b`.`reservation_points` AS `reservation_points`,`b`.`cover_photo` AS `cover_photo`,`b`.`description` AS `description`,`b`.`likes` AS `likes` from ((`categories` `c` join `book_categories` `bc` on(`c`.`id` = `bc`.`category_id`)) join `book` `b` on(`b`.`ISBN` = `bc`.`book_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_online_books_categories`
+--
+DROP TABLE IF EXISTS `v_online_books_categories`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_online_books_categories`  AS  select `ob`.`id` AS `id`,`ob`.`user_id` AS `user_id`,`ob`.`title` AS `title`,`c`.`description` AS `c_description`,`ob`.`publish_date` AS `publish_date`,`ob`.`likes` AS `likes`,`ob`.`cover_photo` AS `cover_photo`,`ob`.`description` AS `description` from ((`categories` `c` join `book_online_categories` `boc` on(`c`.`id` = `boc`.`category_id`)) join `online_books` `ob` on(`ob`.`id` = `boc`.`book_online_id`)) ;
 
 -- --------------------------------------------------------
 
