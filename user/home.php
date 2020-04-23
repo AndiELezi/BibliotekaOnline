@@ -30,6 +30,7 @@ session_start();
 	<div>
 		<a href="home.php"><img src="/BibliotekaOnline/images/app/libraryLogo.ico"></a>
 		<ul>
+			<li><a href="bookUpload.php"> bookUpload </a></li>
 			<li><a href="browse.php"> Browse </a></li>
 			<li><a href="reservation.php">Reservation</a></li>
 			<li><a href="myBooks.php">My Books</a></li>
@@ -149,7 +150,7 @@ session_start();
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratOnlineSipasPelqimeve->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;
@@ -184,7 +185,7 @@ session_start();
 						for($j=0;$j<3;$j++){
 						
 							if($i=$libratOnlineSipasDates->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
+								echo "<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>";
 									$nrLibr--;
 									if($nrLibr==0){
 										break;

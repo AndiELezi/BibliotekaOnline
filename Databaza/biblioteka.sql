@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2020 at 12:31 PM
+-- Generation Time: Apr 23, 2020 at 08:19 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -136,14 +135,23 @@ CREATE TABLE `book_online_categories` (
 --
 
 INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(2, 2),
-(2, 3),
-(3, 5),
-(3, 1),
-(4, 1);
+(32, 2),
+(32, 7),
+(33, 5),
+(34, 2),
+(34, 1),
+(35, 5),
+(35, 7),
+(36, 5),
+(36, 7),
+(36, 1),
+(37, 2),
+(37, 1),
+(38, 2),
+(38, 1),
+(39, 2),
+(39, 5),
+(39, 7);
 
 -- --------------------------------------------------------
 
@@ -221,24 +229,23 @@ CREATE TABLE `online_books` (
   `publish_date` date NOT NULL,
   `likes` int(11) NOT NULL,
   `cover_photo` varchar(100) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL
+  `description` varchar(200) DEFAULT NULL,
+  `book_path` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `online_books`
 --
 
-INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`) VALUES
-(1, 15, 'A', '2000-12-12', 10, 'a.jpg', 'blslvallsl'),
-(2, 15, 'A', '2001-12-12', 20, 'b.jpg', 'blslvallsl'),
-(3, 15, 'A', '2003-12-12', 30, 'c.jpg', 'blslvallsl'),
-(4, 15, 'A', '2004-12-12', 40, 'd.jpg', 'blslvallsl'),
-(5, 15, 'A', '2006-12-12', 50, 'e.jpg', 'blslvallsl'),
-(6, 15, 'A', '2007-12-12', 60, 'f.jpg', 'blslvallsl'),
-(7, 15, 'A', '2008-12-12', 70, 'g.jpg', 'blslvallsl'),
-(8, 15, 'A', '2009-12-12', 80, 'j.jpg', 'blslvallsl'),
-(9, 15, 'hello', '2020-04-01', 10, 'hello.jpg', 'asdasd'),
-(10, 15, 'banana', '2020-04-01', 10, 'banana.jpg', 'asdasdasd');
+INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`, `book_path`) VALUES
+(32, 15, 'a', '2020-04-23', 0, 'a1587664787.jpg', 'a', 'a1587664787.pdf'),
+(33, 15, 'b', '2020-04-23', 0, 'b1587664842.jpg', 'b', 'b1587664842.pdf'),
+(34, 15, 'c', '2020-04-23', 0, 'c1587664886.jpg', 'd', 'c1587664886.pdf'),
+(35, 15, 'banana', '2020-04-23', 0, 'banana1587664923.jpg', 'banana', 'banana1587664923.pdf'),
+(36, 15, 'hello', '2020-04-23', 0, 'hello1587664954.jpg', 'hello', 'hello1587664954.pdf'),
+(37, 15, 'f', '2020-04-23', 0, 'default.jpg', 'f', 'f1587665619.pdf'),
+(38, 15, 'i', '2020-04-23', 0, 'i1587665727.jpg', 'i', 'i1587665727.pdf'),
+(39, 15, 'test', '2020-04-23', 0, 'default.jpg', 'test', 'test1587665804.pdf');
 
 -- --------------------------------------------------------
 
@@ -490,13 +497,6 @@ ALTER TABLE `book_categories`
   ADD KEY `fk_category_id` (`category_id`);
 
 --
--- Indexes for table `book_online_categories`
---
-ALTER TABLE `book_online_categories`
-  ADD KEY `book_online_id` (`book_online_id`),
-  ADD KEY `category_id` (`category_id`);
-
---
 -- Indexes for table `book_reservation`
 --
 ALTER TABLE `book_reservation`
@@ -587,6 +587,12 @@ ALTER TABLE `library_halls`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `online_books`
+--
+ALTER TABLE `online_books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
@@ -635,17 +641,10 @@ ALTER TABLE `book_categories`
   ADD CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 
 --
--- Constraints for table `book_online_categories`
---
-ALTER TABLE `book_online_categories`
-  ADD CONSTRAINT `fk_book_online_id` FOREIGN KEY (`book_online_id`) REFERENCES `online_books` (`id`),
-  ADD CONSTRAINT `fk_category_online_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
-
---
 -- Constraints for table `online_books`
 --
 ALTER TABLE `online_books`
-  ADD CONSTRAINT `fk_user_online_book` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_user_online_book` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
