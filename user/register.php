@@ -3,6 +3,7 @@
 
 <head>
   <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="../styles/style.css">
 </head>
 <body>
    <?php 
@@ -14,9 +15,9 @@
 
 <!-- jquery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div class="background"></div>
 
-
-<form  method="post" action="register.php"> 
+<form  method="post" action="register.php" class="register"> 
   <input type="text"  name="emri" id="emri" value="<?php echo $emri?>"  placeholder="Emri"><span id="errEmri"><?php echo $ErrEmri ?></span><br>
   <input type="text"  name="mbiemri" id="mbiemri" value="<?php echo $mbiemri?>" placeholder="Mbiemri"><span id="errMbiemri"><?php echo $ErrMbiemri?></span><br>
   <input type="email" name="email" id="email" value="<?php echo $email?>" placeholder="E-Mail"><span id="errEmail"><?php echo $ErrEmail?></span><br>

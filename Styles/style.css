@@ -1,0 +1,143 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.background{
+	position: absolute;
+	top: -10px;
+	left: -50px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?cs=srgb&dl=assorted-books-on-shelf-1370295.jpg&fm=jpg);
+	background-size: cover;
+	-webkit-filter: blur(3px);
+	z-index: 0;
+}
+
+.register{
+	position: absolute; 
+	width: 20%;
+    margin-left : 40%;
+    margin-top : 10%;
+
+}
+
+input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+input[type=email]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+input[type=date]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+select,option{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 10px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+input[type=submit]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 10px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+input[type=submit]:hover{
+	opacity: 0.8;
+}
+
+input[type=submit]:active{
+	opacity: 0.6;
+}
+
+input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+input[type=email]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+input[type=submit]:focus{
+	outline: none;
+}
+
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
