@@ -43,7 +43,7 @@ $searchQuery=$_GET["searchQuery"];
 
 <!----------online-------------------->
 <input type="radio" id="online" name="tipi" value="online" onchange="ndryshoDiv(-1)" checked >Online
-<input type="radio" id="offline" name="tipi" value="offline" onchange="ndryshoDiv(1)">Offline
+<input type="radio" id="offline" name="tipi" value="offline" onchange="ndryshoDiv(1)" >Offline
 
 			<div>
 				<?php
