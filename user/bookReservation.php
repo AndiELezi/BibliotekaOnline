@@ -1,6 +1,7 @@
 <?php
 $selectedBook=""; 
 $reservation_points;
+$isbn="";
 if(isset($_GET["isbn"])){
 	$isbn=$_GET["isbn"];
 include 'functions/DBconnection.php';
@@ -8,7 +9,7 @@ $sql="SELECT title,cover_photo,reservation_points from book WHERE ISBN='{$isbn}'
 $result=$connection->query($sql);
 $book=$result->fetch_assoc();
 $reservation_points=$book["reservation_points"];
-$selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_photo"]."'>".$book["title"]."<br>"."Piket per reservimin e librit:".$reservation_points."</div><input type='text' name='isbn' value='".$isbn."'"."style='display:none'>";
+$selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_photo"]."'>".$book["title"]."<br>"."Piket per reservimin e librit:".$reservation_points."</div>";
 
 }
 
@@ -26,14 +27,17 @@ $selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_p
  	<div id="rezultatet"></div><br>
  	or browse for a book:<a href="browse.php?bookType=offline">Browse</a><br>
  	
- 	<form method="POST" action="functions/bookReservationDatabase.php">
+ 	<form>
  	Libri zgjedhur:<?php echo $selectedBook ?><br>
  	vendosni daten qe deshironi per te reservuar kete liber:
- 	<input type="date" name="dataResezrvimit"><br>
+ 	<input type="date" name="dataRezervimit" id="dataRezervimit" required><br>
+ 	<?php echo "<input type='text' id='isbn' name='isbn' value='".$isbn."'"."style='display:none'>" ?>
  	vendosni daten qe deshironi te ktheni librin:
- 	<input type="date" name="dataRikthimit"><br>
- 	<input type="submit" name="Reservo" value="Reservo">
-	</form>
+ 	<input type="date" name="dataRikthimit" id="dataRikthimit" required ><br>
+ 	<input type="button" id="rezervo" name="Reservo" value="Reservo">
+	</form><br>
+	<div id="pergjigjaRezervimit"></div>
+	<div id="test"></div>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/bookReservation.js"></script>
  
  </body>
