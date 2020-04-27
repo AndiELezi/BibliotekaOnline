@@ -15,7 +15,7 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url(https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?cs=srgb&dl=assorted-books-on-shelf-1370295.jpg&fm=jpg);
+	background-image: url("../images/app/books_background.jpg");
 	background-size: cover;
 	-webkit-filter: blur(3px);
 	z-index: 0;
@@ -27,6 +27,13 @@ body{
     margin-left : 40%;
     margin-top : 10%;
 
+}
+
+.login{
+	position: absolute; 
+	width: 20%;
+    margin-left : 40%;
+    margin-top : 10%;
 }
 
 input[type=password]{

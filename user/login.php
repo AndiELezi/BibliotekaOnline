@@ -7,6 +7,7 @@ session_start();
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="../styles/style.css">
 <body>
 
 	<?php
@@ -78,8 +79,8 @@ session_start();
 			}
 		}
 	?>
-
-	<form method="post" action="login.php">
+	<div class="background"></div>
+	<form method="post" action="login.php" class="login">
 		Username : <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="username" ><span id="errUsername"><?php echo $errUsername;?> </span><br>
 		Password : <input type="password" id="password" name="password" value="<?php echo $password;?>" placeholder="password"><span id="errPassword"><?php echo $errPassword; ?></span><br>
 		<input type="submit" name="submit">
