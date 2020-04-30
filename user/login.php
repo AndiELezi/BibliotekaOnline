@@ -7,7 +7,7 @@ session_start();
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="../styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../styles/authentication.css">
 <body>
 
 	<?php
@@ -79,13 +79,24 @@ session_start();
 			}
 		}
 	?>
-	<div class="background"></div>
-	<form method="post" action="login.php" class="login">
-		Username : <input type="text" id="username" name="username" value="<?php echo $username;?>" placeholder="username" ><span id="errUsername"><?php echo $errUsername;?> </span><br>
-		Password : <input type="password" id="password" name="password" value="<?php echo $password;?>" placeholder="password"><span id="errPassword"><?php echo $errPassword; ?></span><br>
-		<input type="submit" name="submit">
-		<p class="Duhet Rregullu"> <a href="register.php">Register</a></p> <!-- Ket e shkrujta njeher kshu se di si do e bejm -->
-			<a href="forgotPassword.php">Lost your password?</a><br> <!--kjo duhet tna coj ne nje faqe qe kerko email -->
+	<form method="post" action="login.php" class="login_form">
+		<h2>Login</h2>
+		<div class="input_wrap">
+			<div class="single_input">
+				<input type="text" id="username" name="username" value="<?php echo $username;?>" required>
+				<label>Username</label><br>
+				<span id="errUsername"><?php echo $errUsername; ?></span>	
+			</div> <br>
+			<div class="single_input">
+				<input type="password" id="password" name="password" value="<?php echo $password;?>" required>
+				<label>Password</label><br>
+				<span id="errPassword"><?php echo $errPassword; ?></span>
+			</div> <br>
+			<input type="submit" name="submit">
+		</div>
+		<br><br>
+		<a href="register.php">Register</a> <br><!-- Ket e shkrujta njeher kshu se di si do e bejm -->
+		<a href="forgotPassword.php">Lost your password?</a> <!--kjo duhet tna coj ne nje faqe qe kerko email -->
 	</form>
 </body>
 </head>

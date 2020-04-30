@@ -62,8 +62,10 @@ input{
   box-shadow: none;  
 }
 
+/* Label style after Input field is in focus. Can also use input:focus ~ label to select sibling. */
 
-/* Label style after Input field is in focus */
+
+
 
 input:focus + label, input:valid + label{
   font-size: 12px;

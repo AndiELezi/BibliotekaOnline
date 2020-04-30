@@ -17,22 +17,56 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <div class="background"></div>
 
-<form  method="post" action="register.php" class="register"> 
-  <input type="text"  name="emri" id="emri" value="<?php echo $emri?>"  placeholder="Emri"><span id="errEmri"><?php echo $ErrEmri ?></span><br>
-  <input type="text"  name="mbiemri" id="mbiemri" value="<?php echo $mbiemri?>" placeholder="Mbiemri"><span id="errMbiemri"><?php echo $ErrMbiemri?></span><br>
-  <input type="email" name="email" id="email" value="<?php echo $email?>" placeholder="E-Mail"><span id="errEmail"><?php echo $ErrEmail?></span><br>
-  <input type="text" name="phone_nr" id="phone_nr" value="<?php echo $phone_nr?>" placeholder="Phone Number"> <br>
-  <input type="text"  name="username" id="username" value="<?php echo $username?>" placeholder="Username"><span id="errUsername"><?php echo $ErrUsername?></span><br>
-  <input type="date" name="birthday" min='1900-01-01' max='2020-01-01' value="<?php echo $birthday?>"> <span><?php echo $ErrBirthday?></span><br>
-  <select name="gjinia"value="<?php echo $gjinia?>"><span><?php echo $ErrGjinia?></span>
-    <option value="Male">Male</option> 
-    <option value="Female">Female</option> 
-    <option value="Other">Other</option> 
-  </select>
-  <br>
-  <input type="password" name="password" id="password" value="<?php echo $password?>" placeholder="Password"><span id="errPassword"><?php echo $ErrPassword?></span><br>
-  <input type="password" name="cPassword" id="cPassword" value="<?php echo $cPassword?>" placeholder="Confirm Password"><span id="errCPassword"><?php echo $ErrCPassword?></span><br>
+<form  method="post" action="register.php" class="register_form"> 
+<h2>Register</h2>
+<div class="input_wrap">
+    <div class="single_input">
+        <input type="text"  name="emri" id="emri" value="<?php echo $emri?>" required>
+        <label>First Name</label> <br>
+        <span id="errEmri"><?php echo $ErrEmri ?></span><br>
+    </div> 
+    <div class="single_input">
+        <input type="text"  name="mbiemri" id="mbiemri" value="<?php echo $mbiemri?>" required>
+        <label>Last Name</label> <br>
+        <span id="errMbiemri"><?php echo $ErrMbiemri?></span><br>
+    </div>
+    <div class="single_input">
+        <input type="email" name="email" id="email" value="<?php echo $email?>" required> 
+        <label>E-Mail</label><br>
+        <span id="errEmail"><?php echo $ErrEmail?></span><br>
+    </div>
+    <div class="single_input">
+        <input type="text" name="phone_nr" id="phone_nr" value="<?php echo $phone_nr?>" optional>
+        <label>Phone Number</label>
+    </div> <br>
+    <div class="single_input">
+        <input type="text"  name="username" id="username" value="<?php echo $username?>"required> 
+        <label>Username</label><br>
+        <span id="errUsername"><?php echo $ErrUsername?></span><br>
+    </div>
+    <div class="single_input">
+        <input type="date" name="birthday" min='1900-01-01' max='2020-01-01' value="<?php echo $birthday?>">
+        <label>Birthday</label> <br>
+        <span><?php echo $ErrBirthday?></span><br>
+    </div>
+    <select name="gjinia"value="<?php echo $gjinia?>"><span><?php echo $ErrGjinia?></span>
+        <option value="Male">Male</option> 
+        <option value="Female">Female</option> 
+        <option value="Other">Other</option> 
+    </select>
+    <br> <br>
+    <div class="single_input">
+        <input type="password" name="password" id="password" value="<?php echo $password?>" required>
+        <label>Password</label> <br>
+        <span id="errPassword"><?php echo $ErrPassword?></span><br>
+    </div>
+    <div class="single_input">
+        <input type="password" name="cPassword" id="cPassword" value="<?php echo $cPassword?>" required>
+        <label>Confirm Password</label> <br>
+        <span id="errCPassword"><?php echo $ErrCPassword?></span><br>
+    </div>
   <input type="submit" name="submit"><br>
+</div>
   Already have an account? <a href="login.php">Login</a>
   
 </form>
