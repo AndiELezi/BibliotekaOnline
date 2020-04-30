@@ -67,20 +67,19 @@ error:function (){}
 
 
 $('#email').bind('keyup blur',function(){ 
-  $('#errEmail').text("");
+  	$('#errEmail').text("");
     var email=$(this).val();
-   if(email.length>0){
-jQuery.ajax({
-url: "functions/checkAvailability.php",
-data:'email='+ email,
-type: "POST",
-success:function(data){
-$('#errEmail').text(data);
-},
-error:function (){}
-});
-}
-
+  	if(email.length>0){
+		jQuery.ajax({
+			url: "functions/checkAvailability.php",
+			data:'email='+ email,
+			type: "POST",
+			success:function(data){
+				$('#errEmail').text(data);
+			},
+			error:function (){}
+		});
+	}
 });
 
 

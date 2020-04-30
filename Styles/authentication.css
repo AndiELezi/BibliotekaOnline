@@ -67,7 +67,7 @@ input{
 
 
 
-input:focus + label, input:valid + label{
+input:focus + label, input.has-content + label{
   font-size: 12px;
   color: #afbdcf;
   top: -5px;

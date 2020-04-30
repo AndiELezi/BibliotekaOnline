@@ -3,7 +3,7 @@
 
 <head>
   <title>Register</title>
-  <link rel="stylesheet" type="text/css" href="../styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../styles/authentication.css">
 </head>
 <body>
    <?php 
@@ -15,7 +15,7 @@
 
 <!-- jquery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<div class="background"></div>
+
 
 <form  method="post" action="register.php" class="register_form"> 
 <h2>Register</h2>
@@ -45,8 +45,8 @@
         <span id="errUsername"><?php echo $ErrUsername?></span><br>
     </div>
     <div class="single_input">
-        <input type="date" name="birthday" min='1900-01-01' max='2020-01-01' value="<?php echo $birthday?>">
-        <label>Birthday</label> <br>
+        <input type="date" name="birthday" min='1900-01-01' max='2020-01-01' value="<?php echo $birthday?>" required>
+        <!-- <label>Birthday</label> --> <br> 
         <span><?php echo $ErrBirthday?></span><br>
     </div>
     <select name="gjinia"value="<?php echo $gjinia?>"><span><?php echo $ErrGjinia?></span>
@@ -73,6 +73,8 @@
 
 <!-- jQyery qe kontrollon nese inputi perdoruesit eshte i pranueshem -->
 <script src="/BibliotekaOnline/scripts/checkRegisterInput.js"></script>
+<!-- script qe shton classen has-content per inputet qe nuk jane bosh -->
+<script type="text/javascript" src="../scripts/addInputClass.js"></script>
 
   </body>
   </html>

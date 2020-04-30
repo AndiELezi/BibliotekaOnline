@@ -98,6 +98,12 @@ session_start();
 		<a href="register.php">Register</a> <br><!-- Ket e shkrujta njeher kshu se di si do e bejm -->
 		<a href="forgotPassword.php">Lost your password?</a> <!--kjo duhet tna coj ne nje faqe qe kerko email -->
 	</form>
+
+	<!-- jquery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- script qe shton classen has-content per inputet qe nuk jane bosh -->
+	<script type="text/javascript" src="../scripts/addInputClass.js"></script>
+
 </body>
 </head>
 </html>
