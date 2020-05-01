@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2020 at 08:19 PM
+-- Generation Time: May 01, 2020 at 05:00 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -66,7 +66,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`) VALUES
-('1', 'A', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 10),
+('1', 'atest', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 10),
 ('2', 'A', '2001-12-12', 1, 1, 10, 0, 'b.jpg', 'blablabla', 3),
 ('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12),
 ('4', 'A', '0000-00-00', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14),
@@ -162,7 +162,7 @@ INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
 CREATE TABLE `book_reservation` (
   `user_id` int(11) NOT NULL,
   `book_id` varchar(30) NOT NULL,
-  `reservation_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `reservation_time` date NOT NULL,
   `returnTime` date NOT NULL,
   `delay_fine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -199,9 +199,44 @@ INSERT INTO `categories` (`id`, `description`) VALUES
 
 CREATE TABLE `hall_booking` (
   `library_hall` int(11) NOT NULL,
-  `booking_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `seat_number` int(11) NOT NULL,
+  `reservation_start_time` timestamp NULL DEFAULT NULL,
+  `reservation_end_time` timestamp NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hall_booking`
+--
+
+INSERT INTO `hall_booking` (`library_hall`, `seat_number`, `reservation_start_time`, `reservation_end_time`, `user_id`) VALUES
+(1, 1, '2020-04-01 17:59:28', '2020-04-01 19:59:28', 15),
+(1, 10, '2020-04-01 16:16:46', '2020-04-01 20:59:28', 16),
+(1, 25, '2020-04-01 16:16:46', '2020-04-01 19:59:28', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hall_structure`
+--
+
+CREATE TABLE `hall_structure` (
+  `structure_id` int(11) NOT NULL,
+  `library_hall` int(11) DEFAULT NULL,
+  `row_numbers` int(11) DEFAULT NULL,
+  `separation_1` int(11) DEFAULT NULL,
+  `separation_2` int(11) DEFAULT NULL,
+  `separation_3` int(11) DEFAULT NULL,
+  `separation_4` int(11) DEFAULT NULL,
+  `separation_5` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hall_structure`
+--
+
+INSERT INTO `hall_structure` (`structure_id`, `library_hall`, `row_numbers`, `separation_1`, `separation_2`, `separation_3`, `separation_4`, `separation_5`) VALUES
+(1, 1, 5, 3, 3, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -211,10 +246,19 @@ CREATE TABLE `hall_booking` (
 
 CREATE TABLE `library_halls` (
   `id` int(11) NOT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `capacity` int(11) NOT NULL,
   `open_seats` int(11) NOT NULL,
   `librarian_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `library_halls`
+--
+
+INSERT INTO `library_halls` (`id`, `name`, `capacity`, `open_seats`, `librarian_id`) VALUES
+(1, 'salla1', 50, 50, 1),
+(2, 'salla2', 50, 50, 15);
 
 -- --------------------------------------------------------
 
@@ -283,18 +327,6 @@ CREATE TABLE `review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seats`
---
-
-CREATE TABLE `seats` (
-  `id` int(11) NOT NULL,
-  `library_hall_id` int(11) NOT NULL,
-  `statusi` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -321,7 +353,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 0, 3, 'andi06121998rjhdtsoukyqgeiplfwa.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 30, 3, 'andi06121998rjhdtsoukyqgeiplfwa.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
 
 -- --------------------------------------------------------
 
@@ -517,6 +549,13 @@ ALTER TABLE `hall_booking`
   ADD KEY `fk_user_id` (`user_id`);
 
 --
+-- Indexes for table `hall_structure`
+--
+ALTER TABLE `hall_structure`
+  ADD PRIMARY KEY (`structure_id`),
+  ADD KEY `fk_library_hall_structure` (`library_hall`);
+
+--
 -- Indexes for table `library_halls`
 --
 ALTER TABLE `library_halls`
@@ -543,13 +582,6 @@ ALTER TABLE `review`
   ADD PRIMARY KEY (`id_review`),
   ADD KEY `fk_user_review_id` (`user_id`),
   ADD KEY `fk_book_review_id` (`id_book`);
-
---
--- Indexes for table `seats`
---
-ALTER TABLE `seats`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_library_hall_id` (`library_hall_id`);
 
 --
 -- Indexes for table `users`
@@ -581,10 +613,16 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `hall_structure`
+--
+ALTER TABLE `hall_structure`
+  MODIFY `structure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `library_halls`
 --
 ALTER TABLE `library_halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `online_books`
@@ -639,6 +677,12 @@ ALTER TABLE `book_author`
 ALTER TABLE `book_categories`
   ADD CONSTRAINT `fk_book_ISBN` FOREIGN KEY (`book_id`) REFERENCES `book` (`ISBN`),
   ADD CONSTRAINT `fk_category_id` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
+
+--
+-- Constraints for table `hall_structure`
+--
+ALTER TABLE `hall_structure`
+  ADD CONSTRAINT `fk_library_hall_structure` FOREIGN KEY (`library_hall`) REFERENCES `library_halls` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `online_books`
