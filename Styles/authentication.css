@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 
-h2 {font-family:arial; 
+h2 {
+	font-family:arial; 
   color:#afbdcf; 
   text-transform:uppercase; 
   font-size:16px; 
@@ -17,6 +18,7 @@ h2 {font-family:arial;
   padding: 18px;
   text-align: center;
 }
+
 body {
   background: url(../images/app/books_background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -27,23 +29,24 @@ body {
 
 
 form {
-  background: white;
+	backdrop-filter: blur(3px);
+	border-radius: 2px;
   width: 500px;
-  height: 400px;
-  margin: 100px auto;
-  padding: 125px 0px 0px 100px;
+  height: 600px;
+  margin: 0% auto;
+  margin-left: 60%;
+  padding: 60px 0px 0px 100px;
   outline: 5px solid rgba(0,0,0,0.1);
   position:relative;
 }
 
+
+
 .login_form{
   height: 400px;
-}
-
-.register_form{
-  height: 650px;
-  margin: 20px auto;
-  padding: 60px 0px 0px 100px;
+  margin: 100px auto;
+  margin-left: 60%;
+  padding: 125px 0px 0px 100px;
 }
 
 
@@ -54,12 +57,35 @@ form {
 input{
   border: 2px solid #afbdcf;
   border-radius: 5px;
-  height: 43px;
+  height: 35px;
   width:300px;
   color: #000000;
   font-size: 14px;
   padding-left: 20px;
   box-shadow: none;  
+}
+
+select, option{
+	border: 2px solid #afbdcf;
+  border-radius: 5px;
+  height: 35px;
+  width:300px;
+  color: #000000;
+  font-size: 14px;
+  padding-left: 20px;
+  box-shadow: none; 
+}
+
+.input_wrap span{
+	color: red;
+}
+
+.login_form input {
+	height: 43px;
+}
+
+.login_form select, option{
+	height: 43px;
 }
 
 /* Label style after Input field is in focus. Can also use input:focus ~ label to select sibling. */
@@ -88,7 +114,7 @@ input:focus + label, input.has-content + label{
   font-family:sans-serif;
   font-size:16px;
   color: #afbdcf;
-  padding: 14px;
+  padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
@@ -96,6 +122,10 @@ input:focus + label, input.has-content + label{
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
   pointer-events: none;
+}
+
+.login_form label{
+	padding: 14px;
 }
 
 input:focus {outline:none;}
