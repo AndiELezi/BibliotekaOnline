@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-h2 {
+/*h2 {
 	font-family:arial; 
   color:#afbdcf; 
   text-transform:uppercase; 
@@ -17,10 +17,22 @@ h2 {
   position:absolute; top:0px; left:0px;margin: 0px;
   padding: 18px;
   text-align: center;
+}*/
+#login{
+  font-family:arial; 
+  color:#28B6C8; 
+  text-transform:uppercase; 
+  font-size:16px; 
+  font-weight:bold;
+  position: absolute;
+  top:17%; left:44%;
+
 }
 
 body {
   background: url(../images/app/books_background.jpg) no-repeat center center fixed;
+   background-color: rgba(0, 0, 0, 0.7);
+   background-size: cover; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -29,14 +41,15 @@ body {
 
 
 form {
-	backdrop-filter: blur(3px);
-	border-radius: 2px;
+	backdrop-filter: blur(5px);
+	border-radius: 50px;
   width: 500px;
+  background-color: rgba(0, 0, 0, 0.5);
   height: 600px;
   margin: 0% auto;
   margin-left: 60%;
   padding: 60px 0px 0px 100px;
-  outline: 5px solid rgba(0,0,0,0.1);
+  /*outline: 5px solid rgba(0,0,0,0.1);*/
   position:relative;
 }
 
@@ -55,11 +68,12 @@ form {
 
 
 input{
-  border: 2px solid #afbdcf;
+  border: 2px solid #8CA1D6 ;
   border-radius: 5px;
   height: 35px;
   width:300px;
-  color: #000000;
+  color: #28B6C8 ;
+  font-weight:bold;
   background: transparent;
   font-size: 14px;
   padding-left: 20px;
@@ -67,19 +81,24 @@ input{
 }
 
 select, option{
-	border: 2px solid #afbdcf;
+	border: 2px solid #8CA1D6 ;
   border-radius: 5px;
   height: 35px;
   width:300px;
-  color: #000000;
+  color: #1D78E3;
   background: transparent;
   font-size: 14px;
   padding-left: 20px;
   box-shadow: none; 
 }
+.submit:hover{
+  background-color:#1D78E3; 
+  color:white;
+}
 
 .input_wrap span{
 	color: red;
+  font-weight: bold;
 }
 
 .login_form input {
@@ -97,10 +116,11 @@ select, option{
 
 input:focus + label, input.has-content + label{
   font-size: 12px;
-  color: #afbdcf;
+  color: #0F69A1;
   top: -5px;
   left:10px;
-  background: #ffffff;
+  background: #000000;
+  border-radius: 3px;
   padding: 0px 5px 0px 5px;
 }
 
@@ -115,7 +135,8 @@ input:focus + label, input.has-content + label{
 .input_wrap label {
   font-family:sans-serif;
   font-size:16px;
-  color: #afbdcf;
+  color: #1468E5;
+  font-weight: bold;
   padding: 10px;
   position: absolute;
   top: 0;
@@ -130,4 +151,26 @@ input:focus + label, input.has-content + label{
 	padding: 14px;
 }
 
-input:focus {outline:none;}
+input:focus {
+  outline:none;
+   background-color:#102242;
+}
+
+#userLogo{
+width: 100px;
+height: 100px;
+border-radius: 50%;
+position: absolute;
+top: 10%;
+right: 21%;
+}
+
+a{
+  text-decoration: none;
+  color: #1D78E3;
+  font-weight: bold;
+}
+
+a:hover{
+  color: #28B6C8
+}

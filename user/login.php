@@ -79,9 +79,12 @@ session_start();
 			}
 		}
 	?>
-	<form method="post" action="login.php" class="login_form">
-		<h2>Login</h2>
-		<div class="input_wrap">
+
+	
+		<form method="post" action="login.php" class="login_form">
+		<h2 id="login">Login</h2>
+			<div class="input_wrap">
+
 			<div class="single_input">
 				<input type="text" id="username" name="username" value="<?php echo $username;?>" required>
 				<label>Username</label><br>
@@ -92,12 +95,13 @@ session_start();
 				<label>Password</label><br>
 				<span id="errPassword"><?php echo $errPassword; ?></span>
 			</div> <br>
-			<input type="submit" name="submit">
+			<input class="submit" type="submit" name="submit">
 		</div>
 		<br><br>
 		<a href="register.php">Register</a> <br><!-- Ket e shkrujta njeher kshu se di si do e bejm -->
 		<a href="forgotPassword.php">Lost your password?</a> <!--kjo duhet tna coj ne nje faqe qe kerko email -->
 	</form>
+	<img id="userLogo" src="/BibliotekaOnline/images/app/userlogo.png">
 	<!-- jquery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- script qe shton classen has-content per inputet qe nuk jane bosh -->
