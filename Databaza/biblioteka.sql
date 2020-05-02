@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2020 at 05:00 PM
+-- Generation Time: May 02, 2020 at 02:54 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -210,7 +210,7 @@ CREATE TABLE `hall_booking` (
 --
 
 INSERT INTO `hall_booking` (`library_hall`, `seat_number`, `reservation_start_time`, `reservation_end_time`, `user_id`) VALUES
-(1, 1, '2020-04-01 17:59:28', '2020-04-01 19:59:28', 15),
+(1, 3, '2020-01-05 12:00:00', '2020-01-05 13:00:00', 15),
 (1, 10, '2020-04-01 16:16:46', '2020-04-01 20:59:28', 16),
 (1, 25, '2020-04-01 16:16:46', '2020-04-01 19:59:28', 17);
 
@@ -236,7 +236,8 @@ CREATE TABLE `hall_structure` (
 --
 
 INSERT INTO `hall_structure` (`structure_id`, `library_hall`, `row_numbers`, `separation_1`, `separation_2`, `separation_3`, `separation_4`, `separation_5`) VALUES
-(1, 1, 5, 3, 3, 4, NULL, NULL);
+(1, 1, 5, 3, 3, 4, NULL, NULL),
+(2, 2, 5, 2, 2, 3, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -616,7 +617,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `hall_structure`
 --
 ALTER TABLE `hall_structure`
-  MODIFY `structure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `structure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `library_halls`

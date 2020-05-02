@@ -56,8 +56,10 @@ echo "</select>";
  ?>
  <span>oraFillimit</span><input type="time" id="startTime" value="01:00" name="startTime" onchange="startTimeChange(this.value)" >
  <span>oraMbarimit</span><input type="time" id="endTime" value="01:00" name="endTime" onchange="endTimeChange(this.value)">
-</form><br>
+</form>
+<button onclick="reserve()">rezervo</button>
 <div id="seatResult"></div>
+<div id="reservationResponse"></div>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/placeReservation.js"></script>
 
 </body>

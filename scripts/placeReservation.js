@@ -3,6 +3,9 @@ var month="";
 var date="";
 var startTime=document.getElementById("startTime").value;
 var endTime=document.getElementById("endTime").value;
+var response="";
+var reservedSeatId="";
+
 
 function check(){
 	if(libraryId!="" && month!="" && date!="" && startTime!="" && endTime!=""){
@@ -25,6 +28,7 @@ function showSeats() {
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
+      	response=this.responseText;
         document.getElementById("seatResult").innerHTML=this.responseText;
       }
     }
@@ -44,6 +48,7 @@ function showSeats() {
 
 
 function monthChange(muaji) {
+reservedSeatId="";	
 month=muaji;
 showSeats();
 var nrOfDays=document.getElementById("data");
@@ -77,6 +82,7 @@ else if(option1!=null){
 
 
 function libraryHallChange(library){
+	reservedSeatId="";
 	libraryId=library;
 	showSeats();
 	
@@ -86,6 +92,7 @@ function libraryHallChange(library){
 
 
 function dateChange(data){
+	reservedSeatId="";
 	date=data;
 	showSeats();
 }
@@ -94,6 +101,7 @@ function dateChange(data){
 
 
 function startTimeChange(kohaFillimit) {
+	reservedSeatId="";
 	startTime=kohaFillimit;
 	showSeats();
 }
@@ -102,6 +110,65 @@ function startTimeChange(kohaFillimit) {
 
 
 function endTimeChange(kohaPerfundimit) {
+	reservedSeatId="";
 	endTime=kohaPerfundimit;
 	showSeats();
+}
+
+
+function selectSeat(placeId){
+	if(placeId==reservedSeatId){
+		document.getElementById("seatResult").innerHTML=response;
+		reservedSeatId="";
+		
+	}
+	else{
+		 document.getElementById("seatResult").innerHTML=response;
+  		 document.getElementById(placeId).src="/BibliotekaOnline/images/app/selectedSeat.jpg";
+  		 reservedSeatId=placeId;
+	}
+
+}
+
+
+function reserve() {
+	if(!checkReservation()){
+		document.getElementById("reservationResponse").innerHTML="Ju lutem plotesoni te gjitha fushat dhe zgjidhni vendin qe deshironi te rezervoni";
+		return;
+
+	}
+	else{
+	
+		xmlhttp=new XMLHttpRequest();
+    	xmlhttp.onreadystatechange=function() {
+				
+    	if (this.readyState==4 && this.status==200) {
+
+      		if(this.responseText!=""){
+
+        		document.getElementById("reservationResponse").innerHTML=this.responseText;
+      }
+    }
+  }
+
+  var data="libraryHall="+libraryId+"&month="+month+"&date="+date+"&startTime="+startTime+"&endTime="+endTime+"&reservedSeatId="+reservedSeatId;
+ xmlhttp.open("POST","functions/placeReservationDatabase.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+
+
+
+	}
+	
+}
+
+
+function checkReservation() {
+	if(check() && libraryId!="default" && month!="default" && date!="default" && reservedSeatId!=""){
+		return true;
+	}
+	else{
+		return false;
+	}
 }

@@ -14,7 +14,7 @@ if(strtotime($reservationStartTime)>=strtotime($reservationEndTime)){
 	$pageErr="koha e perfundimit te rezervimit nuk mund te jete me e vogel ose e barabarte me kohen e fillimit te rezervimit";
 }
 $libraryHall=$_POST["libraryHall"];
-$sql="SELECT * FROM hall_booking WHERE (library_hall='{$libraryHall}') AND (reservation_start_time < '{$reservationStartTime}' AND reservation_end_time>'{$reservationStartTime}' OR reservation_start_time<'{$reservationEndTime}' AND reservation_end_time>'{$reservationEndTime}' OR reservation_start_time>'{$reservationStartTime}' AND reservation_end_time<'{$reservationEndTime}')  ";
+$sql="SELECT * FROM hall_booking WHERE (library_hall='{$libraryHall}') AND (reservation_start_time <= '{$reservationStartTime}' AND reservation_end_time>'{$reservationStartTime}' OR reservation_start_time<'{$reservationEndTime}' AND reservation_end_time>='{$reservationEndTime}' OR reservation_start_time>='{$reservationStartTime}' AND reservation_end_time<='{$reservationEndTime}')  ";
 $takenSeatsResults=$connection->query($sql);
 $takenSeats=array();
 $takenSeatsIndex=0;
@@ -47,7 +47,7 @@ for($i=1;$i<=$row_numbers;$i++){
 					$nrVendit++;
 				}
 				else{
-					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.jpg' id=$nrVendit>";
+					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.jpg' id=$nrVendit onclick='selectSeat(this.id)'>";
 					$pageResult .=" ";
 					$nrVendit++;
 				}
