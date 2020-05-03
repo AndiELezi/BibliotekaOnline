@@ -7,11 +7,11 @@ $username=$_POST["username"];
 $sql="SELECT name FROM users WHERE username='{$username}'";
 $result=$connection->query($sql);
 if($result->num_rows>0){
-	echo "username already taken";
+	echo "Username already taken";
 }
 else{
 
-	echo "username is available";
+	echo "Username is available";
 }
 
 
@@ -24,11 +24,11 @@ $email=$_POST["email"];
 $sql="SELECT name FROM users WHERE email='{$email}'";
 $result=$connection->query($sql);
 if($result->num_rows>0){
-	echo "email already taken";
+	echo "Email already taken";
 }
 else{
 
-	echo "email is available";
+	echo "Email is available";
 }
 
 

@@ -56,7 +56,14 @@ url: "functions/checkAvailability.php",
 data:'username='+ username,
 type: "POST",
 success:function(data){
-$('#errUsername').text(data);
+
+  if(data=="Username is available"){
+    document.getElementById("username").style="border: 2px solid #1ec31e";
+  }
+  else{
+    document.getElementById("username").style="border: 2px solid red";
+    $('#errUsername').text(data);
+  }
 },
 error:function (){}
 });
@@ -75,7 +82,13 @@ $('#email').bind('keyup blur',function(){
 			data:'email='+ email,
 			type: "POST",
 			success:function(data){
-				$('#errEmail').text(data);
+        if(data=="Email is available"){
+          document.getElementById("email").style="border: 2px solid #1ec31e";
+        }
+        else{
+          document.getElementById("email").style="border: 2px solid red";
+          $('#errEmail').text(data);
+        }
 			},
 			error:function (){}
 		});
@@ -83,6 +96,18 @@ $('#email').bind('keyup blur',function(){
 });
 
 
+$('#email').focusout(function(){
+  if($(this).val()==""){
+    document.getElementById("email").style="border: 2px solid #8CA1D6";
+  }
+});
+
+
+$('#username').focusout(function(){
+  if($(this).val()==""){
+    document.getElementById("username").style="border: 2px solid #8CA1D6";
+  }
+});
 
 
 // funksion qe kthen true nese nje string permban nje numer 

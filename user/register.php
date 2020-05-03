@@ -66,8 +66,8 @@
         <span id="errCPassword"><?php echo $ErrCPassword?></span><br>
     </div>
   <input type="submit" name="submit" value="Register">
-</div> <br>
-  Already have an account? <a href="login.php">Login</a>
+</div>
+  <p style="color:#fff; padding-left: 0px; text-align:center; padding-right: 95px;">Already have an account? <a href="login.php">Login</a></p>
   
 </form>
 

@@ -5,7 +5,7 @@ $isCorrect=1;
 $security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");
 $emri=$mbiemri=$phone_nr=$email=$username=$birthday=$gjinia=$password=$cPassword="";
 
-$ErrEmri=$ErrMbiemri=$ErrEmail=$ErrUsername=$ErrBirthday=$ErrGjinia=$ErrPassword=$ErrCPassword="";
+$ErrEmri=$ErrMbiemri=$ErrEmail=$ErrUsername=$ErrBirthday=$ErrGjinia=$ErrPassword=$ErrCPassword=$emailAvailable="";
 
 //funksion qe kontrollon nese nje string permban nje numer
 function containsNumbers($String){

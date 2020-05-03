@@ -1,4 +1,5 @@
 /* Page styles */
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 
 * {
   -webkit-box-sizing: border-box;
@@ -23,16 +24,15 @@ h2{
   color:#28B6C8;
   text-transform:uppercase;
   text-align: center; 
-  font-size:16px; 
+  font-size:20px; 
   font-weight:bold;
   position: relative;
   right:14%;
-  padding-bottom: 5%;
 }
 
 
 #login{
-  padding-bottom: 10%;
+  padding-bottom: 8%;
 }
 
 body {
@@ -43,7 +43,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: sans-serif;
+  font-family: 'Exo', sans-serif;
 }
 
 
@@ -51,11 +51,11 @@ form {
 	backdrop-filter: blur(5px);
 	border-radius: 50px;
   width: 500px;
+  height: 641px;
   background-color: rgba(0, 0, 0, 0.5);
-  height: 640px;
   margin: 0% auto;
   margin-left: 60%;
-  padding: 10px 0px 0px 100px;
+  padding: 5px 0px 0px 100px;
   /*outline: 5px solid rgba(0,0,0,0.1);*/
   position:relative;
 }
@@ -63,7 +63,7 @@ form {
 
 
 .login_form{
-  height: 430px;
+  height: 450px;
   margin: 100px auto;
   margin-left: 60%;
   padding: 70px 0px 0px 100px;
@@ -72,7 +72,7 @@ form {
 
 /* forgot password css */
 .forgot_password_form{
-  height: 240px;
+  height: 270px;
   padding: 30px 0px 0px 100px;
   position: absolute;
   top: 30%;
@@ -107,9 +107,8 @@ select, option{
   border-radius: 5px;
   height: 35px;
   width:300px;
-  color: #1D78E3;
-  font-weight: bold;
-  background: transparent;
+  color: #28B6C8;
+  background-color:#102242;
   font-size: 14px;
   padding-left: 20px;
   box-shadow: none;
@@ -117,6 +116,7 @@ select, option{
 
 input[type=submit]{
   border-radius: 15px;
+  padding-left: 0px;
 }
 
 input[type=submit]:hover{
@@ -125,9 +125,25 @@ input[type=submit]:hover{
   cursor: pointer;
 }
 
+input[type="date" i]{
+  padding-inline-start: 7px;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    cursor: pointer;
+}
+
+
 .input_wrap span{
 	color: red;
   font-weight: bold;
+  font-size: 11px;
 }
 
 .login_form input, .login_form select, option {
@@ -137,7 +153,7 @@ input[type=submit]:hover{
 /* Label style after Input field is in focus. Can also use input:focus ~ label to select sibling. */
 
 input:focus + label, input.has-content + label{
-  font-size: 12px;
+  font-size: 10px;
   color: #0F69A1;
   top: -5px;
   left:10px;
@@ -155,9 +171,8 @@ input:focus + label, input.has-content + label{
 }
 
 .input_wrap label {
-  font-family:sans-serif;
-  font-size:16px;
-  color: #1468E5;
+  font-size:13px;
+  color: #28B6C8;
   font-weight: bold;
   padding: 10px;
   position: absolute;
@@ -175,7 +190,8 @@ input:focus + label, input.has-content + label{
 
 input:focus {
   outline:none;
-   background-color:#102242;
+  background-color:#102242;
+  border: 2px solid #28B6C8;
 }
 
 #userLogo{
