@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Activate account</title>
+	<link rel="stylesheet" type="text/css" href="../styles/authentication.css">
+</head>
+<body>
 <?php 
 
 	include "functions/DBconnection.php";
@@ -26,11 +33,13 @@
 		$security=$user["securityString"];
 
 ?>
-		<h2>You need to activate your account first. Check your email!</h2>
-		<form method="post">
+		
+		<form method="post" class="account_activation_form">
+			<h2>You need to activate your account first. <br> Check your email!</h2>
 			<input type="submit" name="resend" value="Resend Email">
+			<br> <br>
+			<a href="//localhost/BibliotekaOnline/user/login.php">Login</a>
 		</form>
-		<a href="//localhost/BibliotekaOnline/user/login.php">Login</a>
 
 <?php
 		if(array_key_exists('resend', $_POST)){
@@ -41,3 +50,6 @@
 	$connection->close();
 
 ?>
+
+</body>
+</html>

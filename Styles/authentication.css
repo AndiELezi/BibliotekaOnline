@@ -84,6 +84,28 @@ form {
 }
 
 
+.account_activation_form{
+  height: 270px;
+  padding: 30px 0px 0px 100px;
+  position: absolute;
+  top: 30%;
+  margin-left: 33%;
+}
+
+.account_activation_form h2{
+  font-size: 13px;
+}
+
+
+.add_new_password_form{
+  height: 280px;
+  padding: 30px 0px 0px 100px;
+  position: absolute;
+  top: 30%;
+  margin-left: 33%;
+}
+
+
 /* Input form Style */
 
 
@@ -154,10 +176,10 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 input:focus + label, input.has-content + label{
   font-size: 10px;
-  color: #0F69A1;
+  color: #000;
   top: -5px;
   left:10px;
-  background: #000000;
+  background: #28B6C8;
   border-radius: 3px;
   padding: 0px 5px 0px 5px;
 }
@@ -214,7 +236,16 @@ a:hover{
   text-decoration: underline;
 }
 
-/* delay autofill default css */
+
+@-webkit-keyframes autofill {
+    0%,100% {
+        color: #28B6C8;
+        background: transparent;
+    }
+}
+
 input:-webkit-autofill {
-  transition: background-color 1s ease-in 5000s, color 1s ease-in 5000s;
+    -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
 }

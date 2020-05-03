@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add new password</title>
+	<link rel="stylesheet" type="text/css" href="../styles/authentication.css">
+</head>
+<body>
 <?php 
 $showForm=false;
 $password="";
@@ -74,13 +81,30 @@ include "functions/DBconnection.php";
 
 	if($showForm){
 ?>
-			<form method="post">
-				<input type="password" name="password" id="password" value="<?php echo $password?>" placeholder="New password">
-					<span id="errPassword"><?php echo $errPassword ?></span><br>
-  				<input type="password" name="cPassword" id="cPassword" value="<?php echo $cPassword?>" placeholder="Confirm Password">
-  					<span id="errCpassword"><?php echo $errCpassword ?></span> <br>
-  				<input type="submit" name="submit" value="Confirm">
-			</form>
+		<form method="post" class="add_new_password_form">
+			<h2>Type your new password</h2>
+			<div class="input_wrap">
+				<div class="single_input">
+        			<input type="password" name="password" id="password" value="<?php echo $password?>" required>
+        			<label>New Password</label> <br>
+        			<span id="errPassword"><?php echo $errPassword?></span><br>
+    			</div>
+    			<div class="single_input">
+        			<input type="password" name="cPassword" id="cPassword" value="<?php echo $cPassword?>" required>
+        			<label>Confirm</label> <br>
+        			<span id="errCPassword"><?php echo $errCpassword?></span><br>
+    			</div>
+  				<input type="submit" name="submit" value="Change">
+  			</div>
+		</form>
+
+	<!-- jquery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- script qe shton classen has-content per inputet qe nuk jane bosh -->
+	<script type="text/javascript" src="../scripts/addInputClass.js"></script>
 <?php
 	}
 ?>
+
+</body>
+</html>
