@@ -5,6 +5,10 @@ function funksionTest(){
   alert("hello");
 }
 
+function placeData(){
+  localStorage.setItem("browse","browse");
+} 
+
 for(var i=0;i<5;i++){
 	showSlide(1,i);
 }

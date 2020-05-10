@@ -7,7 +7,7 @@ include 'functions/DBconnection.php';
 <head>
 	<title></title>
 </head>
-<body onbeforeunload="resetSelects()">
+<body>
 <select name="bookType" id="bookType" onchange="bookTypeChange(this.value)">
 <option value="default">Book Type</option>	
 <option value="onlineBooks">Online Books</option>
