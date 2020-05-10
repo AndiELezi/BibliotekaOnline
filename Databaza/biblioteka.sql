@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2020 at 02:54 PM
+-- Generation Time: May 10, 2020 at 02:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -40,7 +40,27 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VALUES
-(1, 'a', 'a', '2020-04-01', 'a');
+(1, 'a', 'a', '2020-04-01', 'a'),
+(8, 'b', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(9, 'c', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(10, 'd', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(11, 'e', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(12, 'f', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(13, 'g', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(14, 'h', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(15, 'j', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(16, 'k', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(17, 'l', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(18, 'm', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(19, 'n', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(20, 'o', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(21, 'p', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(22, 'q', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(23, 'r', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(24, 's', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(25, 't', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(26, 'u', 'nje vendlindje', '2020-05-01', 'nje kontakt'),
+(27, 'i', 'nje vendlindje', '2020-05-01', 'nje kontakt');
 
 -- --------------------------------------------------------
 
@@ -67,13 +87,23 @@ CREATE TABLE `book` (
 
 INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`) VALUES
 ('1', 'atest', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 10),
+('10', 'Book10', '2014-12-06', 1, 1, 1000, 0, 'Book101589023306.png', 'book10 description', 0),
 ('2', 'A', '2001-12-12', 1, 1, 10, 0, 'b.jpg', 'blablabla', 3),
 ('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12),
-('4', 'A', '0000-00-00', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14),
+('4', 'A', '1998-01-01', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14),
 ('5', 'A', '2005-12-12', 1, 1, 10, 100, 'e.jpg', 'blablabla', 18),
 ('6', 'A', '2006-12-12', 1, 1, 10, 0, 'f.jpg', 'blablabla', 23),
 ('8', 'banana', '2020-04-01', 1, 1, 12, 12, 'banana.jpg', 'asdasdasd', 10),
-('9', 'hello', '2020-04-01', 1, 10, 10, 10, 'hello.jpg', 'sdaasda', 10);
+('9', 'hello', '2020-04-01', 1, 10, 10, 10, 'hello.jpg', 'sdaasda', 10),
+('Book1', 'Book1', '1998-12-06', 2, 1, 1000, 0, 'Book11589022900.png', 'book1 description', 0),
+('Book2', 'Book2', '1995-12-06', 2, 1, 1000, 0, 'Book21589022923.png', 'book2 description', 0),
+('Book3', 'Book3', '1800-12-06', 2, 1, 1000, 0, 'Book31589022993.png', 'book3 description', 0),
+('Book4', 'Book4', '1756-12-06', 2, 1, 1000, 0, 'Book41589023027.png', 'book4 description', 0),
+('Book5', 'Book5', '2012-12-06', 2, 1, 1000, 0, 'Book51589023064.png', 'book5 description', 0),
+('Book6', 'Book6', '2003-12-06', 2, 1, 1000, 0, 'Book61589023162.png', 'book6 description', 0),
+('Book7', 'Book7', '1689-12-06', 2, 1, 1000, 0, 'Book71589023187.png', 'book7 description', 0),
+('Book8', 'Book8', '1869-12-06', 2, 1, 1000, 0, 'Book81589023224.png', 'book8 description', 0),
+('Book9', 'Book9', '1999-12-06', 2, 1, 1000, 0, 'Book91589023272.png', 'book9 description', 0);
 
 -- --------------------------------------------------------
 
@@ -92,7 +122,17 @@ CREATE TABLE `book_author` (
 
 INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
 ('1', 1),
-('2', 1);
+('10', 17),
+('2', 1),
+('Book1', 8),
+('Book2', 8),
+('Book3', 9),
+('Book4', 9),
+('Book5', 11),
+('Book6', 13),
+('Book7', 13),
+('Book8', 27),
+('Book9', 18);
 
 -- --------------------------------------------------------
 
@@ -113,11 +153,39 @@ INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
 ('1', 1),
 ('1', 2),
 ('1', 3),
+('10', 1),
+('10', 7),
 ('2', 1),
 ('2', 5),
 ('3', 4),
 ('4', 4),
-('4', 6);
+('4', 6),
+('5', 1),
+('6', 3),
+('8', 5),
+('9', 6),
+('Book1', 2),
+('Book1', 7),
+('Book2', 2),
+('Book2', 7),
+('Book3', 2),
+('Book3', 5),
+('Book3', 7),
+('Book4', 2),
+('Book4', 5),
+('Book4', 7),
+('Book5', 1),
+('Book5', 2),
+('Book5', 7),
+('Book6', 1),
+('Book6', 2),
+('Book6', 7),
+('Book7', 1),
+('Book7', 2),
+('Book8', 1),
+('Book8', 2),
+('Book8', 7),
+('Book9', 2);
 
 -- --------------------------------------------------------
 
@@ -151,7 +219,47 @@ INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
 (38, 1),
 (39, 2),
 (39, 5),
-(39, 7);
+(39, 7),
+(40, 2),
+(40, 5),
+(41, 5),
+(41, 1),
+(42, 2),
+(42, 5),
+(42, 7),
+(43, 2),
+(43, 7),
+(44, 2),
+(44, 1),
+(45, 5),
+(45, 7),
+(46, 5),
+(46, 1),
+(47, 2),
+(47, 1),
+(48, 2),
+(48, 7),
+(48, 1),
+(49, 2),
+(49, 5),
+(49, 7),
+(50, 5),
+(50, 1),
+(51, 7),
+(51, 1),
+(52, 2),
+(52, 1),
+(53, 5),
+(54, 7),
+(55, 2),
+(56, 1),
+(57, 5),
+(58, 2),
+(58, 5),
+(58, 7),
+(58, 1),
+(59, 5),
+(59, 7);
 
 -- --------------------------------------------------------
 
@@ -210,7 +318,6 @@ CREATE TABLE `hall_booking` (
 --
 
 INSERT INTO `hall_booking` (`library_hall`, `seat_number`, `reservation_start_time`, `reservation_end_time`, `user_id`) VALUES
-(1, 3, '2020-01-05 12:00:00', '2020-01-05 13:00:00', 15),
 (1, 10, '2020-04-01 16:16:46', '2020-04-01 20:59:28', 16),
 (1, 25, '2020-04-01 16:16:46', '2020-04-01 19:59:28', 17);
 
@@ -290,7 +397,27 @@ INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `
 (36, 15, 'hello', '2020-04-23', 0, 'hello1587664954.jpg', 'hello', 'hello1587664954.pdf'),
 (37, 15, 'f', '2020-04-23', 0, 'default.jpg', 'f', 'f1587665619.pdf'),
 (38, 15, 'i', '2020-04-23', 0, 'i1587665727.jpg', 'i', 'i1587665727.pdf'),
-(39, 15, 'test', '2020-04-23', 0, 'default.jpg', 'test', 'test1587665804.pdf');
+(39, 15, 'test', '2020-04-23', 0, 'default.jpg', 'test', 'test1587665804.pdf'),
+(40, 19, 'book1', '2020-05-08', 0, 'book11588936181.png', 'libri 1', 'book11588936181.txt'),
+(41, 19, 'book2', '2020-05-08', 0, 'book21588936203.png', 'liber kot', 'book21588936203.txt'),
+(42, 19, 'book3', '2020-05-08', 0, 'book31588936231.png', 'liber kot 3', 'book31588936231.txt'),
+(43, 19, 'book4', '2020-05-08', 0, 'book41588936297.png', 'liber kot 4', 'book41588936297.txt'),
+(44, 19, 'book5', '2020-05-08', 0, 'book51588936317.png', 'liber kot 5', 'book51588936317.txt'),
+(45, 19, 'book6', '2020-05-08', 0, 'book61588936338.png', 'liber kot 6', 'book61588936338.txt'),
+(46, 19, 'book7', '2020-05-08', 0, 'book71588936357.png', 'liber kot 7', 'book71588936357.txt'),
+(47, 19, 'book8', '2020-05-08', 0, 'book81588936388.png', 'liber kot 8', 'book81588936388.txt'),
+(48, 19, 'book9', '2020-05-08', 0, 'book91588936419.png', 'liber kot 9\r\n', 'book91588936419.txt'),
+(49, 19, 'book10', '2020-05-08', 0, 'book101588936437.png', 'liber kot 10', 'book101588936437.txt'),
+(50, 20, 'book11', '2020-05-08', 0, 'book111588936557.png', 'liber kot 11', 'book111588936557.txt'),
+(51, 20, 'book12', '2020-05-08', 0, 'book121588936580.png', 'liber kot 12', 'book121588936580.txt'),
+(52, 20, 'book13', '2020-05-08', 0, 'book131588936607.png', 'liber kot 13', 'book131588936607.txt'),
+(53, 20, 'book14', '2020-05-08', 0, 'book141588936632.png', 'liber kot 14', 'book141588936632.txt'),
+(54, 20, 'book15', '2020-05-08', 0, 'book151588936651.png', 'liber kot 15', 'book151588936651.txt'),
+(55, 20, 'book16', '2020-05-08', 0, 'book161588936669.png', 'liber kot 16', 'book161588936669.txt'),
+(56, 20, 'book17', '2020-05-08', 0, 'book171588936687.png', 'liber kot 17', 'book171588936687.txt'),
+(57, 20, 'book18', '2020-05-08', 0, 'book181588936708.png', 'liber kot 18', 'book181588936708.txt'),
+(58, 20, 'book19', '2020-05-08', 0, 'book191588936728.png', 'liber kot 19', 'book191588936728.txt'),
+(59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt');
 
 -- --------------------------------------------------------
 
@@ -308,7 +435,8 @@ CREATE TABLE `publish_house` (
 --
 
 INSERT INTO `publish_house` (`id`, `name`) VALUES
-(1, 'test');
+(1, 'test'),
+(2, 'test2');
 
 -- --------------------------------------------------------
 
@@ -354,7 +482,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 30, 3, 'andi06121998rjhdtsoukyqgeiplfwa.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL);
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 10, 3, 'andi06121998rjhdtsoukyqgeiplfwa.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 0, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
+(20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
 -- --------------------------------------------------------
 
@@ -605,7 +735,7 @@ ALTER TABLE `user_rights`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -629,13 +759,13 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -647,7 +777,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
