@@ -31,7 +31,7 @@ session_start();
 		<a href="home.php"><img src="/BibliotekaOnline/images/app/libraryLogo.ico"></a>
 		<ul>
 			<li><a href="bookUpload.php"> bookUpload </a></li>
-			<li onclick="placeData()"><a href="browse.php"> Browse </a></li>
+			<li><a href="browse.php"> Browse </a></li>
 			<li><a href="reservation.php">Reservation</a></li>
 			<li><a href="myBooks.php">My Books</a></li>
 		</ul>
