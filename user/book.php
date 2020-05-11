@@ -53,6 +53,49 @@ else if (isset($_GET["id"])){
 	while ($bookUser=$resultOnlineBookUser->fetch_assoc()) {
 		echo $bookUser["name"]. " ".$bookUser["surname"];
 	}
+
+	$bookPath=$online_books["book_path"];
+
+	
+	/*kur jepet requesti i  download*/
+
+if(isset($_GET["download"])){
+
+
+$bookNameSeparated=explode(".", $bookPath);
+$bookExtension=strtolower(end($bookNameSeparated));
+$bookDownload=$online_books["title"].".".$bookExtension;
+
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename='.basename($bookDownload));
+header('Content-Transfer-Encoding: binary');
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+$fileDestination='C:\xampp\htdocs\BibliotekaOnline\eBooks\\'.$bookPath;
+header('Content-Length: ' . filesize($fileDestination));
+ob_clean();
+flush();
+readfile($fileDestination);
+exit;
+
+}
+
+/***************************************/
+
+
+
+	echo "<br>";
+
+	echo "<a href='/BibliotekaOnline/eBooks/".$bookPath."'>Shiko online </a>";
+
+	echo "<form method='GET'>";
+ 	echo "<input type='submit'  name='download' value='download'> ";
+ 	echo "<input type='hidden' name='id' value='".$id."'>";
+ 	echo "</form>";
+
+
 }
 
 		else{
