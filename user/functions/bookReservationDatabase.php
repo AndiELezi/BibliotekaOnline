@@ -4,6 +4,8 @@
 session_start();
 $errMessage="";
 include 'DBconnection.php';
+
+
 if($_POST["isbn"]!=""){
 $username=$_SESSION["username"];
 $isbn=$_POST["isbn"];
@@ -15,6 +17,13 @@ $bookResult=$connection->query($sql);
 $bookResultData=$bookResult->fetch_assoc();
 
 $pointsLeft=$userResultData["points"]-$bookResultData["reservation_points"];
+
+
+//kotnrolli nqs e ka rezervuar njer kete liber
+$idPerdoruesit=$userResultData["id"];
+$sql="SELECT * FROM book_reservation WHERE user_id='{$idPerdoruesit}' AND book_id='{$isbn}'";
+$resultati=$connection->query($sql);
+if($resultati->num_rows<=0){
 
 if($pointsLeft>=0){
 	if($bookResultData["quantity"]>0){
@@ -58,6 +67,12 @@ if($pointsLeft>=0){
 else{
 	$errMessage="ju nuk mund ta rezervoni dot kete liber pasi nuk keni pike te mjaftueshme";
 }
+
+}
+else{
+	$errMessage="ju e keni nje rezervim aktiv te ketij libri";
+}
+
 
 
 
