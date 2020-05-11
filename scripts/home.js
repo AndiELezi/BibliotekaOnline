@@ -58,6 +58,9 @@ xmlhttp=new XMLHttpRequest();
         document.getElementById("liveSearchResult").style.border="solid 1px";
         
       }
+      else{
+        document.getElementById("liveSearchResult").innerHTML="s ka rezulte";
+      }
     }
   }
 

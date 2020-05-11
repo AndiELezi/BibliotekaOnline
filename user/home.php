@@ -36,7 +36,7 @@ session_start();
 			<li><a href="myBooks.php">My Books</a></li>
 		</ul>
 		<form action="search.php" method="get">
-		<input type="text" name="searchQuery" onkeyup=liveSearch(this.value) autocomplete="off">
+		<input type="text" name="searchQuery" onkeyup="liveSearch(this.value)" autocomplete="off">
 		<select name="filter" id="filter">
 			<option value="title">Title</option>
 			<option value="author">Author</option>
