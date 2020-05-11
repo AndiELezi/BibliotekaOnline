@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 11:44 AM
+-- Generation Time: May 11, 2020 at 01:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -575,6 +575,19 @@ CREATE TABLE `v_online_books_categories` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `v_publish_house_book`
+-- (See below for the actual view)
+--
+CREATE TABLE `v_publish_house_book` (
+`ISBN` varchar(30)
+,`title` varchar(50)
+,`cover_photo` varchar(100)
+,`name` varchar(40)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `v_user_online_books`
 -- (See below for the actual view)
 --
@@ -624,6 +637,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_online_books_categories`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_online_books_categories`  AS  select `ob`.`id` AS `id`,`ob`.`user_id` AS `user_id`,`ob`.`title` AS `title`,`c`.`description` AS `c_description`,`ob`.`publish_date` AS `publish_date`,`ob`.`likes` AS `likes`,`ob`.`cover_photo` AS `cover_photo`,`ob`.`description` AS `description` from ((`categories` `c` join `book_online_categories` `boc` on(`c`.`id` = `boc`.`category_id`)) join `online_books` `ob` on(`ob`.`id` = `boc`.`book_online_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `v_publish_house_book`
+--
+DROP TABLE IF EXISTS `v_publish_house_book`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_publish_house_book`  AS  select `book`.`ISBN` AS `ISBN`,`book`.`title` AS `title`,`book`.`cover_photo` AS `cover_photo`,`publish_house`.`name` AS `name` from (`book` join `publish_house` on(`book`.`publish_house` = `publish_house`.`id`)) ;
 
 -- --------------------------------------------------------
 

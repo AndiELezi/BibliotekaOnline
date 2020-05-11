@@ -19,15 +19,15 @@ $searchQuery=$_GET["searchQuery"];
 	else if(strcmp($_GET["filter"],"author")==0){
 		$sql="SELECT ISBN,cover_photo,title FROM v_author_book WHERE full_name LIKE \"%{$searchQuery}%\"";
 		$offlineBooksResult=$connection->query($sql);
-		$sql="SELECT book_id,cover_photo,title FROM v_user_online_books WHERE name LIKE \"%{$searchQuery}%\" OR surname LIKE \"%{$searchQuery}%\"";
+		$sql="SELECT book_id as id,cover_photo,title FROM v_user_online_books WHERE name LIKE \"%{$searchQuery}%\" OR surname LIKE \"%{$searchQuery}%\"";
 		$onlineBooksResult=$connection->query($sql);
 
 	}
 	else if(strcmp($_GET["filter"],"publishHouse")==0){
-		$sql="SELECT ISBN,cover_photo,title FROM v_publish_house_book WHERE publish_house_name LIKE \"%{$searchQuery}%\"";
+		$sql="SELECT ISBN,cover_photo,title FROM v_publish_house_book WHERE name LIKE \"%{$searchQuery}%\"";
 		$offlineBooksResult=$connection->query($sql);
 		//ktu do mendojm dicka tjt po me pak fjal dua t m sjelli dicka bosh;
-		$sql="SELECT ISBN,cover_photo,title FROM v_publish_house_book WHERE ISBN=-2";
+		$sql="SELECT id,cover_photo,title FROM online_books WHERE id=-2";
 		$onlineBooksResult=$connection->query($sql);
 		
 	}
