@@ -6,16 +6,19 @@ session_start();
 		$username=$_SESSION["username"];
 		$sql="SELECT `name`,`surname`,`points`,`profile_photo` FROM users WHERE username='{$username}'";
 		$result=$connection->query($sql);
-				$user = $result->fetch_assoc();
-		$sql="SELECT `ISBN`,cover_photo FROM book ORDER BY publication_year DESC";
+		$user = $result->fetch_assoc();
+
+		$numberOfBooksLimited=10;
+
+		$sql="SELECT `ISBN`, title, cover_photo FROM book ORDER BY publication_year DESC LIMIT ".$numberOfBooksLimited;
 		$libratSipasDates=$connection->query($sql);	
-		$sql="SELECT `ISBN`,cover_photo FROM book ORDER BY likes DESC";
+		$sql="SELECT `ISBN`, title, cover_photo FROM book ORDER BY likes DESC LIMIT ".$numberOfBooksLimited;
 		$libratSipasPelqimeve=$connection->query($sql);
-		$sql="SELECT `id`,cover_photo FROM online_books ORDER BY likes DESC";
+		$sql="SELECT `id`, title, cover_photo FROM online_books ORDER BY likes DESC LIMIT ".$numberOfBooksLimited;
 		$libratOnlineSipasPelqimeve=$connection->query($sql);
-		$sql="SELECT `id`,cover_photo FROM online_books ORDER BY publish_date DESC";
+		$sql="SELECT `id`, title, cover_photo FROM online_books ORDER BY publish_date DESC LIMIT ".$numberOfBooksLimited;
 		$libratOnlineSipasDates=$connection->query($sql);
-		$sql="SELECT `ISBN`,cover_photo FROM book WHERE reservation_points!=0 ORDER BY reservation_points DESC";
+		$sql="SELECT `ISBN`, title, cover_photo FROM book WHERE reservation_points!=0 ORDER BY reservation_points DESC LIMIT ".$numberOfBooksLimited;
 		$libratPremium=$connection->query($sql);
 ?>
 <!DOCTYPE html>
@@ -63,185 +66,25 @@ session_start();
 				}
 					
 				?>
-			<img src="<?php  echo $profilePhotoPath  ?>">	
+			<img id="profile_photo" src="<?php  echo $profilePhotoPath  ?>">	
 			</div>
 		</a>
 				<br>
-			
-<!----------------do gjej na nje menyr me t mir me for per kto 5 divet po pertoja tn----------------------->
-<!----------Div par -------------------->
-
-			<div>
-				<?php
-				 $ok=true;
-				 $nrLibr=7;
-					while ($ok && $nrLibr!=0) {
-						
-						echo "<div class='slidet1 fade'>";
-						for($j=0;$j<3;$j++){
-						
-							if($i=$libratSipasDates->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
-									$nrLibr--;
-									if($nrLibr==0){
-										break;
-									}
-							}
-							else{
-								$ok=false;
-								break;		
-							}
-							
-						}
-						echo "</div>";
-					}
-
-				  ?>
-
-			</div>	
-			<button onclick="slide(-1,0)">prev</button>
-			<button onclick="slide(1,0)">next</button>
-	
-
-<br>
-
-<!------------------Div 2 -------------------------->
-			<div>
-				<?php
-				 $ok=true;
-				 $nrLibr=7;
-					while ($ok && $nrLibr!=0) {
-						
-						echo "<div class='slidet2 fade'>";
-						for($j=0;$j<3;$j++){
-						
-							if($i=$libratSipasPelqimeve->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
-									$nrLibr--;
-									if($nrLibr==0){
-										break;
-									}
-							}
-							else{
-								$ok=false;
-								break;		
-							}
-							
-						}
-						echo "</div>";
-					}
-
-				  ?>
-
-			</div>	
-			<button onclick="slide(-1,1)">prev</button>
-			<button onclick="slide(1,1)">next</button>
 
 
-<!------------------Div 3 -------------------------->
-
-
-<div>
-				<?php
-				 $ok=true;
-				 $nrLibr=7;
-					while ($ok && $nrLibr!=0) {
-						
-						echo "<div class='slidet3 fade'>";
-						for($j=0;$j<3;$j++){
-						
-							if($i=$libratOnlineSipasPelqimeve->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>";
-									$nrLibr--;
-									if($nrLibr==0){
-										break;
-									}
-							}
-							else{
-								$ok=false;
-								break;		
-							}
-							
-						}
-						echo "</div>";
-					}
-
-				  ?>
-
-			</div>	
-			<button onclick="slide(-1,2)">prev</button>
-			<button onclick="slide(1,2)">next</button>
-
-
-
-<!------------Div4------------------->
-
-<div>
-				<?php
-				 $ok=true;
-				 $nrLibr=7;
-					while ($ok && $nrLibr!=0) {
-						
-						echo "<div class='slidet4 fade'>";
-						for($j=0;$j<3;$j++){
-						
-							if($i=$libratOnlineSipasDates->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>";
-									$nrLibr--;
-									if($nrLibr==0){
-										break;
-									}
-							}
-							else{
-								$ok=false;
-								break;		
-							}
-							
-						}
-						echo "</div>";
-					}
-
-				  ?>
-
-			</div>	
-			<button onclick="slide(-1,3)">prev</button>
-			<button onclick="slide(1,3)">next</button>
-
-<!----------------------Div5--------------------->
-
-<div>
-				<?php
-				 $ok=true;
-				 $nrLibr=7;
-					while ($ok && $nrLibr!=0) {
-						
-						echo "<div class='slidet5 fade'>";
-						for($j=0;$j<3;$j++){
-						
-							if($i=$libratPremium->fetch_assoc()){
-								echo "<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>";
-									$nrLibr--;
-									if($nrLibr==0){
-										break;
-									}
-							}
-							else{
-								$ok=false;
-								break;		
-							}
-							
-						}
-						echo "</div>";
-					}
-
-				  ?>
-
-			</div>	
-			<button onclick="slide(-1,4)">prev</button>
-			<button onclick="slide(1,4)">next</button>
+			<!-- Book sliders -->
+			<?php
+				include "functions/bookSlider.php";
+				createSlider($libratSipasDates,"offline",3,1);
+				createSlider($libratSipasPelqimeve,"offline",3,2);
+				createSlider($libratOnlineSipasPelqimeve,"online",3,3);
+				createSlider($libratOnlineSipasDates,"online",3,4);
+				createSlider($libratPremium,"offline",3,5);
+			?>
 
 	<!-------------Ktu do vendoset Footeri----------->		
 
 </body>
-<script type="text/javascript" src="/BibliotekaOnline/scripts/home.js"></script>
+<script type="text/javascript" src="../scripts/home.js"></script>
+<script type="text/javascript" src="../scripts/bookSlider.js"></script>
 </html>
