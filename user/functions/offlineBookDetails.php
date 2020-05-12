@@ -15,8 +15,45 @@ $isbn=$_GET["isbn"];
 	$book_publish_house=$publish_house->fetch_assoc();
 	$image_path="/BibliotekaOnline/images/books/";
 	$image_path.=$book["cover_photo"];
+	$userId=$userData["id"];
 	echo "<img src='$image_path'>"."<br>";
-		echo "isbn  ".$book["ISBN"]." <br> "."titulli  ".$book["title"]." <br>"."categories: ";
+	$sql="SELECT * FROM review WHERE user_id='{$userId}' AND book_id='{$isbn}'";
+	$reviewResult=$connection->query($sql);
+
+	if($reviewResult->num_rows>0){
+			$reviewResultData=$reviewResult->fetch_assoc();
+			$liked=$reviewResultData["liked"];
+			$favourite=$reviewResultData["favourite"];
+
+			if($liked==0){
+				echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeEmpty.png'>";
+
+			}
+			else if($liked==1){
+				echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeFilled.png'>";
+			}
+
+			if($favourite==0){
+				echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
+
+			}
+			else if($favourite==1){
+				echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
+			}
+
+
+
+	}
+	else{
+
+		echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeEmpty.png'>";
+	 echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/FavouriteEmpty.png'>";
+	 echo "<br>";
+
+	}
+
+	
+		echo "<br>isbn  ".$book["ISBN"]." <br> "."titulli  ".$book["title"]." <br>"."categories: ";
 		while ($resultBookCategories=$bookCategories->fetch_assoc()) {
 			echo $resultBookCategories["c_description"]." ";
 		}

@@ -4,10 +4,14 @@
 	<title></title>
 </head>
 <body>
+
 <?php
 session_start();
-
 include 'functions/DBconnection.php';
+$username=$_SESSION["username"];
+$sql="SELECT * from users where username='$username'";
+$userResult=$connection->query($sql);
+$userData=$userResult->fetch_assoc();
 
 if(isset($_GET["isbn"])){
 	
@@ -48,18 +52,10 @@ else if (isset($_GET["id"])){
  	
 }
 
-		else{
-	//ktu do bejm dicka ;
-}
-
-
-
-
-
-
-
   ?>
+
   <div id="deleteResponse"></div>
+
   <script type="text/javascript" src="/BibliotekaOnline/scripts/book.js"></script>
 </body>
 </html>

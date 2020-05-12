@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 01:26 PM
+-- Generation Time: May 13, 2020 at 12:26 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -96,7 +96,7 @@ INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quant
 ('6', 'A', '2006-12-12', 1, 1, 10, 0, 'f.jpg', 'blablabla', 23, 0),
 ('8', 'banana', '2020-04-01', 1, 1, 12, 12, 'banana.jpg', 'asdasdasd', 10, 0),
 ('9', 'hello', '2020-04-01', 1, 10, 10, 10, 'hello.jpg', 'sdaasda', 10, 0),
-('Book1', 'Book1', '1998-12-06', 2, 1, 1000, 0, 'Book11589022900.png', 'book1 description', 0, 0),
+('Book1', 'Book1', '1998-12-06', 2, 9, 1000, 0, 'Book11589022900.png', 'book1 description', 0, 0),
 ('Book2', 'Book2', '1995-12-06', 2, 1, 1000, 0, 'Book21589022923.png', 'book2 description', 0, 0),
 ('Book3', 'Book3', '1800-12-06', 2, 1, 1000, 0, 'Book31589022993.png', 'book3 description', 0, 0),
 ('Book4', 'Book4', '1756-12-06', 2, 1, 1000, 0, 'Book41589023027.png', 'book4 description', 0, 0),
@@ -263,7 +263,9 @@ INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
 (58, 7),
 (58, 1),
 (59, 5),
-(59, 7);
+(59, 7),
+(60, 2),
+(60, 5);
 
 -- --------------------------------------------------------
 
@@ -422,7 +424,8 @@ INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `
 (56, 20, 'book17', '2020-05-08', 0, 'book171588936687.png', 'liber kot 17', 'book171588936687.txt', 0),
 (57, 20, 'book18', '2020-05-08', 0, 'book181588936708.png', 'liber kot 18', 'book181588936708.txt', 0),
 (58, 20, 'book19', '2020-05-08', 0, 'book191588936728.png', 'liber kot 19', 'book191588936728.txt', 0),
-(59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt', 0);
+(59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt', 0),
+(60, 15, 'BookTest', '2020-05-11', 0, 'BookTest1589214304.png', 'liber formati doc', 'BookTest1589214304.docx', 0);
 
 -- --------------------------------------------------------
 
@@ -452,12 +455,20 @@ INSERT INTO `publish_house` (`id`, `name`) VALUES
 CREATE TABLE `review` (
   `id_review` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `id_book` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
   `time_review` date NOT NULL,
   `description` varchar(100) NOT NULL,
-  `liked` tinyint(1) NOT NULL,
+  `liked` tinyint(1) NOT NULL DEFAULT 0,
   `favourite` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id_review`, `user_id`, `book_id`, `time_review`, `description`, `liked`, `favourite`) VALUES
+(4, 15, 1, '2020-05-13', 'ok', 0, 1),
+(5, 20, 1, '2020-05-13', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -488,7 +499,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 10, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 9899, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
 (19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 0, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
@@ -740,7 +751,7 @@ ALTER TABLE `publish_house`
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id_review`),
   ADD KEY `fk_user_review_id` (`user_id`),
-  ADD KEY `fk_book_review_id` (`id_book`);
+  ADD KEY `fk_book_review_id` (`book_id`);
 
 --
 -- Indexes for table `users`
@@ -787,7 +798,7 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
@@ -799,7 +810,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
