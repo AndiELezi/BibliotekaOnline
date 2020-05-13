@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 06:04 PM
+-- Generation Time: May 13, 2020 at 07:05 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -190,6 +190,34 @@ INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
 ('Book8', 7),
 ('Book9', 2),
 ('njeIsbn1234', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_favourite`
+--
+
+CREATE TABLE `book_favourite` (
+  `id` int(11) NOT NULL,
+  `book_id` varchar(30) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `favourite_time` date NOT NULL,
+  `book_type` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_like`
+--
+
+CREATE TABLE `book_like` (
+  `id` int(11) NOT NULL,
+  `book_id` varchar(30) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `like_time` date NOT NULL,
+  `book_type` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -397,7 +425,7 @@ CREATE TABLE `online_books` (
 --
 
 INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`, `book_path`, `monthly_likes`) VALUES
-(32, 15, 'a', '2020-04-23', 0, 'a1587664787.jpg', 'a', 'a1587664787.pdf', 0),
+(32, 15, 'a', '2020-04-23', 4, 'a1587664787.jpg', 'a', 'a1587664787.pdf', 4),
 (33, 15, 'b', '2020-04-23', 0, 'b1587664842.jpg', 'b', 'b1587664842.pdf', 0),
 (34, 15, 'c', '2020-04-23', 0, 'c1587664886.jpg', 'd', 'c1587664886.pdf', 0),
 (35, 15, 'banana', '2020-04-23', 0, 'banana1587664923.jpg', 'banana', 'banana1587664923.pdf', 0),
@@ -453,16 +481,11 @@ INSERT INTO `publish_house` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `review` (
-  `id_review` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `book_id` varchar(30) NOT NULL,
   `review_time` date DEFAULT NULL,
-  `description` varchar(100) NOT NULL,
-  `liked` tinyint(1) NOT NULL DEFAULT 0,
-  `favourite` tinyint(4) NOT NULL DEFAULT 0,
-  `book_type` varchar(30) NOT NULL,
-  `like_time` date DEFAULT NULL,
-  `favourite_time` date DEFAULT NULL
+  `description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -694,6 +717,18 @@ ALTER TABLE `book_categories`
   ADD KEY `fk_category_id` (`category_id`);
 
 --
+-- Indexes for table `book_favourite`
+--
+ALTER TABLE `book_favourite`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `book_like`
+--
+ALTER TABLE `book_like`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `book_reservation`
 --
 ALTER TABLE `book_reservation`
@@ -744,7 +779,7 @@ ALTER TABLE `publish_house`
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`id_review`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_user_review_id` (`user_id`),
   ADD KEY `fk_book_review_id` (`book_id`);
 
@@ -770,6 +805,18 @@ ALTER TABLE `user_rights`
 --
 ALTER TABLE `author`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `book_favourite`
+--
+ALTER TABLE `book_favourite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `book_like`
+--
+ALTER TABLE `book_like`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -805,7 +852,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -17,40 +17,27 @@ $isbn=$_GET["isbn"];
 	$image_path.=$book["cover_photo"];
 	$userId=$userData["id"];
 	echo "<img src='$image_path'>"."<br>";
-	$sql="SELECT * FROM review WHERE user_id='{$userId}' AND book_id='{$isbn}'";
-	$reviewResult=$connection->query($sql);
+	$sql="SELECT * FROM book_like WHERE user_id='{$userId}' AND book_id='{$isbn}'";
+	$likeResult=$connection->query($sql);
 
-	if($reviewResult->num_rows>0){
-			$reviewResultData=$reviewResult->fetch_assoc();
-			$liked=$reviewResultData["liked"];
-			$favourite=$reviewResultData["favourite"];
-
-			if($liked==0){
-				echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/likeEmpty.png'>";
-
-			}
-			else if($liked==1){
-				echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/likeFilled.png'>";
-			}
-
-			if($favourite==0){
-				echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
-
-			}
-			else if($favourite==1){
-				echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
-			}
-
-
-
+	if($likeResult->num_rows>0){
+		
+		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeFilled.png'>";
 	}
 	else{
-
 		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeEmpty.png'>";
-	 echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
-	 echo "<br>";
-
 	}
+
+	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$isbn}'";
+	$favouriteResult=$connection->query($sql);
+
+	if($favouriteResult->num_rows>0){
+		 echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
+	}
+	else{
+		echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
+	}
+
 
 	
 		echo "<br>isbn  ".$book["ISBN"]." <br> "."titulli  ".$book["title"]." <br>"."categories: ";
