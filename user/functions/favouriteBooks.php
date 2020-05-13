@@ -5,9 +5,9 @@ $startFrom=($page - 1) * $resultsPerPage; //calculate the index where to select 
 
 
 //select all book_id and book_type that the user has marked as favourite
-$sql="SELECT book_id, book_type FROM review
-	INNER JOIN users ON review.user_id=users.id
-	WHERE users.username='{$username}' AND favourite=1 
+$sql="SELECT book_id, book_type FROM book_favourite
+	INNER JOIN users ON book_favourite.user_id=users.id
+	WHERE users.username='{$username}' ORDER BY favourite_time DESC 
 	LIMIT $startFrom, $resultsPerPage";
 
 $result=$connection->query($sql);
@@ -57,9 +57,9 @@ if($result->num_rows > 0){
 
 
 	//get the total number of favourite books to find the number of total pages
-	$sql="SELECT COUNT(id_review) AS total FROM review
-		INNER JOIN users ON review.user_id=users.id
-		WHERE users.username='{$username}' AND favourite=1";
+	$sql="SELECT COUNT(book_favourite.id) AS total FROM book_favourite
+	INNER JOIN users ON book_favourite.user_id=users.id
+	WHERE users.username='{$username}'";
 	$result=$connection->query($sql);
 	$row=$result->fetch_assoc();
 	$totalPages=ceil($row["total"] / $resultsPerPage);
