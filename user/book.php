@@ -16,6 +16,26 @@ $userData=$userResult->fetch_assoc();
 if(isset($_GET["isbn"])){
 	
 	include 'functions/offlineBookDetails.php';
+	echo "<br><h1>reviews</h1><hr>";
+
+ 		$sql="SELECT * FROM review WHERE book_id='{$isbn}' AND user_id='{$userId}'";
+ 		$reviewResult=$connection->query($sql);
+ 		if($reviewResult->num_rows>0){
+ 			$reviewResultData=$reviewResult->fetch_assoc();
+ 			if(strlen($reviewResultData["description"])<10){
+ 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:".$reviewResultData["description"]."</span>";
+ 			}
+ 			else{
+ 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:".substr($reviewResultData["description"],0,20)."...</span>";
+ 			
+ 			}
+ 			echo "<button>edit</button>";
+ 		}
+ 		else{
+ 			echo "<br><input type='text' placeholder='write a review' name='review'><button>Post</button>";
+ 		}
+
+
 
 }
 
@@ -31,7 +51,7 @@ else if (isset($_GET["id"])){
 
 	}
 
-
+  
 
 	echo "<br>";
 
@@ -49,6 +69,26 @@ else if (isset($_GET["id"])){
  		echo "<button onclick='deleteBook(".$id.")'>Delete </button>";
 
  	}
+
+ 	echo "<br><h1>reviews</h1><hr>";
+
+ 	$sql="SELECT * FROM review WHERE book_id='{$id}' AND user_id='{$userId}'";
+ 	$reviewResult=$connection->query($sql);
+ 	if($reviewResult->num_rows>0){
+ 		$reviewResultData=$reviewResult->fetch_assoc();
+ 		if(strlen($reviewResultData["description"])<10){
+ 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:".$reviewResultData["description"]."</span>";
+ 		}
+ 		else{
+ 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:".substr($reviewResultData["description"],0,20)."...</span>";
+ 			
+ 		}
+ 		echo "<button>edit</button>";
+ 	}
+ 	else{
+ 		echo "<br><input type='text' placeholder='write a review' name='review'><button>Post</button>";
+ 	}
+
  	
 }
 
