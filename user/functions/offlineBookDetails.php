@@ -26,19 +26,19 @@ $isbn=$_GET["isbn"];
 			$favourite=$reviewResultData["favourite"];
 
 			if($liked==0){
-				echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeEmpty.png'>";
+				echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/likeEmpty.png'>";
 
 			}
 			else if($liked==1){
-				echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeFilled.png'>";
+				echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/likeFilled.png'>";
 			}
 
 			if($favourite==0){
-				echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
+				echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
 
 			}
 			else if($favourite==1){
-				echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
+				echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\"  src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
 			}
 
 
@@ -46,8 +46,8 @@ $isbn=$_GET["isbn"];
 	}
 	else{
 
-		echo "<img id='like' onclick='likePressed(".$isbn.")' src='/BibliotekaOnline/images/app/likeEmpty.png'>";
-	 echo "<img id='favourite' onclick='favouritePressed(".$isbn.")' src='/BibliotekaOnline/images/app/FavouriteEmpty.png'>";
+		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeEmpty.png'>";
+	 echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
 	 echo "<br>";
 
 	}

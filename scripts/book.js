@@ -19,7 +19,9 @@ function deleteBook(bookId){
 }
 
 
-function likePressed(bookId){
+
+
+function likePressed(bookType,bookId){
 
 var like=document.getElementById("like").src;
 if(like=="http://localhost/BibliotekaOnline/images/app/likeEmpty.png"){
@@ -28,7 +30,7 @@ if(like=="http://localhost/BibliotekaOnline/images/app/likeEmpty.png"){
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
-        
+      
             document.getElementById("like").src="http://localhost/BibliotekaOnline/images/app/likeFilled.png";
         }
         
@@ -36,7 +38,7 @@ if(like=="http://localhost/BibliotekaOnline/images/app/likeEmpty.png"){
     }
   
 
-  var data="bookId="+bookId+"&like=1";
+  var data="bookId="+bookId+"&like=1&bookType="+bookType;
  xmlhttp.open("POST","functions/bookReview.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
@@ -57,7 +59,7 @@ else if(like=="http://localhost/BibliotekaOnline/images/app/likeFilled.png"){
     }
   
 
-  var data="bookId="+bookId+"&like=0";
+  var data="bookId="+bookId+"&like=0&bookType="+bookType;
  xmlhttp.open("POST","functions/bookReview.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
@@ -69,13 +71,59 @@ else if(like=="http://localhost/BibliotekaOnline/images/app/likeFilled.png"){
 
 
 
-function favouritePressed(bookId){
+function favouritePressed(bookType,bookId){
   
 var favourite=document.getElementById("favourite").src;
 if(favourite=="http://localhost/BibliotekaOnline/images/app/favouriteEmpty.png"){
-  document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteFilled.png";
+
+
+xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      if(this.responseText!=""){
+            document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteFilled.png";
+        }
+        
+      }
+    }
+  
+
+  var data="bookId="+bookId+"&favourite=1&bookType="+bookType;
+ xmlhttp.open("POST","functions/bookReview.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+
+
   }
+
+
+
+
+
 else if(favourite=="http://localhost/BibliotekaOnline/images/app/favouriteFilled.png"){
-  document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteEmpty.png";
+
+
+xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      if(this.responseText!=""){
+      
+            document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteEmpty.png";
+        }
+        
+      }
+    }
+  
+
+  var data="bookId="+bookId+"&favourite=0&bookType="+bookType;
+ xmlhttp.open("POST","functions/bookReview.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+
+
+
+
   }
 }

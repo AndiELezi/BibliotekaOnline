@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 12:26 AM
+-- Generation Time: May 13, 2020 at 12:43 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -87,7 +87,7 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`, `monthly_likes`) VALUES
-('1', 'atest', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 10, 0),
+('1', 'atest', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 0, 0),
 ('10', 'Book10', '2014-12-06', 1, 1, 1000, 0, 'Book101589023306.png', 'book10 description', 0, 0),
 ('2', 'A', '2001-12-12', 1, 1, 10, 0, 'b.jpg', 'blablabla', 3, 0),
 ('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12, 0),
@@ -455,20 +455,13 @@ INSERT INTO `publish_house` (`id`, `name`) VALUES
 CREATE TABLE `review` (
   `id_review` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `book_id` int(11) NOT NULL,
+  `book_id` varchar(30) NOT NULL,
   `time_review` date NOT NULL,
   `description` varchar(100) NOT NULL,
   `liked` tinyint(1) NOT NULL DEFAULT 0,
-  `favourite` tinyint(4) NOT NULL DEFAULT 0
+  `favourite` tinyint(4) NOT NULL DEFAULT 0,
+  `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `review`
---
-
-INSERT INTO `review` (`id_review`, `user_id`, `book_id`, `time_review`, `description`, `liked`, `favourite`) VALUES
-(4, 15, 1, '2020-05-13', 'ok', 0, 1),
-(5, 20, 1, '2020-05-13', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -810,7 +803,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`

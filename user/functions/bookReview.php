@@ -9,25 +9,14 @@ include 'DBconnection.php';
 	$userId=$userData["id"];
 	$bookId=$_POST["bookId"];
 	$data=date("Y-m-d");
+	$bookType=$_POST["bookType"];
 
 if (isset($_POST["like"])) {
-	$like=$_POST["like"];
-	$sql="SELECT * FROM review WHERE user_id='{$userId}' AND book_id='{$bookId}'";
-	$reviewResult=$connection->query($sql);
+	include 'bookReviewLike.php';
 
-	if($reviewResult->num_rows>0){
-		
-		$sql="UPDATE review SET liked='{$like}' , time_review='{$data}' where  user_id='{$userId}' AND book_id='{$bookId}'";
-		$connection->query($sql);
-
-	}
-	else{
-		
-		$sql="INSERT INTO review(`user_id`,`book_id`,`time_review`,`liked`) VALUES ('{$userId}','{$bookId}','{$data}','{$like}')";
-		$connection->query($sql);
-	}
-
-
+}
+else if(isset($_POST["favourite"])){
+	include 'bookReviewFavourite.php';
 }
 
  ?>
