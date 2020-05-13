@@ -13,7 +13,6 @@
 
 
 	<!-- myBooks section-->
-	<h2>My books</h2>
 	<?php  
 		session_start();
 		include "functions/DBconnection.php";
@@ -26,7 +25,7 @@
 		//check if user has uploaded books before displaying them
 		if($result->num_rows > 0){
 			include "functions/bookSlider.php";
-			createSlider($result,"online",6,1);
+			createSlider("My books",$result,"online",6,1);
 		}
 
 		//if user hasn't uploaded any books:

@@ -1,25 +1,30 @@
 <?php 
-	function createSlider($result, $type, $booksPerSlider, $slideNumber){
+	function createSlider($slideTitle, $queryResult, $type, $booksPerSlider, $slideNumber){
 		echo "<div>";
 		$ok=true;
+		echo "<h2>".$slideTitle."</h2>";
 		while ($ok) {		
 			echo "<div class='slidet".$slideNumber." fade'>";
 			for($j=0;$j<$booksPerSlider;$j++){				
-				if($book=$result->fetch_assoc()){
+				if($book=$queryResult->fetch_assoc()){
 
 					if($type=="offline"){
-						echo "<a href='book.php?isbn=".$book['ISBN']."'>";
-						echo "<div style='display: inline-block;'>";
-						echo "<img src='../images/books/".$book["cover_photo"]."'> <br>";
-						echo $book["title"];
-						echo "</div></a>";
+					?>
+						<a href="book.php?isbn=<?php echo $book['ISBN'] ?>">
+						<div style="display: inline-block;">
+						<img src="../images/books/<?php echo $book['cover_photo'] ?>"> <br>
+						<?php echo $book["title"]; ?>
+						</div></a>
+					<?php
 					}
 					else{
-						echo "<a href='book.php?id=".$book['id']."'>";
-						echo "<div style='display: inline-block;'>";
-						echo "<img src='../images/onlineBooks/".$book["cover_photo"]."'> <br>";
-						echo $book["title"];
-						echo "</div></a>";
+					?>
+						<a href="book.php?id=<?php echo $book['id'] ?>">
+						<div style="display: inline-block;">
+						<img src="../images/onlineBooks/<?php echo $book['cover_photo'] ?>"> <br>
+						<?php echo $book["title"]; ?>
+						</div></a>
+					<?php
 					}
 				}
 				else{
