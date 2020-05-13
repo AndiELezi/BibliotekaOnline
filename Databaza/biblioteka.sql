@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 12:43 PM
+-- Generation Time: May 13, 2020 at 06:04 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -456,11 +456,13 @@ CREATE TABLE `review` (
   `id_review` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `book_id` varchar(30) NOT NULL,
-  `time_review` date NOT NULL,
+  `review_time` date DEFAULT NULL,
   `description` varchar(100) NOT NULL,
   `liked` tinyint(1) NOT NULL DEFAULT 0,
   `favourite` tinyint(4) NOT NULL DEFAULT 0,
-  `book_type` varchar(30) NOT NULL
+  `book_type` varchar(30) NOT NULL,
+  `like_time` date DEFAULT NULL,
+  `favourite_time` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -803,7 +805,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`
