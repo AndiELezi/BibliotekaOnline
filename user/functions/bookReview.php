@@ -18,5 +18,23 @@ if (isset($_POST["like"])) {
 else if(isset($_POST["favourite"])){
 	include 'bookReviewFavourite.php';
 }
+else if(isset($_POST["review"])){
+	include 'bookReviewPost.php';
+}
+else if(isset($_POST["editReview"])){
+	$sql="SELECT description from review where user_id='{$userId}' AND book_id='{$bookId}'";
+	$reviewResult=$connection->query($sql);
+	$description=$reviewResult->fetch_assoc();
+	echo $description["description"];
+}
+else if(isset($_POST["delete"])){
+	
+	$sql="SELECT * from review where user_id='{$userId}' AND book_id='{$bookId}'";
+	$reviewResult=$connection->query($sql);
+	if($reviewResult->num_rows>0){
+		$sql="DELETE from review where user_id='{$userId}' AND book_id='{$bookId}'";
+		$connection->query($sql);
+	}
+}
 
  ?>

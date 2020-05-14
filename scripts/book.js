@@ -29,10 +29,10 @@ if(like=="http://localhost/BibliotekaOnline/images/app/likeEmpty.png"){
   xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      if(this.responseText!=""){
+   
       
             document.getElementById("like").src="http://localhost/BibliotekaOnline/images/app/likeFilled.png";
-        }
+        
         
       }
     }
@@ -51,9 +51,9 @@ else if(like=="http://localhost/BibliotekaOnline/images/app/likeFilled.png"){
         xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      if(this.responseText!=""){
+      
             document.getElementById("like").src="http://localhost/BibliotekaOnline/images/app/likeEmpty.png";
-        }
+        
         
       }
     }
@@ -80,9 +80,9 @@ if(favourite=="http://localhost/BibliotekaOnline/images/app/favouriteEmpty.png")
 xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      if(this.responseText!=""){
+     
             document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteFilled.png";
-        }
+        
         
       }
     }
@@ -107,10 +107,10 @@ else if(favourite=="http://localhost/BibliotekaOnline/images/app/favouriteFilled
 xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      if(this.responseText!=""){
+      
       
             document.getElementById("favourite").src="http://localhost/BibliotekaOnline/images/app/favouriteEmpty.png";
-        }
+        
         
       }
     }
@@ -126,4 +126,93 @@ xmlhttp=new XMLHttpRequest();
 
 
   }
+}
+
+
+
+
+
+function editReview(bookType,bookId){
+  document.getElementById("postBtn").style="display:inline";
+  
+
+  xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+        
+        var reviewText=this.responseText.substring(2,this.responseText.length);
+        document.getElementById("review").value=reviewText;
+        document.getElementById("review").readOnly=false;
+        
+        
+      }
+    }
+  
+
+  var data="bookId="+bookId+"&editReview=true"+"&bookType="+bookType;
+ xmlhttp.open("POST","functions/bookReview.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+}
+
+
+function postReview(bookType,bookId){
+  var review=document.getElementById("review").value;
+if(review==""){
+  document.getElementById("errorMsg").innerHTML="nuk mund te beni review bosh";
+  return;
+}
+xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      
+            if(bookType=="offlineBook"){
+              window.location="book.php?isbn="+bookId;
+            }
+            else{
+              window.location="book.php?id="+bookId;
+            }
+
+        
+        
+      }
+    }
+  
+
+  var data="bookId="+bookId+"&review="+review+"&bookType="+bookType;
+ xmlhttp.open("POST","functions/bookReview.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+
+  
+}
+
+
+function deleteReview(bookType,bookId){
+xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      
+            if(bookType=="offlineBook"){
+              window.location="book.php?isbn="+bookId;
+            }
+            else{
+              window.location="book.php?id="+bookId;
+            }
+
+        
+        
+      }
+    }
+  
+
+  var data="bookId="+bookId+"&delete="+"true"+"&bookType="+bookType;
+ xmlhttp.open("POST","functions/bookReview.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+
+
+  
 }
