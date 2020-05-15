@@ -17,7 +17,7 @@ if(isset($_GET["isbn"])){
 	
 	include 'functions/offlineBookDetails.php';
 	echo "<br><h1>reviews</h1><hr>";
-
+	echo "<div id='bookId' style='display:none'>$isbn</div>";
  		$sql="SELECT * FROM review WHERE book_id='{$isbn}' AND user_id='{$userId}'";
  		$reviewResult=$connection->query($sql);
  		if($reviewResult->num_rows>0){
@@ -75,6 +75,7 @@ else if (isset($_GET["id"])){
  	}
 
  	echo "<br><h1>reviews</h1><hr>";
+ 	echo "<div id='bookId' style='display:none'>$id</div>";
 
  	$sql="SELECT * FROM review WHERE book_id='{$id}' AND user_id='{$userId}'";
  	$reviewResult=$connection->query($sql);
@@ -102,6 +103,7 @@ else if (isset($_GET["id"])){
   ?>
 
   <div id="deleteResponse"></div>
+  <div id="bookReviewByUsers"></div>
 
   <script type="text/javascript" src="/BibliotekaOnline/scripts/book.js"></script>
 </body>

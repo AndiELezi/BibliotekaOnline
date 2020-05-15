@@ -1,3 +1,28 @@
+ var bookId=document.getElementById("bookId").innerHTML;
+window.onload=function(){
+  fullReview(-1);
+};
+
+function fullReview(userId){
+  xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+   
+    if (this.readyState==4 && this.status==200) {
+
+      if(this.responseText!=""){
+       document.getElementById("bookReviewByUsers").innerHTML=this.responseText;
+        
+      }
+    }
+  }
+  var data="bookId="+bookId+"&userId="+userId;
+ xmlhttp.open("POST","functions/bookReviewByUsers.php",true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+}
+
+
+
 function deleteBook(bookId){
 	//copy funksion qe tcon te dhenen me post
 	//deleteBook.php
