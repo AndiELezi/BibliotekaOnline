@@ -38,6 +38,9 @@ if(isset($_GET["isbn"])){
  			echo "<br><textarea id='review' placeholder='write a review'></textarea><button onclick=\"postReview('offlineBook','$isbn')\">Post</button>";
  		}
  		echo "<br><span id='errorMsg'></span>";
+ 		 echo "<div id='bookReviewByUsers'></div>";
+
+ 		 echo "<a href='fullBookReviews.php?bookId=$isbn&pageNr=1'>View all Reviews</a>";
 
 
 
@@ -97,13 +100,14 @@ else if (isset($_GET["id"])){
  	}
  		echo "<br><span id='errorMsg'></span>";
 
- 	
+ 	 echo "<div id='bookReviewByUsers'></div>";
+ 	 echo "<a href='fullBookReviews.php?bookId=$id&pageNr=1'>View all Reviews</a>";
 }
 
   ?>
 
   <div id="deleteResponse"></div>
-  <div id="bookReviewByUsers"></div>
+ 
 
   <script type="text/javascript" src="/BibliotekaOnline/scripts/book.js"></script>
 </body>
