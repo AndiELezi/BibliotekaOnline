@@ -57,6 +57,9 @@ include "functions/DBconnection.php";
   
 </form>
 
+<br> <br>
+<a href="deleteAccount.php">Delete my account</a>
+
 <!-- jQyery qe kontrollon nese inputi perdoruesit eshte i pranueshem -->
 <script src="/BibliotekaOnline/scripts/checkRegisterInput.js"></script>
 <script src="/BibliotekaOnline/scripts/editProfile.js"></script>
