@@ -49,7 +49,7 @@ $session1 = \Stripe\Checkout\Session::create([
     'quantity' => 1,
   ]],
   'mode' => 'payment',
-  'success_url' => 'http://localhost/BibliotekaOnline/user/functions/tmpThankYou.php?paketa=paketa1',
+  'success_url' => 'http://localhost/BibliotekaOnline/user/tmpThankYou.php?paketa=paketa1',
   'cancel_url' => 'http://localhost/BibliotekaOnline/user/buyPoints.php',
 ]);
 
@@ -73,7 +73,7 @@ $session2 = \Stripe\Checkout\Session::create([
     'quantity' => 1,
   ]],
   'mode' => 'payment',
-  'success_url' => 'http://localhost/BibliotekaOnline/user/functions/tmpThankYou.php?paketa=paketa3',
+  'success_url' => 'http://localhost/BibliotekaOnline/user/tmpThankYou.php?paketa=paketa2',
   'cancel_url' => 'http://localhost/BibliotekaOnline/user/buyPoints.php',
 ]);
 
@@ -96,7 +96,7 @@ $session3 = \Stripe\Checkout\Session::create([
     'quantity' => 1,
   ]],
   'mode' => 'payment',
-  'success_url' => 'http://localhost/BibliotekaOnline/user/functions/tmpThankYou.php?paketa=paketa3',
+  'success_url' => 'http://localhost/BibliotekaOnline/user/tmpThankYou.php?paketa=paketa3',
   'cancel_url' => 'http://localhost/BibliotekaOnline/user/buyPoints.php',
 ]);
 
