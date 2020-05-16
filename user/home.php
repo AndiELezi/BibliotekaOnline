@@ -37,6 +37,7 @@ session_start();
 			<li><a href="browse.php"> Browse </a></li>
 			<li><a href="reservation.php">Reservation</a></li>
 			<li><a href="myBooks.php">My Books</a></li>
+			<li><a href="buyPoints.php">buy Points</a></li>
 		</ul>
 		<form action="search.php" method="get">
 		<input type="text" name="searchQuery" onkeyup="liveSearch(this.value)" autocomplete="off">
