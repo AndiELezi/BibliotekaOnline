@@ -1,6 +1,9 @@
 <?php
 include 'DBconnection.php';
-$id=$_POST["id"];
+if(isset($_POST["id"])){
+	$id=$_POST["id"];
+}
+
 $pageResult="";
 
 $sql="Select cover_photo,book_path from online_books where id='{$id}'";
@@ -15,9 +18,18 @@ if($bookResult["cover_photo"]!="default.jpg"){
 }
 $sql="DELETE FROM `book_online_categories` WHERE book_online_id='{$id}'";
 $connection->query($sql);
-$sql="DELETE FROM `online_books` WHERE id='{$id}'";
+
+$sql="DELETE FROM `review` WHERE book_id='{$id}' AND book_type='onlineBook'";
 $connection->query($sql);
 
+$sql="DELETE FROM `book_like` WHERE book_id='{$id}' AND book_type='onlineBook'";
+$connection->query($sql);
+
+$sql="DELETE FROM `book_favourite` WHERE book_id='{$id}' AND book_type='onlineBook'";
+$connection->query($sql);
+
+$sql="DELETE FROM `online_books` WHERE id='{$id}'";
+$connection->query($sql);
 
 $pageResult="Success";
 echo $pageResult;

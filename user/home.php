@@ -70,6 +70,7 @@ session_start();
 			<img id="profile_photo" src="<?php  echo $profilePhotoPath  ?>">	
 			</div>
 		</a>
+		<a href="logout.php" onclick="return confirm('Are You sure you want to logout?');">Log out</a>
 				<br>
 
 
