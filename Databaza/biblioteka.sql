@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 04:27 PM
+-- Generation Time: May 17, 2020 at 10:28 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -352,8 +352,7 @@ CREATE TABLE `hall_booking` (
 --
 
 INSERT INTO `hall_booking` (`library_hall`, `seat_number`, `reservation_start_time`, `reservation_end_time`, `user_id`) VALUES
-(1, 10, '2020-04-01 16:16:46', '2020-04-01 20:59:28', 16),
-(1, 25, '2020-04-01 16:16:46', '2020-04-01 19:59:28', 17);
+(1, 1, '2020-05-17 20:23:00', '2020-05-17 20:28:00', 15);
 
 -- --------------------------------------------------------
 
@@ -425,7 +424,7 @@ CREATE TABLE `online_books` (
 --
 
 INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`, `book_path`, `monthly_likes`) VALUES
-(32, 15, 'a', '2020-04-23', 4, 'a1587664787.jpg', 'a', 'a1587664787.pdf', 4),
+(32, 15, 'a', '2020-04-23', 4, 'a1587664787.jpg', 'a', 'a1587664787.pdf', 0),
 (33, 15, 'b', '2020-04-23', 0, 'b1587664842.jpg', 'b', 'b1587664842.pdf', 0),
 (34, 15, 'c', '2020-04-23', 0, 'c1587664886.jpg', 'd', 'c1587664886.pdf', 0),
 (35, 15, 'banana', '2020-04-23', 0, 'banana1587664923.jpg', 'banana', 'banana1587664923.pdf', 0),
@@ -485,7 +484,7 @@ CREATE TABLE `review` (
   `user_id` int(11) NOT NULL,
   `book_id` varchar(30) NOT NULL,
   `review_time` date DEFAULT NULL,
-  `description` varchar(100) NOT NULL,
+  `description` varchar(500) NOT NULL,
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -518,8 +517,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 9899, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
-(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 0, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 110, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 4, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
 -- --------------------------------------------------------
@@ -847,7 +846,7 @@ ALTER TABLE `online_books`
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -902,6 +901,14 @@ ALTER TABLE `hall_structure`
 --
 ALTER TABLE `online_books`
   ADD CONSTRAINT `fk_user_online_book` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` EVENT `free_seats` ON SCHEDULE EVERY 1 MINUTE STARTS '2020-05-17 22:20:15' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM hall_booking WHERE reservation_end_time<CURRENT_TIMESTAMP$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
