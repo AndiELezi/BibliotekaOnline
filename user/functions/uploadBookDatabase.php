@@ -40,6 +40,7 @@ foreach ($category as $i) {
 }
 
 $successMsg="libri u uplodua me sukses";
+header("Location: book.php?id={$book_id}");
 $title="";
 $description="";
 

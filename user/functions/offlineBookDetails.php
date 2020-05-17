@@ -50,6 +50,8 @@ $isbn=$_GET["isbn"];
 			echo $author["full_name"]." ";
 		}
 
+		echo "<br><a href='bookReservation.php?isbn=".$book["ISBN"]."'>Rezervo</a>";
+
 
 
 

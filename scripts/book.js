@@ -33,6 +33,7 @@ function deleteBook(bookId){
 
       if(this.responseText!=""){
        document.getElementById("deleteResponse").innerHTML=this.responseText;
+       window.location.href = "home.php";
         
       }
     }
