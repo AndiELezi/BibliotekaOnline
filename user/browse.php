@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'functions/DBconnection.php';
  ?>
 <!DOCTYPE html>
@@ -8,6 +9,7 @@ include 'functions/DBconnection.php';
 	<title></title>
 </head>
 <body>
+	<?php  include 'header.php' ?>
 <select name="bookType" id="bookType" onchange="bookTypeChange(this.value)">
 <option value="default">Book Type</option>	
 <option value="onlineBooks">Online Books</option>
@@ -87,7 +89,8 @@ echo "</select>";
 </select><br>
 <div id="bookResult"></div>
 
-
+<script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/browse.js"></script>
+
 </body>
 </html>

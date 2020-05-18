@@ -9,6 +9,7 @@
 	$username=$_SESSION["username"];
 	$password="";
 	$errPassword="";
+	include "functions/DBconnection.php";
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
 		global $errPassword;
@@ -17,8 +18,9 @@
 				$errPassword="Password too short";
 				return false;
 			}
+			include "functions/DBconnection.php";
 
-		include "functions/DBconnection.php";
+		
 
 		$sql="SELECT password FROM users WHERE username='{$usernameToCheck}'";
 		$result=$connection->query($sql);
@@ -52,6 +54,7 @@
 	}
 
 ?>
+	<?php  include 'header.php'; ?>
 	<form method="post">
 		<h2>Enter your password to permanently delete your account</h2>
 		<input type="password" name="password" value="<?php echo $password ?>" required> <span><?php echo $errPassword?></span> <br>
@@ -60,4 +63,5 @@
 	</form>
 
 </body>
+<script type="text/javascript" src="../scripts/home.js"></script>
 </html>

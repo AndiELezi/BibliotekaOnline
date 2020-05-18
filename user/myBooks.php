@@ -5,6 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="../styles/myBooks.css">
 </head>
 <body>
+	<?php 
+		session_start();
+		include "functions/DBconnection.php";
+		include 'header.php';
+	 ?>
 	<a href="myFavourites.php">My favourite books</a>
 	<hr>
 	<a href="bookUpload.php">Upload a book</a>
@@ -14,8 +19,7 @@
 
 	<!-- myBooks section-->
 	<?php  
-		session_start();
-		include "functions/DBconnection.php";
+		
 		$username=$_SESSION["username"];
 		$sql="SELECT online_books.id, title, cover_photo FROM online_books 
 				INNER JOIN users ON online_books.user_id=users.id  
@@ -35,4 +39,5 @@
 	?>
 </body>
 <script type="text/javascript" src="../scripts/bookSlider.js"></script>
+<script type="text/javascript" src="../scripts/home.js"></script>
 </html>

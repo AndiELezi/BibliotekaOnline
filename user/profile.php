@@ -12,7 +12,7 @@ include "functions/DBconnection.php";
  ?>
  <html>
  <body>
-
+    <?php  include 'header.php'; ?>
   <?php
   $profilePhotoPath="/BibliotekaOnline/images/users/";
         if(empty($user["profile_photo"])){
@@ -61,6 +61,7 @@ include "functions/DBconnection.php";
 <a href="deleteAccount.php">Delete my account</a>
 
 <!-- jQyery qe kontrollon nese inputi perdoruesit eshte i pranueshem -->
+<script type="text/javascript" src="../scripts/home.js"></script>
 <script src="/BibliotekaOnline/scripts/checkRegisterInput.js"></script>
 <script src="/BibliotekaOnline/scripts/editProfile.js"></script>
 

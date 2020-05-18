@@ -1,10 +1,11 @@
 <?php
+session_start();
 include 'functions/DBconnection.php';
+include 'header.php';
 $resultPerPage=2;
 $pageNr=$_GET["pageNr"];
 $start=$pageNr*$resultPerPage-$resultPerPage; 
 $bookId=$_GET["bookId"];
-
 $sql="SELECT COUNT(*) as total from review where book_id='{$bookId}'";
 $totalResult=$connection->query($sql);
 $totalResultFetched=$totalResult->fetch_assoc();
@@ -20,6 +21,8 @@ else{
 if($numbOfPages==0){
 	echo "Ky Liber nuk ka asnje review";
 }
+
+
 
 for($i=1;$i<=$numbOfPages;$i++){
 	if($i==$pageNr){
@@ -50,3 +53,4 @@ for($i=1;$i<=$numbOfPages;$i++){
 }
 
  ?>
+ <script type="text/javascript" src="../scripts/home.js"></script>

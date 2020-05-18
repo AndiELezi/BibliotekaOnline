@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'functions/DBconnection.php';
 $sql="SELECT * FROM library_halls";
 $libraryHallResults=$connection->query($sql);
@@ -10,6 +11,7 @@ $libraryHallResults=$connection->query($sql);
 	<title></title>
 </head>
 <body>
+	<?php  include 'header.php'; ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<form>
 <?php 
@@ -60,6 +62,8 @@ echo "</select>";
 <button onclick="reserve()">rezervo</button>
 <div id="seatResult"></div>
 <div id="reservationResponse"></div>
+
+<script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/placeReservation.js"></script>
 
 </body>

@@ -1,6 +1,7 @@
 <?php
-include 'functions/DBconnection.php';
 session_start();
+include 'functions/DBconnection.php';
+include 'header.php';
 $username=$_SESSION["username"];
 $paketa=$_POST["paketa"];
 $sql;
@@ -15,6 +16,7 @@ else if($paketa=="paketa3"){
 }
 $connection->query($sql);
 
-echo "Arigato!";
+echo "<div>Thank You!</div>";
 
 ?>
+<script type="text/javascript" src="../scripts/home.js"></script>

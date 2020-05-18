@@ -4,12 +4,17 @@
 	<title>My favourite books</title>
 </head>
 <body>
+	<?php 
+			session_start();
+			include "functions/DBconnection.php";
+			include 'header.php';
+	 ?>
 
 	<h2>My favourite books</h2>
 
 <?php 
 
-	session_start();
+	
 	$username=$_SESSION["username"];
 
 		//get the number of page so we can display the corresponding books to that page number
@@ -20,7 +25,7 @@
 			$page=1;
 		}
 
-		include "functions/DBconnection.php";
+		
 		//display the books based on the page nr
 		include "functions/favouriteBooks.php";
  ?>

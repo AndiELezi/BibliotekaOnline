@@ -12,6 +12,7 @@ $username=$_SESSION["username"];
 $sql="SELECT * from users where username='$username'";
 $userResult=$connection->query($sql);
 $userData=$userResult->fetch_assoc();
+  include 'header.php';
 
 if(isset($_GET["isbn"])){
 	
@@ -54,7 +55,7 @@ else if (isset($_GET["id"])){
 
 	if(isset($_GET["download"])){
 
-		include 'downloadBookFunction.php';
+		include 'functions/downloadBookFunction.php';
 
 	}
 
@@ -108,7 +109,7 @@ else if (isset($_GET["id"])){
 
   <div id="deleteResponse"></div>
  
-
+  <script type="text/javascript" src="../scripts/home.js"></script>
   <script type="text/javascript" src="/BibliotekaOnline/scripts/book.js"></script>
 </body>
 </html>

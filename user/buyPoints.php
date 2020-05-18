@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<?php include 'functions/checkoutSession.php'  ?>
+<?php
+	 session_start();
+	 include 'functions/checkoutSession.php';
+	 include 'functions/DBconnection.php';
+
+
+  ?>
 <head>
 	<script src="https://js.stripe.com/v3/"></script>
+	<script type="text/javascript" src="../scripts/home.js"></script>
 	<script type="text/javascript" src="/BibliotekaOnline/scripts/buyPoints.js"></script>
 		
 
 	<title></title>
 </head>
 <body>
+	<?php  include 'header.php'; ?>
 	<?php  
 	$paketa1=$session1["id"];
 	$paketa2=$session2["id"];

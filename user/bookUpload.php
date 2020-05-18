@@ -10,7 +10,10 @@
 
 	 <?php 
   	include "functions/uploadBookValidation.php";
+  	include 'functions/DBconnection.php';
+  	include 'header.php';
   ?>
+
 
 
 
@@ -29,5 +32,6 @@ libri:<input type="file" name="book"><span><?php echo $errBook  ?></span><br><br
 </form>
 <br>
 <span><?php echo $successMsg  ?></span>
+<script type="text/javascript" src="../scripts/home.js"></script>
 </body>
 </html>

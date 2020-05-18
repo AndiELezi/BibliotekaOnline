@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include "functions/DBconnection.php"; 
 if(isset($_GET["search"])){
 $onlineBooksResult;
@@ -39,6 +40,7 @@ $searchQuery=$_GET["searchQuery"];
 		<link rel="stylesheet" type="text/css" href="/BibliotekaOnline/Styles/search.css">
 </head>
 <body>
+	<?php  include 'header.php'; ?>
 
 
 <!----------online-------------------->
@@ -105,6 +107,7 @@ $searchQuery=$_GET["searchQuery"];
 			<button onclick="slide(-1)">prev</button>
 			<button onclick="slide(1)">next</button>
 </body>
+<script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/search.js"></script>
 </html>
 

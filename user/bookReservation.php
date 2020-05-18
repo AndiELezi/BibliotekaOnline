@@ -1,10 +1,12 @@
 <?php
+session_start();
+include 'functions/DBconnection.php';
 $selectedBook=""; 
 $reservation_points;
 $isbn="";
 if(isset($_GET["isbn"])){
 	$isbn=$_GET["isbn"];
-include 'functions/DBconnection.php';
+
 $sql="SELECT title,cover_photo,reservation_points from book WHERE ISBN='{$isbn}'";
 $result=$connection->query($sql);
 $book=$result->fetch_assoc();
@@ -21,6 +23,7 @@ $selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_p
  	<title></title>
  </head>
  <body>
+ 	<?php  include 'header.php'; ?>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  	Kerkoni per librin:
  	<input type="text" name="search" onkeyup="kerko(this.value)" autocomplete="off"><br>
@@ -38,6 +41,7 @@ $selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_p
 	</form><br>
 	<div id="pergjigjaRezervimit"></div>
 	<div id="test"></div>
+	<script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/bookReservation.js"></script>
  
  </body>
