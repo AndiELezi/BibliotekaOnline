@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 10:28 PM
+-- Generation Time: May 18, 2020 at 12:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -306,7 +306,8 @@ CREATE TABLE `book_reservation` (
   `book_id` varchar(30) NOT NULL,
   `reservation_time` date NOT NULL,
   `returnTime` date NOT NULL,
-  `delay_fine` int(11) NOT NULL
+  `delay_fine` int(11) NOT NULL,
+  `taken` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -346,13 +347,6 @@ CREATE TABLE `hall_booking` (
   `reservation_end_time` timestamp NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `hall_booking`
---
-
-INSERT INTO `hall_booking` (`library_hall`, `seat_number`, `reservation_start_time`, `reservation_end_time`, `user_id`) VALUES
-(1, 1, '2020-05-17 20:23:00', '2020-05-17 20:28:00', 15);
 
 -- --------------------------------------------------------
 
@@ -517,7 +511,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 110, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 10, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
 (19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 4, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 

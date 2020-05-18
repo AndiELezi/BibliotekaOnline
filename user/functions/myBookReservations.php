@@ -3,6 +3,7 @@ session_start();
 include 'DBconnection.php';
 $pageResult="";
 $pageErr="";
+$pageDel="";
 $username=$_SESSION["username"];
 $sql="SELECT id FROM users WHERE username='{$username}'";
 $userResult=$connection->query($sql);
@@ -13,10 +14,21 @@ if(isset($_POST["delete"])){
 
 	$book_reservation_id=$_POST["bookId"];
 	$user_reservation_id=$_POST["userId"];
-	$sql="DELETE FROM book_reservation WHERE user_id='{$user_reservation_id}' AND book_id='{$book_reservation_id}'";
-	$connection->query($sql);
-	$sql="UPDATE book SET quantity=quantity+1 WHERE ISBN='{$book_reservation_id}'";
-	$connection->query($sql);
+
+	$sql="SELECT taken FROM book_reservation WHERE user_id='{$user_reservation_id}' AND book_id='{$book_reservation_id}'";
+	$takenResult=$connection->query($sql);
+	$takenResultFetched=$takenResult->fetch_assoc();
+	if($takenResultFetched["taken"]==0){
+
+		$sql="DELETE FROM book_reservation WHERE user_id='{$user_reservation_id}' AND book_id='{$book_reservation_id}'";
+		$connection->query($sql);
+		$sql="UPDATE book SET quantity=quantity+1 WHERE ISBN='{$book_reservation_id}'";
+		$connection->query($sql);
+	}
+	else{
+		$pageDel="<br><b>Ju nuk mund ta fshini dot kete rezervim pasi libri eshte marre ne biblioteke<b>";
+	}
+
 }
 
 $sql="SELECT * FROM book_reservation WHERE user_id='{$userId}'";
@@ -49,7 +61,7 @@ if($pageErr!=""){
 	echo $pageErr;
 }
 else{
-	echo $pageResult;
+	echo $pageResult."<br>".$pageDel;
 }
 
 ?>
