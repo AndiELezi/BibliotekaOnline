@@ -1,22 +1,17 @@
-<?php
-session_start();
-include 'functions/DBconnection.php';
-include 'header.php';
-$username=$_SESSION["username"];
-$paketa=$_POST["paketa"];
-$sql;
-if($paketa=="paketa1"){
-	$sql="UPDATE users set points=points+100 where username='{$username}'";
-}
-else if($paketa=="paketa2"){
-	$sql="UPDATE users set points=points+500 where username='{$username}'";
-}
-else if($paketa=="paketa3"){
-	$sql="UPDATE users set points=points+1000 where username='{$username}'";
-}
-$connection->query($sql);
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<?php 
+			session_start();
+			include 'functions/DBconnection.php';
+			include 'header.php';
 
-echo "<div>Thank You!</div>";
+	 ?>
+	 <div>Thank You</div>
 
-?>
+</body>
 <script type="text/javascript" src="../scripts/home.js"></script>
+</html>
