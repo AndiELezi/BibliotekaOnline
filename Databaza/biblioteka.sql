@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 12:37 PM
+-- Generation Time: May 19, 2020 at 03:04 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -87,8 +87,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`, `monthly_likes`) VALUES
-('1', 'atest', '2000-12-12', 1, 1, 10, 50, 'a.jpg', 'blablabla', 0, 0),
-('10', 'Book10', '2014-12-06', 1, 1, 1000, 0, 'Book101589023306.png', 'book10 description', 0, 0),
+('1', 'atest', '2000-12-12', 1, 2, 10, 50, 'a.jpg', 'blablabla', 0, 0),
+('10', 'Book10', '2014-12-06', 1, 2, 1000, 0, 'Book101589023306.png', 'book10 description', 0, 0),
 ('2', 'A', '2001-12-12', 1, 1, 10, 0, 'b.jpg', 'blablabla', 3, 0),
 ('3', 'A', '2003-12-12', 1, 1, 10, 20, 'c.jpg', 'blablabla', 12, 0),
 ('4', 'A', '1998-01-01', 1, 1, 10, 20, 'd.jpg', 'blablabla', 14, 0),
@@ -205,6 +205,19 @@ CREATE TABLE `book_favourite` (
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book_favourite`
+--
+
+INSERT INTO `book_favourite` (`id`, `book_id`, `user_id`, `favourite_time`, `book_type`) VALUES
+(13, '33', 15, '2020-05-18', 'onlineBook'),
+(14, '32', 15, '2020-05-18', 'onlineBook'),
+(15, '34', 15, '2020-05-18', 'onlineBook'),
+(16, '36', 15, '2020-05-18', 'onlineBook'),
+(17, '37', 15, '2020-05-18', 'onlineBook'),
+(18, '39', 15, '2020-05-18', 'onlineBook'),
+(19, '38', 15, '2020-05-18', 'onlineBook');
+
 -- --------------------------------------------------------
 
 --
@@ -293,7 +306,9 @@ INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
 (59, 5),
 (59, 7),
 (60, 2),
-(60, 5);
+(60, 5),
+(61, 2),
+(61, 7);
 
 -- --------------------------------------------------------
 
@@ -309,6 +324,13 @@ CREATE TABLE `book_reservation` (
   `delay_fine` int(11) NOT NULL,
   `taken` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_reservation`
+--
+
+INSERT INTO `book_reservation` (`user_id`, `book_id`, `reservation_time`, `returnTime`, `delay_fine`, `taken`) VALUES
+(15, 'book8', '2020-05-18', '2020-05-20', 60, 1);
 
 -- --------------------------------------------------------
 
@@ -446,7 +468,8 @@ INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `
 (57, 20, 'book18', '2020-05-08', 0, 'book181588936708.png', 'liber kot 18', 'book181588936708.txt', 0),
 (58, 20, 'book19', '2020-05-08', 0, 'book191588936728.png', 'liber kot 19', 'book191588936728.txt', 0),
 (59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt', 0),
-(60, 15, 'BookTest', '2020-05-11', 0, 'BookTest1589214304.png', 'liber formati doc', 'BookTest1589214304.docx', 0);
+(60, 15, 'BookTest', '2020-05-11', 0, 'BookTest1589214304.png', 'liber formati doc', 'BookTest1589214304.docx', 0),
+(61, 15, 'book25', '2020-05-18', 0, 'default.jpg', 'test', 'book251589799642.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -511,7 +534,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 10, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 2010, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
 (19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 4, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
@@ -804,7 +827,7 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book_favourite`
 --
 ALTER TABLE `book_favourite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `book_like`
@@ -834,7 +857,7 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
@@ -901,6 +924,11 @@ DELIMITER $$
 -- Events
 --
 CREATE DEFINER=`root`@`localhost` EVENT `free_seats` ON SCHEDULE EVERY 1 MINUTE STARTS '2020-05-17 22:20:15' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM hall_booking WHERE reservation_end_time<CURRENT_TIMESTAMP$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `freeBookReservation` ON SCHEDULE EVERY 1 DAY STARTS '2020-05-18 22:20:10' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+		UPDATE book SET quantity=quantity+1 WHERE ISBN IN (SELECT book_id FROM book_reservation WHERE reservation_time<CURRENT_DATE AND taken=0);
+		DELETE FROM book_reservation WHERE reservation_time <CURRENT_DATE AND taken=0;
+END$$
 
 DELIMITER ;
 COMMIT;
