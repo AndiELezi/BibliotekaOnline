@@ -1,7 +1,20 @@
+$(document).ready(function(){
+  $("#searchText").focusout(function(){
+    setTimeout(function() {
+  //your code to be executed after 1 second
+    document.getElementById("liveSearchResult").innerHTML="";
+    }, 150);
+  });
+
+    $("#searchText").focusin(function(){
+    liveSearch($(this).val());
+  });
+});
+
+
 function liveSearch(text){
   if(text==""){
     document.getElementById("liveSearchResult").innerHTML="";
-    document.getElementById("liveSearchResult").style.border="0px";
     return;
   }
 var filteri=document.getElementById("filter").value;
@@ -12,7 +25,6 @@ xmlhttp=new XMLHttpRequest();
 
       if(this.responseText!=""){
         document.getElementById("liveSearchResult").innerHTML=this.responseText;
-        document.getElementById("liveSearchResult").style.border="solid 1px";
         
       }
       else{
