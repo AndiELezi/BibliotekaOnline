@@ -36,7 +36,7 @@ $searchQuery=$_GET["searchQuery"];
 
 	while ($desiredSearchNumber>0) {
 			if($libratOnline=$onlineBooksResult->fetch_assoc()){
-					$pageResult.="<a href='book.php?id=".$libratOnline["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'>"." <span>".$libratOnline["title"]."</span></a><br>";
+					$pageResult.="<div><a href='book.php?id=".$libratOnline["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'>"."<span>".$libratOnline["title"]."<br><br></span></a></div><hr>";
 						$desiredSearchNumber--;
 			}
 			else{
@@ -47,7 +47,7 @@ $searchQuery=$_GET["searchQuery"];
 
 	while ($desiredSearchNumber>0) {
 		if($libratOffline=$offlineBooksResult->fetch_assoc()){
-			$pageResult.="<a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'>"." <span>".$libratOffline["title"]."</span></a><br>";
+			$pageResult.="<div><a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'>"."<span>".$libratOffline["title"]."<br><br></span></a></div><hr>";
 			$desiredSearchNumber--;
 		}
 		else{

@@ -3,12 +3,15 @@ display: none;
 
 }
 
+body{
+	background-color: #183d59; 
+}
+
+div{
+	background-color: #183d59;
+}
+
 img{
 	position: relative;
 }
 
-#profile_photo{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-}
