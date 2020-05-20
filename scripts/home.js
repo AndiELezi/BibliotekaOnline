@@ -1,9 +1,9 @@
 $(document).ready(function(){
   $("#searchText").focusout(function(){
     setTimeout(function() {
-  //your code to be executed after 1 second
+    //code to be executed after 0.2 second
     document.getElementById("liveSearchResult").innerHTML="";
-    }, 150);
+    }, 200);
   });
 
     $("#searchText").focusin(function(){
@@ -28,7 +28,7 @@ xmlhttp=new XMLHttpRequest();
         
       }
       else{
-        document.getElementById("liveSearchResult").innerHTML="s ka rezulte";
+        document.getElementById("liveSearchResult").innerHTML="<a><div><span>No results found!</span></div><br><a>";
       }
     }
   }

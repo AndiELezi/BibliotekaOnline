@@ -1,28 +1,29 @@
+<link rel="stylesheet" type="text/css" href="../styles/bookSlider.css">
 <?php 
 	function createSlider($slideTitle, $queryResult, $type, $booksPerSlider, $slideNumber){
-		echo "<div>";
+		echo "<div class='slideshow-container'>";
 		$ok=true;
 		echo "<h2>".$slideTitle."</h2>";
 		while ($ok) {		
-			echo "<div class='slidet".$slideNumber." fade'>";
+			echo "<div class='myslides slidet".$slideNumber." fade'>";
 			for($j=0;$j<$booksPerSlider;$j++){				
 				if($book=$queryResult->fetch_assoc()){
 
 					if($type=="offline"){
 					?>
 						<a href="book.php?isbn=<?php echo $book['ISBN'] ?>">
-						<div style="display: inline-block;">
+						<div class="single_book">
 						<img src="../images/books/<?php echo $book['cover_photo'] ?>"> <br>
-						<?php echo $book["title"]; ?>
+						<div><?php echo $book["title"]; ?></div>
 						</div></a>
 					<?php
 					}
 					else{
 					?>
 						<a href="book.php?id=<?php echo $book['id'] ?>">
-						<div style="display: inline-block;">
+						<div class="single_book">
 						<img src="../images/onlineBooks/<?php echo $book['cover_photo'] ?>"> <br>
-						<?php echo $book["title"]; ?>
+						<div><?php echo $book["title"]; ?></div>
 						</div></a>
 					<?php
 					}
@@ -34,12 +35,12 @@
 			}
 			echo "</div>";
 		}
-		echo "</div>";
-
-		echo "<br>";
+		
 		//display navigation buttons
-		echo "<button onclick='slide(-1,".($slideNumber-1).")'>Previous</button> ";
-		echo "<button onclick='slide(1,".($slideNumber-1).")'>Next</button>";
-		echo "<hr>";
+		echo "<a class='prev' onclick='slide(-1,".($slideNumber-1).")'>&#10094;</a> ";
+		echo "<a class='next' onclick='slide(1,".($slideNumber-1).")'>&#10095;</a>";
+
+		echo "</div>";
+		echo "<br><br><hr>";
 	}
 ?>

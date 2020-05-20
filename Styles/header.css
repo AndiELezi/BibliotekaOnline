@@ -21,7 +21,9 @@
 }
 
 
-
+body{
+	font-family: sans-serif;
+}
 
 
 .header {
@@ -162,7 +164,10 @@
 }
 
 #liveSearchResult span{
+	position: absolute;
 	padding-left: 30px;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 #profili span, img{
@@ -189,4 +194,12 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
+}
+
+#liveSearchResult a{
+	color:#183d59;
+}
+
+#liveSearchResult a hr{
+  border: 1px solid #0396ff;
 }

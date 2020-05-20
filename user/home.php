@@ -32,11 +32,11 @@ session_start();
 			<!-- Book sliders -->
 			<?php
 				include "functions/bookSlider.php";
-				createSlider("Librat me te fundit",$libratSipasDates,"offline",3,1);
-				createSlider("Librat me te pelqyer",$libratSipasPelqimeve,"offline",3,2);
-				createSlider("Librat online me te pelqyer",$libratOnlineSipasPelqimeve,"online",3,3);
-				createSlider("Librat online me te fundit",$libratOnlineSipasDates,"online",3,4);
-				createSlider("Librat Premium",$libratPremium,"offline",3,5);
+				createSlider("Librat me te fundit",$libratSipasDates,"offline",5,1);
+				createSlider("Librat me te pelqyer",$libratSipasPelqimeve,"offline",5,2);
+				createSlider("Librat online me te pelqyer",$libratOnlineSipasPelqimeve,"online",5,3);
+				createSlider("Librat online me te fundit",$libratOnlineSipasDates,"online",5,4);
+				createSlider("Librat Premium",$libratPremium,"offline",5,5);
 			?>
 
 	<!-------------Ktu do vendoset Footeri----------->		
