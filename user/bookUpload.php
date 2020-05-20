@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title></title>
 </head>
 
@@ -21,9 +22,21 @@
 titulli librit:<br><input type="text" name="title" value="<?php echo $title  ?>"><span><?php echo $errTitle  ?></span><br><br>
 pershkrimi librit:<br><textarea rows="4" name="description"><?php echo $description  ?></textarea><br><br>
 kategorite e librit:<span><?php echo $errCategory  ?><br>
-<input type="checkbox" name="category[]" value="romance">romance<br>
+<?php
+
+$sql="SELECT description FROM categories ORDER BY description";
+$categoriesResult=$connection->query($sql);
+while ($i=$categoriesResult->fetch_assoc()) {
+	echo "<input type='checkbox' name='category[]' value='".$i["description"]."'>".$i["description"]."<br>";
+}
+
+  ?>
+
+
+
+<!--<input type="checkbox" name="category[]" value="romance">romance<br>
 <input type="checkbox" name="category[]" value="mystery">mystery<br>
-<input type="checkbox" name="category[]" value="comedy">comedy<br>
+<input type="checkbox" name="category[]" value="comedy">comedy<br>-->
 <input type="checkbox" name="category[]" value="adventure">adventure<br><br>
 foto e librit:<input type="file" name="cover_photo"><span><?php echo $errCoverPhoto  ?></span><br><br>
 libri:<input type="file" name="book"><span><?php echo $errBook  ?></span><br><br>

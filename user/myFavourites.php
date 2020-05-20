@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>My favourite books</title>
 </head>
 <body>
@@ -30,4 +31,5 @@
 		include "functions/favouriteBooks.php";
  ?>
 </body>
+<script type="text/javascript" src="../scripts/home.js"></script>
 </html>

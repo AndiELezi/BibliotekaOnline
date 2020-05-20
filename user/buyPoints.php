@@ -8,9 +8,11 @@
 
   ?>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://js.stripe.com/v3/"></script>
 	<script type="text/javascript" src="../scripts/home.js"></script>
 	<script type="text/javascript" src="/BibliotekaOnline/scripts/buyPoints.js"></script>
+
 		
 
 	<title></title>

@@ -6,32 +6,32 @@ function kerkoRezervim() {
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
-        document.getElementById("giveBookResult").innerHTML=this.responseText;
+        document.getElementById("returnBookResult").innerHTML=this.responseText;
         
       }
     }
   }
  var data="username="+username+"&bookIsbn="+bookIsbn;
- xmlhttp.open("POST","../functions/librarian/bookReservationConfirm.php",true);
+ xmlhttp.open("POST","../functions/librarian/bookReturn.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
 
 }
 
-function jepLibrin(username,Isbn){
+function returnBook(username,Isbn){
 
 	
 	xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
-        document.getElementById("giveBookConfirmedResult").innerHTML=this.responseText;
+        document.getElementById("returnBookConfirmedResult").innerHTML=this.responseText;
         
       }
     }
   }
- var data="username="+username+"&bookIsbn="+Isbn+"&giveBook=true";
- xmlhttp.open("POST","../functions/librarian/bookReservationConfirm.php",true);
+ var data="username="+username+"&bookIsbn="+Isbn+"&returnBook=true";
+ xmlhttp.open("POST","../functions/librarian/bookReturn.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
 

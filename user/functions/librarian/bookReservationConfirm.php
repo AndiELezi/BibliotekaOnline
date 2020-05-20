@@ -1,8 +1,8 @@
 <?php
-include 'DBconnection.php'; 
+include '../DBconnection.php'; 
 $pageResult="";
 
-if(isset($_POST["username"]) && isset($_POST["bookIsbn"])){
+if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && !isset($_POST["giveBook"])){
 	$username=$_POST["username"];
 	$isbn=$_POST["bookIsbn"];
 	$sql="SELECT users.id as userID,users.username,users.name,users.surname,book.ISBN,book.title FROM book_reservation INNER JOIN users on users.id=book_reservation.user_id INNER JOIN book on book_reservation.book_id=book.ISBN  WHERE users.username='{$username}' AND book_reservation.book_id='{$isbn}'";
@@ -18,9 +18,9 @@ if(isset($_POST["username"]) && isset($_POST["bookIsbn"])){
 
 }
 
-else if(isset($_POST["username"]) && isset($_POST["Isbn"])){
+else if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && isset($_POST["giveBook"])){
 	$username=$_POST["username"];
-	$isbn=$_POST["Isbn"];
+	$isbn=$_POST["bookIsbn"];
 	$sql="UPDATE book_reservation set taken=1 WHERE user_id=(SELECT id from users where username='{$username}') AND book_id='{$isbn}'";
 	$connection->query($sql);
 	$pageResult="Rezervimi u konfirmua" ;
