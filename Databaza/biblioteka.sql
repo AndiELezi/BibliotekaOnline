@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 03:04 PM
+-- Generation Time: May 20, 2020 at 08:22 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -216,7 +217,8 @@ INSERT INTO `book_favourite` (`id`, `book_id`, `user_id`, `favourite_time`, `boo
 (16, '36', 15, '2020-05-18', 'onlineBook'),
 (17, '37', 15, '2020-05-18', 'onlineBook'),
 (18, '39', 15, '2020-05-18', 'onlineBook'),
-(19, '38', 15, '2020-05-18', 'onlineBook');
+(19, '38', 15, '2020-05-18', 'onlineBook'),
+(20, '34', 19, '2020-05-20', 'onlineBook');
 
 -- --------------------------------------------------------
 
@@ -308,7 +310,16 @@ INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
 (60, 2),
 (60, 5),
 (61, 2),
-(61, 7);
+(61, 7),
+(62, 6),
+(62, 3),
+(63, 7),
+(64, 7),
+(64, 5),
+(65, 5),
+(65, 2),
+(66, 5),
+(66, 2);
 
 -- --------------------------------------------------------
 
@@ -469,7 +480,12 @@ INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `
 (58, 20, 'book19', '2020-05-08', 0, 'book191588936728.png', 'liber kot 19', 'book191588936728.txt', 0),
 (59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt', 0),
 (60, 15, 'BookTest', '2020-05-11', 0, 'BookTest1589214304.png', 'liber formati doc', 'BookTest1589214304.docx', 0),
-(61, 15, 'book25', '2020-05-18', 0, 'default.jpg', 'test', 'book251589799642.pdf', 0);
+(61, 15, 'book25', '2020-05-18', 0, 'default.jpg', 'test', 'book251589799642.pdf', 0),
+(62, 19, 'liber me titull te gjate shume ta shikoj', '2020-05-20', 0, 'book221589978884.jpg', 'hue hui hia', 'book221589978884.pdf', 0),
+(63, 19, 'book23', '2020-05-20', 0, 'book231589978920.jpg', 'hue hui hia', 'book231589978920.pdf', 0),
+(64, 19, 'book24', '2020-05-20', 0, 'book241589978942.jpg', 'hue hui hia', 'book241589978942.pdf', 0),
+(65, 19, 'book25', '2020-05-20', 0, 'book251589978995.jpg', 'hue hui hia', 'book251589978995.pdf', 0),
+(66, 19, 'book26', '2020-05-20', 0, 'book261589979028.jpg', 'hue hui hia', 'book261589979028.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -535,7 +551,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
 (15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 2010, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
-(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 4, 3, NULL, 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
+(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 1004, 3, 'silenceypaglsjkohfwqetirdu.jpg', 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
 -- --------------------------------------------------------
@@ -827,7 +843,7 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book_favourite`
 --
 ALTER TABLE `book_favourite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `book_like`
@@ -857,7 +873,7 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
