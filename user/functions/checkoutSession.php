@@ -27,7 +27,7 @@
 
 
 
-	include 'stripe-php-master/init.php';
+	include 'StripeApi/init.php';
 \Stripe\Stripe::setApiKey('sk_test_4lpdj1iXzTbILew0q8F2Bd87004syDICVz');
 
 
