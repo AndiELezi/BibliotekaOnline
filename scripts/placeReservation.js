@@ -124,7 +124,7 @@ function selectSeat(placeId){
 	}
 	else{
 		 document.getElementById("seatResult").innerHTML=response;
-  		 document.getElementById(placeId).src="/BibliotekaOnline/images/app/selectedSeat.jpg";
+  		 document.getElementById(placeId).src="/BibliotekaOnline/images/app/selectedSeat.png";
   		 reservedSeatId=placeId;
 	}
 
@@ -133,7 +133,7 @@ function selectSeat(placeId){
 
 function reserve() {
 	if(!checkReservation()){
-		document.getElementById("reservationResponse").innerHTML="Ju lutem plotesoni te gjitha fushat dhe zgjidhni vendin qe deshironi te rezervoni";
+		document.getElementById("reservationResponse").innerHTML="<span class='error'>Ju lutem plotesoni te gjitha fushat dhe zgjidhni vendin qe deshironi te rezervoni</span>";
 		return;
 
 	}

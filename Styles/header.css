@@ -36,6 +36,7 @@ body{
 	color: #d9dadd;
 	margin: -0.57%;
 	margin-bottom: 0;
+	box-shadow: 0 0 20px #05070c;
 }
 
 .header ul, .header form , .header div{

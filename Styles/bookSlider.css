@@ -6,6 +6,11 @@
   height: 300px;
 }
 
+.slideshow-container img:hover{
+	transform: scale(1.1);
+	box-shadow: 0 0 25px #377096;
+}
+
 .slideshow-container h2{
 	text-align: center;
   color: #d9dadd;
@@ -28,12 +33,13 @@
 }
 
 .single_book div{
-	padding-top: 10px;
+	padding-top: 15px;
 	padding-left: 5px;
 	padding-right: 5px;
 	position: absolute;
 	color: #d9dadd;
 	font-size: larger;
+  background: transparent;
 }
 
 /* Next & previous buttons */

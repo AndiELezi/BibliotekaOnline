@@ -42,12 +42,12 @@ for($i=1;$i<=$row_numbers;$i++){
 			for($j=1;$j<=$separtaionArray[$arrayPoz];$j++){
 			
 				if(in_array($nrVendit,$takenSeats)){
-					$pageResult .="<img src='/BibliotekaOnline/images/app/takenSeat.jpg' id=$nrVendit>";
+					$pageResult .="<img class='takenSeat' src='/BibliotekaOnline/images/app/takenSeat.png' id=$nrVendit>";
 					$pageResult .=" ";
 					$nrVendit++;
 				}
 				else{
-					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.jpg' id=$nrVendit onclick='selectSeat(this.id)'>";
+					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.png' id=$nrVendit onclick='selectSeat(this.id)'>";
 					$pageResult .=" ";
 					$nrVendit++;
 				}
@@ -76,11 +76,11 @@ else{
 }
 
 if($pageErr!=""){
-	echo $pageErr;
+	echo "<span class='error'>".$pageErr."</span>";
 }
 
 else{
-	echo $pageResult;
+	echo $pageResult."<div class='reserveBtn' onclick='reserve()'>Reserve</div>";
 }
 
 

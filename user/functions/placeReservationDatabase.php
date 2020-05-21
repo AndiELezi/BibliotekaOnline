@@ -32,10 +32,10 @@ $pageResponse="Rezervimi u krye me sukses";
 
 
 if($pageError!=""){
-	echo $pageError;
+	echo "<span class='error'>".$pageError."</span>";
 }
 else{
-	echo $pageResponse;
+	echo "<span class='success'>".$pageResponse."</span>";
 }
 
  ?>

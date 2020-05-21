@@ -1,0 +1,113 @@
+body , div{
+	background-color: #183d59;
+
+}
+
+
+.profile_photo {
+	padding: 10px;
+	backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	margin: 80px;
+	margin-top: 60px;
+	margin-right: 100px;
+	float: left;
+}
+
+.profile_photo img{
+	width: 400px;
+	height: 300px;
+}
+
+.profile_photo form{
+	margin:30px;
+}
+
+
+
+
+.profile_photo input{
+
+}
+
+.profile_photo input[type=submit]{
+	border:none;
+	border-radius: 12px;
+	width: 80px;
+	height: 30px;
+}
+
+.profile_photo input[type=submit]:hover{
+	background-color: #377096;
+	color: #d9dadd;
+	box-shadow: 0 0 20px #586b9a;
+}
+
+
+
+.details input, .details select{
+	padding-left: 20px;
+	margin:10px;
+	border-radius: 12px;
+	background-color: #d9dadd;
+	font-size: 17px;
+	width: 300px;
+	height: 40px;
+	border:none;
+}
+
+
+.details input:focus, .details select:focus{
+	color: #d9dadd;
+	background-color: #377096;
+}
+
+.details input[type=button]{
+	padding-left: 0;
+	width: 100px;
+}
+
+.details input[type=button]:hover{
+	background-color: #377096;
+	color: #d9dadd;
+	box-shadow: 0 0 20px #586b9a;
+}
+
+
+.details input[type=submit]{
+	width: 420px;
+}
+
+
+.details input[type=submit]:hover{
+	background-color: #377096;
+	color: #d9dadd;
+	box-shadow: 0 0 20px #586b9a;	
+}
+
+.details span{
+	color: red;
+}
+
+.details .success{
+	color: #44ff44;
+	padding: 10px;
+	border-radius: 12px;
+}
+
+
+.delete{
+	background-color: #d9dadd;
+	color: red;
+	padding: 10px;
+	border-radius: 12px;
+	float: right;
+	text-decoration: none;
+}
+
+
+.delete:hover{
+	background-color: red;
+	color: white;
+}

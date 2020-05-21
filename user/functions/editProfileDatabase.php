@@ -13,7 +13,7 @@ else{
 $stmt->bind_param('ssss',$emri,$mbiemri,$phone_nr,$birthday);
 $stmt->execute();
 }
-echo "<p> te dhenat u ndryshuan me sukses </p>"
+$success="Te dhenat u ndryshuan me sukses";
 
 
  ?>
