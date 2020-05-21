@@ -78,5 +78,5 @@ $publishHouse="";
 $price="";
 $reservationPoints="";
 $quantity="";
-	header("Location:editAuthors.php?author=".$author);
+	header("Location:../functions/librarian/editAuthors.php?author=".$author);
   ?>
