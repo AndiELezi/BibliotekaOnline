@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 08:57 PM
+-- Generation Time: May 21, 2020 at 11:56 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -50,7 +49,14 @@ INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VA
 (34, 'Thomas Reye', 'England', '1998-10-01', ' 35566854'),
 (35, 'Nicholas Sparks', 'France', '1700-12-06', 'unknown'),
 (36, 'Dudley Pope', 'Americ', '1789-12-06', 'unknown'),
-(37, 'Robert Alia', 'England', '1800-10-07', 'unknown');
+(37, 'Robert Alia', 'England', '1800-10-07', 'unknown'),
+(38, 'Hammond Innes', 'Australia', '1757-12-06', ' 355684512'),
+(39, 'Louise Erdrich', 'France', '1889-12-06', 'unknown'),
+(40, 'Ursula K.Le Guin', 'England', '1887-11-06', 'unknown'),
+(41, 'L.J.Smith', 'America', '1895-12-06', 'unknown'),
+(42, 'Makato Shinkai', 'Japan', '1998-12-06', 'unknown'),
+(43, 'George R.R. Martin', 'America', '1975-12-06', 'unknown'),
+(44, 'Niven Larry', 'Germany', '1655-01-06', 'unknown');
 
 -- --------------------------------------------------------
 
@@ -77,17 +83,27 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`, `monthly_likes`) VALUES
+('9780007548293', 'Song Of Ice & Fire 5 Dance Dragons Pt 2', '2015-12-02', 22, 20, 15, 0, 'SongOfIceFire5DanceDragonsPt21590097114.jpg', 'The future of the Seven Kingdoms hangs in the balance.In King\'s Landing the Queen Regent, Cersei Lannister, awaits trial, abandoned by all those she trusted; while in the eastern city of Yunkai her brother Tyrion has been sold as a slave. From the Wall, having left his wife and the Red Priestess Melisandre under the protection of Jon Snow, Stannis Baratheon marches south to confront the Boltons at Winterfell. But beyond the Wall the wildling armies are massing for an assault...On all sides bitter conflicts are reigniting, played out by a grand cast of outlaws and priests, soldiers and skinchangers, nobles and slaves. The tides of destiny will inevitably lead to the greatest dance of all.', 0, 0),
+('9780060515102', 'The Painted Drum', '2005-11-06', 8, 25, 12, 25, 'ThePaintedDrum1590093978.jpg', 'While appraising the estate of a New Hampshire family descended from a North Dakota Indian agent, Faye Travers is startled to discover a rare moose skin and cedar drum fashioned long ago by an Ojibwe artisan. And so begins an illuminating journey both backward and forward in time, following the strange passage of a powerful yet delicate instrument, and revealing the extraordinary lives it has touched and defined.', 0, 0),
 ('9780060742690', 'A Death in Belmont', '2007-02-01', 10, 26, 15, 0, 'ADeathinBelmont1590075314.jpg', 'The quiet suburb of Belmont, Massacuusetts, is in the grip of fear. The Boston Strangler murders have taken place nearby, and now there is another shocking sex crime, right in Belmont. The victim is Bessie Goldberg, a middle-aged woman who had hired a cleaning man to help out around the house on that fall day in 1963. He is a black man named Roy Smith. He did the appointed chores, collected his money and left a receipt on the kitchen table. Neighbors will say that he looked furtive when he walked down the street, that he was in a hurry, that he stopped to buy cigarettes, that he looked over his shoulder. They didn\'t see a black man in Belmont very often, so, of course, they noticed him. So the story went, and on these slender threads, and his own checkered history, Roy Smith is convicted of the Belmont murder and sent to prison.', 0, 0),
 ('9780061013515', 'The Perfect Storm: A True Story of Men Against the Sea', '2001-02-01', 8, 50, 4, 10, 'ThePerfectStormATrueStoryofMenAgainsttheSea1590074052.jpg', 'October 1991. It was \"the perfect storm\"--a tempest that may happen only once in a century--a nor\'easter created by so rare a combination of factors that it could not possibly have been worse. Creating waves ten stories high and winds of 120 miles an hour, the storm whipped the sea to inconceivable levels few people on Earth have ever witnessed. Few, except the six-man crew of the Andrea Gail, a commercial fishing boat tragically headed towards its hellish center.', 0, 0),
 ('9780062345219', 'Four: A Divergent Collection', '2015-01-05', 13, 3, 20, 0, 'FourADivergentCollection1590077852.jpg', 'Two years before Beatrice Prior made her choice, the sixteen-year-old son of Abnegation\'s faction leader did the same. Tobias\'s transfer to Dauntless is a chance to begin again. Here, he will not be called the name his parents gave him. Here, he will not let fear turn him into a cowering child.', 0, 0),
 ('9780316024969', 'New Moon (The Twilight Saga)', '2015-01-05', 14, 20, 12, 0, 'NewMoonTheTwilightSaga1590078296.jpg', 'For Bella Swan, there is one thing more important than life itself: Edward Cullen. But being in love with a vampire is even more dangerous than Bella could ever have imagined. Edward has already rescued Bella from the clutches of one evil vampire, but now, as their daring relationship threatens all that is near and dear to them, they realize their troubles may be just beginning.', 0, 0),
 ('9780316160209', 'Eclipse (Twilight)', '2017-01-05', 14, 20, 12, 20, 'EclipseTwilight1590078608.jpg', 'As Seattle is ravaged by a string of mysterious killings and a malicious vampire continues her quest for revenge, Bella once again finds herself surrounded by danger. In the midst of it all, she is forced to choose between her love for Edward and her friendship with Jacob-knowing that her decision has the potential to ignite the ageless struggle between vampire and werewolf.', 0, 0),
 ('9780316387842', 'The Chemist', '1888-03-05', 14, 20, 25, 50, 'TheChemist1590079060.jpg', 'She used to work for the U.S. government, but very few people ever knew that. An expert in her field, she was one of the darkest secrets of an agency so clandestine it doesn\'t even have a name. And when they decided she was a liability, they came for her without warning.', 0, 0),
+('9780345240118', 'A Hole in Space', '1974-12-02', 23, 21, 15, 10, 'AHoleinSpace1590097740.jpg', '1974 story collection from Larry Niven. 1975 Locus Poll Award, Best Single Author Collection (Place: 2). Collects nine stories and one essay, including: Rammer, The Alibi Machine, The Last Days of the Permanent Floating Riot Club, A Kind of Murder, All the Bridges Rusting, There Is a Tide, Bigger Than Worlds (essay), $16,940.00, The Hole Man (winner, 1975 Hugo Award; 1975 Locus Poll Award, Best Short Story (Place: 2)), The Fourth Profession (nominated, 1972 Hugo Award).', 0, 0),
 ('9780393010466', 'Fire', '2001-02-01', 9, 20, 12, 0, 'Fire1590074639.jpg', 'The events explored in Fire focus on \"people confronting situations that could easily destroy them,\" and as he demonstrated in The Perfect Storm, Sebastian Junger is skilled at breaking such situations down to their core elements. In this exciting book, he reports on raging forest fires in the Western U.S, war zones in Kosovo and Afghanistan, the deadly diamond trade in Sierra Leone, the plight of travelers kidnapped by guerrillas in Kashmir, the last living whale harpooner on the Caribbean isla', 0, 0),
+('9780394484662', 'The Golden Soak', '1954-11-06', 17, 20, 13, 20, 'TheGoldenSoak1590093491.jpg', 'From the author of TARGET ANTARCTICA and ISVIK, a story of a man who fakes his own death and starts out for a new life prospecting for gold in Australia, only to find that he is not the only person with an interest in the derelict Golden Soak mine', 0, 0),
 ('9780439023481', 'The Hunger Games', '2014-01-05', 12, 15, 20, 0, 'TheHungerGames1590077438.jpg', 'In the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV.', 0, 0),
+('9780553573404', 'A Game Of Thrones', '2010-12-02', 22, 20, 12, 0, 'AGameOfThrones1590096563.jpg', 'Winter is coming. Such is the stern motto of House Stark, the northernmost of the fiefdoms that owe allegiance to King Robert Baratheon in far-off King’s Landing. There Eddard Stark of Winterfell rules in Robert’s name. There his family dwells in peace and comfort: his proud wife, Catelyn; his sons Robb, Brandon, and Rickon; his daughters Sansa and Arya; and his bastard son, Jon Snow. Far to the north, behind the towering Wall, lie savage Wildings and worse—unnatural things relegated to myth during the centuries-long summer, but proving all too real and all too deadly in the turning of the season.', 0, 0),
+('9780553573428', 'A Game Of Swords', '2014-12-02', 22, 20, 15, 0, 'AGameOfSwords1590096933.jpg', 'Here is the third volume in George R. R. Martin’s magnificent cycle of novels that includes A Game of Thrones and A Clash of Kings. As a whole, this series comprises a genuine masterpiece of modern fantasy, bringing together the best the genre has to offer. Magic, mystery, intrigue, romance, and adventure fill these pages and transport us to a world unlike any we have ever experienced. Already hailed as a classic, George R. R. Martin’s stunning series is destined to stand as one of the great achievements of imaginative fiction.', 0, 0),
 ('9780765322722', 'The winds of dune', '2009-01-05', 11, 15, 10, 0, 'TORBooks1590076345.jpg', 'With their usual skill, Brian Herbert and Kevin Anderson have taken ideas left behind by Frank Herbert and filled them with living characters and a true sense of wonder. Where Paul of Dune picked up the saga directly after the events of Dune, The Winds of Dune begins after the events of Dune Messiah.', 0, 0),
 ('9780935526912', 'Ramage & the Rebels (The Lord Ramage Novels)', '2000-01-01', 16, 50, 12, 40, 'RamagetheRebelsTheLordRamageNovels1590080840.jpg', 'A sinking British ship, her crew and passengers—men and women alike—ruthlessly murdered at the hands of a French privateer. This is the nightmare Ramage and the crew of the Calypso stumble upon while engaged in a sweep for freebooters in the waters off Jamaica. Supported by his men in a thirst for righteous vengeance, Ramage sets sail to bring the murderers to justice.', 0, 0),
-('9781455520633', 'The Longest Ride', '1898-03-05', 15, 20, 25, 25, 'TheLongestRide1590079780.jpg', 'From the dark days of WWII to present-day North Carolina, this New York Times bestseller shares the lives of two couples overcoming destructive secrets and finding joy together', 0, 0);
+('9781416509639', 'Earthsea: Tehanu', '2004-11-06', 18, 30, 12, 30, 'EarthseaTehanu1590094427.jpg', 'Years ago, they had escaped together from the sinister Tombs of Atuan—she, an isolated young priestess; he, a powerful wizard. Now she is a farmer\'s widow, having chosen for herself the simple pleasures of an ordinary life. And he is a broken old man, mourning the powers lost to him through no choice of his own.', 0, 0),
+('9781416998402', 'The Night of the Solstice', '2010-11-06', 19, 10, 5, 20, 'TheNightoftheSolstice1590094805.jpg', 'When Claudia Hodges-Bradley meets a fox, she knows it will be an extraordinary day. Not just any fox, this vixen is the magical familiar of the sorceress Morgana Shee. For years Morgana has guarded the solitary gate between Earth and the Wildworld, a shimmering parallel universe where legends still live. She alone holds the secret of the mirrors that serve as the last passage to enchantment. But Morgana has been betrayed and imprisoned in Wildworld, and the fox is determined to recruit the Hodges-Bradley kids for the rescue mission.', 0, 0),
+('9781455520633', 'The Longest Ride', '1898-03-05', 15, 20, 25, 25, 'TheLongestRide1590079780.jpg', 'From the dark days of WWII to present-day North Carolina, this New York Times bestseller shares the lives of two couples overcoming destructive secrets and finding joy together', 0, 0),
+('9783770427062', 'Weathering With You', '2019-12-02', 21, 20, 10, 25, 'WeatheringWithYou1590096036.jpg', 'A high-school boy who has run away to Tokyo befriends a girl who appears to be able to manipulate the weather.', 0, 0),
+('9788491462538', 'Your Name', '2015-12-02', 20, 20, 10, 25, 'YourName1590095585.jpg', 'Mitsuha, a high school girl living in a rural town deep in the mountains, has a dream that she is a boy living an unfamiliar life in Tokyo. Taki, a high school boy living in Tokyo, dreams that he is a girl living in the mountains. As they realize they are changing places, their encounter sets the cogs of fate into motion. Written by director Makoto Shinkai, the work has become a global phenomenon!', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -105,6 +121,8 @@ CREATE TABLE `book_author` (
 --
 
 INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
+('9780007548293', 43),
+('9780060515102', 39),
 ('9780060742690', 28),
 ('9780061013515', 28),
 ('9780062345219', 32),
@@ -112,13 +130,21 @@ INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
 ('9780316160209', 33),
 ('9780316387842', 33),
 ('9780316387842', 34),
+('9780345240118', 44),
 ('9780393010466', 28),
+('9780394484662', 38),
 ('9780439023481', 31),
+('9780553573404', 43),
+('9780553573428', 43),
 ('9780765322722', 29),
 ('9780765322722', 30),
 ('9780935526912', 36),
 ('9780935526912', 37),
-('9781455520633', 35);
+('9781416509639', 40),
+('9781416998402', 41),
+('9781455520633', 35),
+('9783770427062', 42),
+('9788491462538', 42);
 
 -- --------------------------------------------------------
 
@@ -136,6 +162,12 @@ CREATE TABLE `book_categories` (
 --
 
 INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
+('9780007548293', 1),
+('9780007548293', 4),
+('9780007548293', 5),
+('9780007548293', 6),
+('9780060515102', 1),
+('9780060515102', 2),
 ('9780060742690', 3),
 ('9780060742690', 5),
 ('9780061013515', 1),
@@ -147,17 +179,46 @@ INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
 ('9780316024969', 2),
 ('9780316160209', 2),
 ('9780316387842', 3),
+('9780345240118', 5),
 ('9780393010466', 5),
+('9780394484662', 1),
+('9780394484662', 4),
 ('9780439023481', 1),
 ('9780439023481', 4),
 ('9780439023481', 5),
 ('9780439023481', 6),
+('9780553573404', 1),
+('9780553573404', 4),
+('9780553573404', 5),
+('9780553573404', 6),
+('9780553573428', 1),
+('9780553573428', 4),
+('9780553573428', 5),
+('9780553573428', 6),
 ('9780765322722', 1),
 ('9780765322722', 6),
 ('9780935526912', 1),
 ('9780935526912', 5),
+('9781416509639', 1),
+('9781416509639', 4),
+('9781416509639', 6),
+('9781416998402', 1),
+('9781416998402', 6),
+('9781416998402', 7),
 ('9781455520633', 2),
-('9781455520633', 5);
+('9781455520633', 5),
+('9783770427062', 1),
+('9783770427062', 2),
+('9783770427062', 4),
+('9783770427062', 5),
+('9783770427062', 6),
+('9783770427062', 7),
+('9788491462538', 1),
+('9788491462538', 2),
+('9788491462538', 4),
+('9788491462538', 5),
+('9788491462538', 6),
+('9788491462538', 7);
 
 -- --------------------------------------------------------
 
@@ -471,7 +532,14 @@ INSERT INTO `publish_house` (`id`, `name`) VALUES
 (13, 'Katherine Tegen Books'),
 (14, 'Little Brown'),
 (15, 'Grand Central Publishing'),
-(16, 'Mcbooks Press');
+(16, 'Mcbooks Press'),
+(17, 'Knopf'),
+(18, 'Pocket Books'),
+(19, 'Aladdin'),
+(20, 'Planeta DeAgostini '),
+(21, 'Egmont Manga'),
+(22, 'Bantam'),
+(23, 'Ballantine Books');
 
 -- --------------------------------------------------------
 
@@ -804,7 +872,7 @@ ALTER TABLE `user_rights`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `book_favourite`
@@ -816,7 +884,7 @@ ALTER TABLE `book_favourite`
 -- AUTO_INCREMENT for table `book_like`
 --
 ALTER TABLE `book_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -846,7 +914,7 @@ ALTER TABLE `online_books`
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `review`

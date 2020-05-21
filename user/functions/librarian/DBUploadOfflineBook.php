@@ -1,5 +1,12 @@
 <?php
 include '../functions/DBconnection.php';
+$sql="SELECT * FROM book where ISBN='{$isbn}'";
+$bookResult=$connection->query($sql);
+if($bookResult->num_rows>0){
+	echo "ky liber eshte ne databaze";
+	exit();
+}
+
 $sql="SELECT id from publish_house where name='{$publishHouse}'";
 $publishHouseResult=$connection->query($sql);
 $publishHouseId;
