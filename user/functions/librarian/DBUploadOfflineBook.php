@@ -1,15 +1,30 @@
 <?php
-include 'functions/DBconnection.php';
+include '../functions/DBconnection.php';
+$sql="SELECT id from publish_house where name='{$publishHouse}'";
+$publishHouseResult=$connection->query($sql);
+$publishHouseId;
+if($publishHouseResult->num_rows>0){
+	$publishHouseResultFetched=$publishHouseResult->fetch_assoc();
+	$publishHouseId=$publishHouseResultFetched["id"];
+}
+else{
+	$sql="INSERT INTO publish_house(`name`) values ('{$publishHouse}')";
+	$connection->query($sql);
+	$sql="SELECT id from publish_house where name='{$publishHouse}'";
+	$publishHouseResult=$connection->query($sql);
+	$publishHouseResultFetched=$publishHouseResult->fetch_assoc();
+	$publishHouseId=$publishHouseResultFetched["id"];
+}
 
 $stmt = $connection->prepare("INSERT INTO `book`(`isbn`, `title`, `publication_year`, `publish_house`, `quantity`, `price`, `reservation_points`, `cover_photo`, `description`, `likes`) VALUES (?,?,?,?,?,?,?,?,?,?)");
 $stmt->bind_param('ssssssssss',$ISBND,$titleD,$publshDateD,$publish_houseD,$quantityD,$priceD,$reservation_pointsD,$coverPhotoD,$descriptionD,$likesD);
 $ISBND=$isbn;
 $titleD=$title;
 $publshDateD=$publication_year;
-$publish_houseD=1;
-$quantityD=1;
-$priceD=1000;
-$reservation_pointsD=0;
+$publish_houseD=$publishHouseId;
+$quantityD=$quantity;
+$priceD=$price;
+$reservation_pointsD=$reservationPoints;
 $coverPhotoD="";
 if(!empty($cover_photo)){
 $coverPhotoD=$coverPhotoNewName;
@@ -23,19 +38,29 @@ $likesD=0;
 
 $stmt->execute();
 
-$author_id="";
-$sql="SELECT id FROM author WHERE full_name='{$author}'";
-$result=$connection->query($sql);
-if($result->num_rows > 0){
-	$result_id=$result->fetch_assoc();
-	$author_id=$result_id["id"];
-}
-else{
-	//shtimi i nje autori te ri sepse autori vendosur nuk ekziston
-}
+$authors=explode(",",$author);
 
-$sql="INSERT INTO book_author VALUES ('{$isbn}','{$author_id}')";
-$connection->query($sql);
+foreach ($authors as $autori) {
+	$sql="SELECT id from author WHERE full_name='{$autori}'";
+	$authorResult=$connection->query($sql);
+	$authorId;
+	if($authorResult->num_rows>0){
+		$authorResultFetched=$authorResult->fetch_assoc();
+		$authorId=$authorResultFetched["id"];
+	}
+	else{
+		$sql="INSERT INTO author(`full_name`) VALUES('{$autori}')";
+		$connection->query($sql);
+		$sql="SELECT id from author WHERE full_name='{$autori}'";
+		$authorResult=$connection->query($sql);
+		$authorResultFetched=$authorResult->fetch_assoc();
+		$authorId=$authorResultFetched["id"];
+	}
+
+	$sql="INSERT INTO book_author(`book_id`,`author_id`) VALUES('{$isbn}','{$authorId}')";
+	$connection->query($sql);
+
+}
 
 foreach ($category as $i) {
 	$sql="SELECT id FROM categories WHERE description='{$i}'";
@@ -46,10 +71,12 @@ foreach ($category as $i) {
 	$connection->query($sql);
 }
 
-$successMsg="libri u uplodua me sukses";
 $isbn="";
 $title="";
 $description="";
-$author="";
-
+$publishHouse="";
+$price="";
+$reservationPoints="";
+$quantity="";
+	header("Location:editAuthors.php?author=".$author);
   ?>

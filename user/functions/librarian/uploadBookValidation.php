@@ -1,17 +1,55 @@
 <?php
 $successMsg="";
 $isOk=1;
-$errIsbn=$errTitle=$errBook=$errAuthor=$errCategory=$errPublicationYear=$errCoverPhoto=$isbn=$author=$title=$description="";
+$errIsbn=$errTitle=$errBook=$errAuthor=$errCategory=$errPublicationYear=$errCoverPhoto=$errPublishHouse=$errQuantity=$errPrice=$errReservationPoints=$isbn=$author=$title=$description=$publishHouse=$quantity=$price=$reservationPoints="";
 $category;
 $cover_photo;
 $book_file_name; //emri i filet cover qe do vendoset n databaz dhe n path
 if(isset($_POST["upload"])){
 
 	if(!empty($_POST["isbn"])){
-		$isbn=$_POST["isbn"];
+		
+		if(strlen($_POST["isbn"])==13){
+			$isbn=$_POST["isbn"];
+		}
+		else{
+			$errIsbn="ISBN duhet te ket 13 shifra";
+		}
 	}
 	else{
 		$errIsbn="ISBN nk mund te jete bosh";
+		$isOk=0;
+	}
+
+	if(!empty($_POST["publishHouse"])){
+		$publishHouse=$_POST["publishHouse"];
+	}
+	else{
+		$errPublishHouse="Publish House nk mund te jete bosh";
+		$isOk=0;
+	}
+
+	if(!empty($_POST["quantity"])){
+		$quantity=$_POST["quantity"];
+	}
+	else{
+		$errQuantity="Sasia nk mund te jete bosh";
+		$isOk=0;
+	}
+
+	if(!empty($_POST["reservationPoints"])){
+		$reservationPoints=$_POST["reservationPoints"];
+	}
+	else{
+		$errReservationPoints="Piket e Rezervimit nk mund te jete bosh";
+		$isOk=0;
+	}
+
+	if(!empty($_POST["price"])){
+		$price=$_POST["price"];
+	}
+	else{
+		$errPrice="Cmimi nk mund te jete bosh";
 		$isOk=0;
 	}
 
