@@ -67,7 +67,7 @@ body{
 }
 
 .header li > a:hover{
-	background-color: #1D78E3;
+	background-color: #183d59;
 }
 
 .dropdown {
@@ -109,12 +109,17 @@ body{
 	width: 280px;
 	border-radius: 13px;
 	padding-left: 10px;
+	background-color: #d9dadd;
 }
 
-.header select{
+#filter {
 	height: 35px;
 	width: 100px;
+	font-size: 13px;
 	border-radius: 13px;
+	margin: 0px;
+	color: black;
+	background-color: #d9dadd;
 }
 
 .header button{

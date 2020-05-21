@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<title>My favourite books</title>
+	<link rel="stylesheet" type="text/css" href="../styles/myFavourites.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 	<?php 
@@ -11,7 +12,8 @@
 			include 'header.php';
 	 ?>
 
-	<h2>My favourite books</h2>
+	<br>
+	<h2 class="title">My favourite books</h2>
 
 <?php 
 

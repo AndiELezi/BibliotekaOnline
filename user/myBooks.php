@@ -2,19 +2,17 @@
 <html>
 <head>
 	<title>My Books</title>
-	<link rel="stylesheet" type="text/css" href="../styles/myBooks.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+	<link rel="stylesheet" type="text/css" href="../styles/myBooks.css">
 	<?php 
 		session_start();
 		include "functions/DBconnection.php";
 		include 'header.php';
 	 ?>
-	<a href="myFavourites.php">My favourite books</a>
-	<hr>
-	<a href="bookUpload.php">Upload a book</a>
-	<hr> <br>
+
+	<br><br>
 
 
 
@@ -38,6 +36,11 @@
 			echo"<p>You haven't uploaded any books. Upload one now!</p>";
 		}
 	?>
+	<br>
+	<div class="wrap_links">
+	<a href="myFavourites.php"><div>My favourite books</div></a>
+	<a href="bookUpload.php"><div>Upload a book</div></a>
+	</div>
 </body>
 <script type="text/javascript" src="../scripts/bookSlider.js"></script>
 <script type="text/javascript" src="../scripts/home.js"></script>

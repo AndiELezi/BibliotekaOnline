@@ -8,21 +8,23 @@ include 'functions/DBconnection.php';
 <head>
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../styles/browse.css">
 </head>
 <body>
 	<?php  include 'header.php' ?>
+	<br>
 <select name="bookType" id="bookType" onchange="bookTypeChange(this.value)">
 <option value="default">Book Type</option>	
 <option value="onlineBooks">Online Books</option>
 <option value="offlineBooks">Offline Books</option>
-</select>
+</select><?php echo "<select"?>
 <?php 
 
 /* lista kategorive*/ 
 
 $sql="SELECT description FROM categories ORDER BY description";
 $categoriesResult=$connection->query($sql);
-echo "<select name='category' id='category' onchange='categoryChange(this.value)'><option value='default'>Category</option>";
+echo" name='category' id='category' onchange='categoryChange(this.value)'><option value='default'>Category</option>";
 while ($i=$categoriesResult->fetch_assoc()) {
 	echo "<option value='".$i["description"]."'>".$i["description"]."</option>";
 }
@@ -88,7 +90,7 @@ echo "</select>";
 <option value="likes">Likes</option>	
 
 </select><br>
-<div id="bookResult"></div>
+<div id="bookResult" class="result-container"></div>
 
 <script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/browse.js"></script>

@@ -1,4 +1,5 @@
 .mySlides {display: none}
+
 .slideshow-container img {
   vertical-align: middle;
   width: 200px;
@@ -40,7 +41,7 @@
   cursor: pointer;
   position: relative;
   top: 50%;
-  bottom: 170px;
+  bottom: 190px;
   width: auto;
   padding: 16px;
   margin-top: -22px;
@@ -52,7 +53,7 @@
   user-select: none;
 }
 
-.next{
+.prev{
 	float: left;
 }
 
@@ -83,9 +84,4 @@
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
 }

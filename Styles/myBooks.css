@@ -2,3 +2,34 @@
 display: none;
 
 }
+
+body{
+	background-color: #183d59; 
+}
+
+div{
+	background-color: #183d59;
+}
+
+.wrap_links{
+	text-align: center;
+}
+
+.wrap_links div{
+	display: inline-block;
+	border-radius: 25px;
+	text-align: center;
+	width: 200px;
+	background-color: #4e697d;
+	padding: 20px;
+}
+.wrap_links a{
+	color:#d9dadd;
+	text-decoration: none;
+	text-align: center;
+}
+
+.wrap_links div:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+}

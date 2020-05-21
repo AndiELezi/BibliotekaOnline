@@ -43,7 +43,6 @@ $username=$_SESSION["username"];
 					<option value="title">Title</option>
 					<option value="author">Author</option>
 					<option value="publishHouse">Publish House</option>
-					<option value="advanced">Advanced</option>
 					<!--vendsosim dhe opsione shtes pstj-->
 				</select>
 				<button type="submit" id="searchHeader" name="search"><i class="fa fa-search"></i></button>

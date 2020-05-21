@@ -35,7 +35,7 @@
 			}
 			echo "</div>";
 		}
-		
+		echo "<br><br>";
 		//display navigation buttons
 		echo "<a class='prev' onclick='slide(-1,".($slideNumber-1).")'>&#10094;</a> ";
 		echo "<a class='next' onclick='slide(1,".($slideNumber-1).")'>&#10095;</a>";

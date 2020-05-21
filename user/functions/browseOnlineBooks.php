@@ -67,7 +67,7 @@ $sql=str_replace("DISTINCT id,cover_photo,title", " COUNT(DISTINCT id) as nr", $
                 
 					while ($libratOnline=$onlineBookResult->fetch_assoc()) {
 						$numberPerColumn--;
-						$pageResult.="<a href='book.php?id=".$libratOnline["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'></a>";
+						$pageResult.="<a href='book.php?id=".$libratOnline["id"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'><div>".$libratOnline['title']."</div></div></a>";
 							if($numberPerColumn==0){
 								$pageResult.="<br>";
 							}
@@ -75,16 +75,17 @@ $sql=str_replace("DISTINCT id,cover_photo,title", " COUNT(DISTINCT id) as nr", $
 					}
 
 
-					$pageResult.="<br><div>";
+					$pageResult.="<br><br><br><hr><br><div class='nav_links'>";
 					$pageIterator=1;
 					while ($pageIterator<=$numriFaqeve) {
 						if($pageIterator==$pageNumber){
-							$pageResult.=" <a onclick='pageNrChange(".$pageIterator.")'"."style='cursor:pointer;color:red'>".$pageIterator."</a>";
+							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'"." id='currentPageLink'>".$pageIterator."</a>";
 						}
 						else{
-							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'"."style='cursor:pointer'>".$pageIterator."</a> ";
+							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'>".$pageIterator."</a>";
 						}
 						$pageIterator++;
 						
 					}
+					$pageResult.="</div><br>";
 ?>

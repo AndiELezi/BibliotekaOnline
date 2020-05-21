@@ -1,6 +1,6 @@
 <?php 
 
-$resultsPerPage=6;	//max number of books in a single page
+$resultsPerPage=10;	//max number of books in a single page
 $startFrom=($page - 1) * $resultsPerPage; //calculate the index where to select our elements on DB depending on page nr
 
 
@@ -13,7 +13,7 @@ $sql="SELECT book_id, book_type FROM book_favourite
 $result=$connection->query($sql);
 		
 if($result->num_rows > 0){
-	$resultsPerRow=3;	//number of books per row
+	$resultsPerRow=5;	//number of books per row
 	$ok=true;
 	while($ok){
 		for ($i=0; $i < $resultsPerRow; $i++) {
@@ -38,9 +38,9 @@ if($result->num_rows > 0){
 				//display the current book
  ?> 
 				<a href="<?php echo $bookDetailsPath ?>">
-				<div style="display: inline-block">
+				<div class="single_book">
 					<img src="<?php echo $coverPhotoPath.$book['cover_photo'] ?>"> <br>
-					<?php echo $book['title'] ?>
+					<div><?php echo $book['title'] ?></div>
 				</div></a>
 <?php 
 			}
@@ -51,7 +51,7 @@ if($result->num_rows > 0){
 			}
 		}
 		//start e new row after finishing displaying a specific nr of books in the previous row
-		echo "<br>"; 
+		echo "<br><br>"; 
 
 	}
 
@@ -65,11 +65,13 @@ if($result->num_rows > 0){
 	$totalPages=ceil($row["total"] / $resultsPerPage);
 
 	// display navigation links for all pages
-	echo "<br> <br>";
+	echo "<br> <br><hr><br>";
+	echo "<div class='nav_links'>";
 	for ($i=1; $i<=$totalPages; $i++) { 
       	echo "<a href='myFavourites.php?page=".$i."'";
-       	if ($i==$page)  echo " class='currentPage' style='color:red'";
+       	if ($i==$page)  echo " id='currentPageLink'";
 	      	echo ">".$i."</a> "; 
 	}
+	echo "</div><br>";
 }
 ?>

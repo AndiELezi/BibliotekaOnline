@@ -63,7 +63,7 @@ $sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories"
                     $i=0;
 					while ($libratOnline=$onlineBookResult->fetch_assoc()) {
 						$numberPerColumn--;
-						$pageResult.="<a href='book.php?id=".$libratOnline["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'></a>";
+						$pageResult.="<a href='book.php?id=".$libratOnline["id"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/onlineBooks/".$libratOnline["cover_photo"]."'><div>".$libratOnline['title']."<br></div></div></a>";
 							if($numberPerColumn==0){
 								$pageResult.="<br>";
 							}
@@ -82,7 +82,7 @@ $sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories"
 
 						while ($libratOffline=$offlineBookResult->fetch_assoc()) {
 							$numberPerColumn--;
-								$pageResult.="<a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'></a>";
+								$pageResult.="<a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'><div>".$libratOffline['title']."</div></div></a>";
 								
 								if($numberPerColumn==0){
 								$pageResult.="<br>";
@@ -106,7 +106,7 @@ $sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories"
 						 $offlineBookResult=$connection->query($sqlOffline);
 						while ($libratOffline=$offlineBookResult->fetch_assoc()) {
 							$numberPerColumn--;
-								$pageResult.="<a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'></a>";
+								$pageResult.="<a href='book.php?isbn=".$libratOffline["ISBN"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/books/".$libratOffline["cover_photo"]."'><div>".$libratOffline['title']."</div></div></a>";
 								if($numberPerColumn==0){
 								$pageResult.="<br>";
 							}
@@ -116,18 +116,19 @@ $sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories"
 					}
 
 
-					$pageResult.="<br><div>";
+					$pageResult.="<br><br><br><hr><br><div class='nav_links'>";
 					$pageIterator=1;
 					while ($pageIterator<=$numriFaqeve) {
 						if($pageIterator==$pageNumber){
-							$pageResult.=" <a onclick='pageNrChange(".$pageIterator.")'"."style='cursor:pointer;color:red'>".$pageIterator."</a>";
+							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'"." id='currentPageLink'>".$pageIterator."</a>";
 						}
 						else{
-							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'"."style='cursor:pointer'>".$pageIterator."</a> ";
+							$pageResult.="<a onclick='pageNrChange(".$pageIterator.")'>".$pageIterator."</a>";
 						}
 						$pageIterator++;
 						
 					}
+					$pageResult.="</div><br>";
 
 
 ?>
