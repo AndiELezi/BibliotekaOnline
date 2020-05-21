@@ -21,6 +21,8 @@ if(isset($_POST["upload"])){
 		$isOk=0;
 	}
 
+	$reservationPoints=$_POST["reservationPoints"];
+
 	if(!empty($_POST["publishHouse"])){
 		$publishHouse=$_POST["publishHouse"];
 	}
@@ -34,14 +36,6 @@ if(isset($_POST["upload"])){
 	}
 	else{
 		$errQuantity="Sasia nk mund te jete bosh";
-		$isOk=0;
-	}
-
-	if(!empty($_POST["reservationPoints"])){
-		$reservationPoints=$_POST["reservationPoints"];
-	}
-	else{
-		$errReservationPoints="Piket e Rezervimit nk mund te jete bosh";
 		$isOk=0;
 	}
 
