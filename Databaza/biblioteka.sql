@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 07:10 PM
+-- Generation Time: May 21, 2020 at 08:57 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -517,7 +518,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
 (15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 3510, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
-(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 1004, 3, 'silenceypaglsjkohfwqetirdu.jpg', 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
+(19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 1004, 3, 'silenceeqjophuyktrafgliwds.jpg', 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
 
 -- --------------------------------------------------------
@@ -809,13 +810,13 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book_favourite`
 --
 ALTER TABLE `book_favourite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `book_like`
 --
 ALTER TABLE `book_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
