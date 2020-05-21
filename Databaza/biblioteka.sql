@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 06:52 PM
+-- Generation Time: May 21, 2020 at 07:10 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -47,7 +47,9 @@ INSERT INTO `author` (`id`, `full_name`, `birthplace`, `birthday`, `contact`) VA
 (32, 'Veronica Roth', 'America', '1925-01-06', 'veronica@gmail.com'),
 (33, 'Stephenie Mayer', 'America', '1988-12-06', 'unknown'),
 (34, 'Thomas Reye', 'England', '1998-10-01', ' 35566854'),
-(35, 'Nicholas Sparks', 'France', '1700-12-06', 'unknown');
+(35, 'Nicholas Sparks', 'France', '1700-12-06', 'unknown'),
+(36, 'Dudley Pope', 'Americ', '1789-12-06', 'unknown'),
+(37, 'Robert Alia', 'England', '1800-10-07', 'unknown');
 
 -- --------------------------------------------------------
 
@@ -83,6 +85,7 @@ INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quant
 ('9780393010466', 'Fire', '2001-02-01', 9, 20, 12, 0, 'Fire1590074639.jpg', 'The events explored in Fire focus on \"people confronting situations that could easily destroy them,\" and as he demonstrated in The Perfect Storm, Sebastian Junger is skilled at breaking such situations down to their core elements. In this exciting book, he reports on raging forest fires in the Western U.S, war zones in Kosovo and Afghanistan, the deadly diamond trade in Sierra Leone, the plight of travelers kidnapped by guerrillas in Kashmir, the last living whale harpooner on the Caribbean isla', 0, 0),
 ('9780439023481', 'The Hunger Games', '2014-01-05', 12, 15, 20, 0, 'TheHungerGames1590077438.jpg', 'In the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV.', 0, 0),
 ('9780765322722', 'The winds of dune', '2009-01-05', 11, 15, 10, 0, 'TORBooks1590076345.jpg', 'With their usual skill, Brian Herbert and Kevin Anderson have taken ideas left behind by Frank Herbert and filled them with living characters and a true sense of wonder. Where Paul of Dune picked up the saga directly after the events of Dune, The Winds of Dune begins after the events of Dune Messiah.', 0, 0),
+('9780935526912', 'Ramage & the Rebels (The Lord Ramage Novels)', '2000-01-01', 16, 50, 12, 40, 'RamagetheRebelsTheLordRamageNovels1590080840.jpg', 'A sinking British ship, her crew and passengers—men and women alike—ruthlessly murdered at the hands of a French privateer. This is the nightmare Ramage and the crew of the Calypso stumble upon while engaged in a sweep for freebooters in the waters off Jamaica. Supported by his men in a thirst for righteous vengeance, Ramage sets sail to bring the murderers to justice.', 0, 0),
 ('9781455520633', 'The Longest Ride', '1898-03-05', 15, 20, 25, 25, 'TheLongestRide1590079780.jpg', 'From the dark days of WWII to present-day North Carolina, this New York Times bestseller shares the lives of two couples overcoming destructive secrets and finding joy together', 0, 0);
 
 -- --------------------------------------------------------
@@ -112,6 +115,8 @@ INSERT INTO `book_author` (`book_id`, `author_id`) VALUES
 ('9780439023481', 31),
 ('9780765322722', 29),
 ('9780765322722', 30),
+('9780935526912', 36),
+('9780935526912', 37),
 ('9781455520633', 35);
 
 -- --------------------------------------------------------
@@ -148,6 +153,8 @@ INSERT INTO `book_categories` (`book_id`, `category_id`) VALUES
 ('9780439023481', 6),
 ('9780765322722', 1),
 ('9780765322722', 6),
+('9780935526912', 1),
+('9780935526912', 5),
 ('9781455520633', 2),
 ('9781455520633', 5);
 
@@ -462,7 +469,8 @@ INSERT INTO `publish_house` (`id`, `name`) VALUES
 (12, 'Scholastic Press'),
 (13, 'Katherine Tegen Books'),
 (14, 'Little Brown'),
-(15, 'Grand Central Publishing');
+(15, 'Grand Central Publishing'),
+(16, 'Mcbooks Press');
 
 -- --------------------------------------------------------
 
@@ -795,7 +803,7 @@ ALTER TABLE `user_rights`
 -- AUTO_INCREMENT for table `author`
 --
 ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `book_favourite`
@@ -837,7 +845,7 @@ ALTER TABLE `online_books`
 -- AUTO_INCREMENT for table `publish_house`
 --
 ALTER TABLE `publish_house`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `review`
