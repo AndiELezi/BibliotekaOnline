@@ -1,8 +1,4 @@
 <?php
-if(!isset($_POST["title"])){
-	echo "You dont have acces here";
-	exit();
-}
 $successMsg="";
 $isOk=1;
 $errTitle=$errBook=$errCategory=$errCoverPhoto=$title=$description="";

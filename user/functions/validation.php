@@ -1,9 +1,5 @@
 
 <?php 
-if(!isset($_POST["emri"])){
-  echo "You dont have acces here";
-  exit();
-}
 
 $isCorrect=1;
 $security=str_shuffle("qwertyuioplkjhgfdsazxcvbnm1234567890");

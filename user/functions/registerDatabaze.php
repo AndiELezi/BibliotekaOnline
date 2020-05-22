@@ -1,8 +1,4 @@
 <?php 
-if(!isset($_POST["emri"])){
-	echo "You dont have acces here";
-	exit();
-}
 include "functions/DBconnection.php";
 
 

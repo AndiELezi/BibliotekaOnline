@@ -1,5 +1,5 @@
 <?php 
-if(!isset($_POST["searchQuery"])){
+if(!isset($_GET["searchQuery"])){
 	echo "You dont have acces here";
 	exit();
 }

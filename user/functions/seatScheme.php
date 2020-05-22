@@ -1,7 +1,7 @@
 
 
 <?php 
-if(!isset($_POST["default"])){
+if(!isset($_POST["month"])){
 	echo "You dont have acces here";
 	exit();
 }

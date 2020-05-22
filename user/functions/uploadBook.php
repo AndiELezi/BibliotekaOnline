@@ -1,9 +1,4 @@
 <?php
-if(!isset($_FILES["book"]["name"])){
-	echo "You dont have acces here";
-	exit();
-}
-
 $book_name=$_FILES["book"]["name"];
 $book_Temp_Name=$_FILES["book"]["tmp_name"];
 $book_Size=$_FILES["book"]["size"];

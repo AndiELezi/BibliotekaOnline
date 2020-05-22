@@ -1,9 +1,4 @@
 <?php
-session_start();
-if(!isset($_POST["change"])){
-	echo "You dont have acces here";
-	exit();
-}
 include "DBconnection.php";
 
 if(isset($_POST["change"])){
