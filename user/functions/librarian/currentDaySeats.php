@@ -40,12 +40,12 @@ for($i=1;$i<=$row_numbers;$i++){
 					$userIdResult=$userResult->fetch_assoc();
 					$userId=$userIdResult["user_id"];
 
-					$pageResult .="<img src='/BibliotekaOnline/images/app/takenSeat.jpg' id=$nrVendit onclick=showReservation('".$userId."')>";
+					$pageResult .="<img src='/BibliotekaOnline/images/app/takenSeat.png' id=$nrVendit onclick=showReservation('".$userId."')>";
 					$pageResult .=" ";
 					$nrVendit++;
 				}
 				else{
-					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.jpg' id=$nrVendit >";
+					$pageResult .="<img src='/BibliotekaOnline/images/app/freeSeat.png' id=$nrVendit >";
 					$pageResult .=" ";
 					$nrVendit++;
 				}
