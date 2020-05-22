@@ -36,12 +36,12 @@ if(in_array($bookExtension,$allowedBook)){
 						//nqs gjithcka esht ne rregull bejm uplodimin e te dy fileve
 
 						//behet uplodimi i librit ne fillim
-							$bookNewName=$book_file_name.".".$bookExtension;
+							$bookNewName=preg_replace('/[^A-Za-z0-9\-]/', '', $book_file_name).".".$bookExtension;
 							$fileDestination='C:\xampp\htdocs\BibliotekaOnline\eBooks\\'.$bookNewName;
 							move_uploaded_file($book_Temp_Name, $fileDestination);
 
 						//me pas behet uplodimi i cover_photo
-							$coverPhotoNewName=$book_file_name.".".$coverPhotoExtension;
+							$coverPhotoNewName=preg_replace('/[^A-Za-z0-9\-]/', '', $book_file_name).".".$coverPhotoExtension;
 							$fileDestination='C:\xampp\htdocs\BibliotekaOnline\images\onlineBooks\\'.$coverPhotoNewName;
 							move_uploaded_file($cover_photo_Temp_Name, $fileDestination);
 							include 'uploadBookDatabase.php';
@@ -60,7 +60,7 @@ if(in_array($bookExtension,$allowedBook)){
 			//ktu esht nqs nk ka vendosur cover foto
 			else{
 
-				$bookNewName=$book_file_name.".".$bookExtension;
+				$bookNewName=preg_replace('/[^A-Za-z0-9\-]/', '', $book_file_name).".".$bookExtension;
 				$fileDestination='C:\xampp\htdocs\BibliotekaOnline\eBooks\\'.$bookNewName;
 				move_uploaded_file($book_Temp_Name, $fileDestination);
 				include 'uploadBookDatabase.php';
