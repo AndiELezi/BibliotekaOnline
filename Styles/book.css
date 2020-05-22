@@ -139,3 +139,114 @@ body, div{
 	background-color: red;
 	color: white;
 }
+
+.review_wrap{
+	color:#d9dadd;
+}
+
+.review_wrap h2{
+	text-align: center;
+	font-size: 30px;
+}
+
+.my_review{
+	width: 46%;
+	margin:20px;
+	background-color: rgba(55, 112, 150, 0.3);
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border-radius: 12px;
+}
+
+.my_review b{
+	color: #34a1ea;
+}
+
+.my_review textarea{
+	display: block;
+	width: 95%;
+	height: 60px;
+	background: transparent;
+	color: #d9dadd;
+	border:none;
+	font-size: 18px;
+	resize: none;
+}
+
+.my_review textarea:focus{
+	resize: vertical;
+}
+
+.my_review textarea::placeholder {
+  color: #d9dadd;
+  letter-spacing:3px;
+  font-family: sans-serif;
+}
+
+
+.my_review button{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin:7px;
+	width: 80px;
+	height: 33px;
+	font-size: 18px;
+	border-radius: 12px;
+	border:none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.my_review button:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+
+#bookReviewByUsers{
+	width: 50%;
+}
+
+#bookReviewByUsers b{
+	color:#34a1ea;
+}
+
+#bookReviewByUsers div{
+	background-color: rgba(55, 112, 150, 0.3);
+	padding: 15px;
+	border-radius: 12px;
+	margin: 20px;
+}
+
+#bookReviewByUsers span{
+	color: #0080d6;
+	cursor: pointer;
+}
+#bookReviewByUsers span:hover{
+	text-decoration: underline;
+}
+
+.review_wrap > a{
+	text-decoration: none;
+}
+
+.review_wrap > a div{
+	text-align: center;
+	width: 45%;
+	margin: 20px;
+	color: #d9dadd;
+	background-color: #4e697d;
+	border-radius: 12px;
+	font-size: 20px;
+	height: 20px;
+	padding: 15px;
+
+}
+
+.review_wrap > a div:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}

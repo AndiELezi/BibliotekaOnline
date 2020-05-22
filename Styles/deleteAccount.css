@@ -1,0 +1,73 @@
+body, div{
+	background-color:  #183d59;
+}
+
+.form_wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -250px;
+    width: 500px;
+    height: 150px;
+}
+
+.form_wrap form{
+	display: inline-block;
+	background-color: rgba(55, 112, 150, 0.3);
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border-radius: 12px;
+}
+
+.form_wrap h2{
+	color: #d9dadd;
+}
+
+.form_wrap input[type=password]{
+	padding: 10px;
+	margin:30px;
+	margin-left: 90px; 
+	margin-bottom: 7px;
+	border-radius: 12px;
+	background-color: #d9dadd;
+	font-size: 17px;
+	width: 300px;
+	height: 25px;
+	border:none;
+}
+
+.form_wrap span{
+	margin-left: 90px;
+	color: #fb363ff2;
+}
+
+.form_wrap input[type=checkbox]{
+	margin-left: 90px;
+	width: 15px;
+	height: 15px;
+}
+
+.form_wrap label{
+	color: #d9dadd;
+}
+
+
+.form_wrap input[type=submit]{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	font-size: 18px;
+	border-radius: 12px;
+	border:none;
+	cursor: pointer;
+	margin-left: 100px;
+	height: 35px;
+	width: 300px;
+}
+
+.form_wrap input[type=submit]:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}

@@ -11,6 +11,7 @@
 <html>
 <head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../styles/deleteAccount.css">
 	<title></title>
 </head>
 <body>
@@ -64,12 +65,15 @@
 
 ?>
 	<?php  include 'header.php'; ?>
+	<div class="form_wrap">
 	<form method="post">
 		<h2>Enter your password to permanently delete your account</h2>
-		<input type="password" name="password" value="<?php echo $password ?>" required> <span><?php echo $errPassword?></span> <br>
-		<input type="checkbox" name="deleteBooks" value="deleteBooks">Delete my books <br> <br>
+		<input type="password" name="password" value="<?php echo $password ?>" placeholder='Enter pasword' required> 
+		<br><span><?php echo $errPassword?></span> <br>
+		<input type="checkbox" name="deleteBooks" value="deleteBooks"><label>Delete my books</label> <br> <br>
 		<input type="submit" name="delete" value="Delete">
 	</form>
+	</div>
 
 </body>
 <script type="text/javascript" src="../scripts/home.js"></script>

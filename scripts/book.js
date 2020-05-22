@@ -169,7 +169,7 @@ function editReview(bookType,bookId){
         var reviewText=this.responseText.substring(2,this.responseText.length);
         document.getElementById("review").value=reviewText;
         document.getElementById("review").readOnly=false;
-        
+        document.getElementById("review").focus();
         
       }
     }

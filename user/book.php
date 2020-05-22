@@ -26,31 +26,37 @@ $userData=$userResult->fetch_assoc();
 if(isset($_GET["isbn"])){
 	
 	include 'functions/offlineBookDetails.php';
-	echo "<br><h1>reviews</h1><hr>";
+
+	echo "<br><div class='review_wrap'>";
+	echo "<h2>Reviews</h2><hr>";
 	echo "<div id='bookId' style='display:none'>$isbn</div>";
  		$sql="SELECT * FROM review WHERE book_id='{$isbn}' AND user_id='{$userId}'";
  		$reviewResult=$connection->query($sql);
+
+ 		echo "<div class='my_review'>";
+
  		if($reviewResult->num_rows>0){
  			$reviewResultData=$reviewResult->fetch_assoc();
- 			if(strlen($reviewResultData["description"])<10){
- 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly style='border:none'>".$reviewResultData["description"]."</textarea>";
+ 			if(strlen($reviewResultData["description"])<70){
+ 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly>".$reviewResultData["description"]."</textarea>";
  			}
  			else{
- 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review'readonly style='border:none'>".substr($reviewResultData["description"],0,20)."...</textarea>";
+ 				echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review'readonly>".substr($reviewResultData["description"],0,70)."...</textarea>";
  			
  			}
- 			echo "<button onclick=\"editReview('offlineBook','$isbn')\">edit</button>";
+ 			echo "<button onclick=\"editReview('offlineBook','$isbn')\">Edit</button>";
  			echo "<button id='postBtn' style='display:none' onclick=\"postReview('offlineBook','$isbn')\">Post</button>";
- 				echo "<button  onclick=\"deleteReview('offlineBook','$isbn')\" >Delete</button>";
+ 			echo "<button  onclick=\"deleteReview('offlineBook','$isbn')\" >Delete</button>";
  		}
 
  		else{
- 			echo "<br><textarea id='review' placeholder='write a review'></textarea><button onclick=\"postReview('offlineBook','$isbn')\">Post</button>";
+ 			echo "<br><textarea id='review' placeholder='Write a review'></textarea><button onclick=\"postReview('offlineBook','$isbn')\">Post</button>";
  		}
  		echo "<br><span id='errorMsg'></span>";
- 		 echo "<div id='bookReviewByUsers'></div>";
+ 		echo "</div>";
+ 		echo "<div id='bookReviewByUsers'></div>";
 
- 		 echo "<a href='fullBookReviews.php?bookId=$isbn&pageNr=1'>View all Reviews</a>";
+ 		echo "<a href='fullBookReviews.php?bookId=$isbn&pageNr=1'><div>View all Reviews</div></a>";
 
 
 
@@ -62,18 +68,21 @@ else if (isset($_GET["id"])){
 	include 'functions/onlineBookDetails.php';
 
 
- 	echo "<br><h1>reviews</h1><hr>";
+	echo "<br><div class='review_wrap'>";
+ 	echo "<h2>Reviews</h2><hr>";
  	echo "<div id='bookId' style='display:none'>$id</div>";
 
  	$sql="SELECT * FROM review WHERE book_id='{$id}' AND user_id='{$userId}'";
  	$reviewResult=$connection->query($sql);
+
+ 	echo "<div class='my_review'>";
  	if($reviewResult->num_rows>0){
  		$reviewResultData=$reviewResult->fetch_assoc();
- 		if(strlen($reviewResultData["description"])<10){
- 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly style='border:none'>".$reviewResultData["description"]."</textarea>";
+ 		if(strlen($reviewResultData["description"])<70){
+ 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly>".$reviewResultData["description"]."</textarea>";
  		}
  		else{
- 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly style='border:none'>".substr($reviewResultData["description"],0,20)."...</textarea>";
+ 			echo "<br><span><b>".$userData["name"]." ".$userData["surname"]."</b>:</span><br><textarea id='review' readonly>".substr($reviewResultData["description"],0,70)."...</textarea>";
  			
  		}
  		echo "<button  onclick=\"editReview('onlineBook','$id')\" >edit</button>";
@@ -81,13 +90,16 @@ else if (isset($_GET["id"])){
  		echo "<button  onclick=\"deleteReview('onlineBook','$id')\" >Delete</button>";
  	}
  	else{
- 		echo "<br><textarea placeholder='write a review' id='review'></textarea><button onclick=\"postReview('onlineBook','$id')\">Post</button>";
+ 		echo "<br><textarea placeholder='Write a review' id='review'></textarea><button onclick=\"postReview('onlineBook','$id')\">Post</button>";
  	}
- 		echo "<br><span id='errorMsg'></span>";
+ 	echo "<br><span id='errorMsg'></span>";
+ 	echo "</div>";
 
- 	 echo "<div id='bookReviewByUsers'></div>";
- 	 echo "<a href='fullBookReviews.php?bookId=$id&pageNr=1'>View all Reviews</a>";
+ 	echo "<div id='bookReviewByUsers'></div>";
+ 	echo "<a href='fullBookReviews.php?bookId=$id&pageNr=1'><div>View all Reviews</div></a>";
+ 	echo "</div>";
 }
+
 
   ?>
 
