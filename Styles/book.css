@@ -1,0 +1,99 @@
+body, div{
+	background-color:  #183d59;
+}
+.book_wrap{
+	display: inline-block;
+}
+.cover_section{
+	display: inline-block;
+	background-color: rgba(55, 112, 150, 0.3);
+	margin: 30px;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+.cover_section > img{
+	width: 275px;
+	height: 400px;
+}
+
+.likeFavourite{
+	background:transparent;
+}
+
+.likeFavourite div{
+	display: inline-block;
+}
+
+.likeFavourite img{
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+.likeFavourite img:hover{
+	transform: scale(1.1);
+}
+
+.likes{
+	background:transparent;
+	text-align: center;
+}
+
+.likes span{
+	color: #d9dadd;;
+	position: absolute;
+}
+
+.details{
+	position: absolute;
+	display: inline-block;
+	width: 60%;
+	font-size: 20px;
+	color: #d9dadd;
+	margin: 30px;
+}
+
+.details ul{
+	padding-left: 20px;
+	margin: 0px;
+	display: inline;
+}
+
+.details li{
+	display: inline;
+	padding: 10px;
+}
+
+.details span{
+	line-height: 30px;
+}
+
+.details b{
+	font-weight: 100;
+	color: #34a1ea;
+	padding-right: 10px;
+}
+
+.details .description{
+	margin-left: 20px;
+}
+
+.details a{
+	text-decoration: none;
+}
+
+.details a div{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	padding: 10px;
+	margin-top:20px;
+	width: 100px;
+	border-radius: 12px;
+}
+
+.details a div:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}

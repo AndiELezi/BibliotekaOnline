@@ -16,17 +16,23 @@ $isbn=$_GET["isbn"];
 	$image_path="/BibliotekaOnline/images/books/";
 	$image_path.=$book["cover_photo"];
 	$userId=$userData["id"];
+
+
+	echo "<div class='book_wrap'>";
+	echo "<div class='cover_section'>";
 	echo "<img src='$image_path'>"."<br>";
+	echo "<div class='likeFavourite'>";
 	$sql="SELECT * FROM book_like WHERE user_id='{$userId}' AND book_id='{$isbn}'";
 	$likeResult=$connection->query($sql);
 
+	echo "<div class='likes'>";
 	if($likeResult->num_rows>0){
-		
 		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeFilled.png'>";
 	}
 	else{
 		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeEmpty.png'>";
 	}
+	echo "<br><span>".$book["likes"]."</span></div>";
 
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$isbn}'";
 	$favouriteResult=$connection->query($sql);
@@ -38,20 +44,32 @@ $isbn=$_GET["isbn"];
 		echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
 	}
 
+	echo "</div></div>";
 
-	
-		echo "<br>isbn  ".$book["ISBN"]." <br> "."titulli  ".$book["title"]." <br>"."categories: ";
+
+		echo "<div class='details'>";
+		echo "<span><b>ISBN:</b> ".$book["ISBN"]."</span><br>".
+		"<span><b>Titulli:</b> ".$book["title"]."</span><br>".
+		"<span><b>Categories:</b><ul>";
 		while ($resultBookCategories=$bookCategories->fetch_assoc()) {
-			echo $resultBookCategories["c_description"]." ";
+			echo "<li>".$resultBookCategories["c_description"]."</li>";
 		}
+		echo "</ul></span><br>";
 
-			echo "<br>".$book["publication_year"]."<br> ".$book["quantity"]." <br>".$book["price"]."<br> ".$book["reservation_points"]." <br>".$book["description"]."<br> ".$book["likes"]."<br>".$book_publish_house["name"]."<br>"."autoret: ";
-		while($author=$resultAuthor->fetch_assoc()){
-			echo $author["full_name"]." ";
-		}
+			echo "<span><b>Publication year:</b> ".$book["publication_year"]."</span><br>"
+			."<span><b>Quantity:</b> ".$book["quantity"]." </span><br>"
+			."<span><b>Price:</b> ".$book["price"]."</span><br>"
+			."<span><b>Reservation points:</b> ".$book["reservation_points"]."</span><br>"
+			."<span><b>Description:</b><br> <div class='description'>".$book["description"]."</div></span>"
+			."<span><b>Publish house:</b> ".$book_publish_house["name"]."</span><br>"
+			."<span><b>Autoret:</b><ul>";
+			while($author=$resultAuthor->fetch_assoc()){
+				echo "<li>".$author["full_name"]."</li>";
+			}
+			echo "</ul></span>";
 
-		echo "<br><a href='bookReservation.php?isbn=".$book["ISBN"]."'>Rezervo</a>";
-
+		echo "<br><a href='bookReservation.php?isbn=".$book["ISBN"]."'><div>Rezervo</div></a>";
+		echo "</div></div><br><br><br><br>";
 
 
 
