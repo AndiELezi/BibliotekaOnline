@@ -1,6 +1,33 @@
 <?php 
 include '../DBconnection.php'; 
 $succes="";
+
+if(isset($_POST["delete"])){
+	$isbn=$_POST["isbn"];
+	
+	$sql="DELETE from book_reservation where book_id='{$isbn}'";
+	$connection->query($sql);
+	$sql="DELETE from review where book_id='{$isbn}'";
+	$connection->query($sql);
+	$sql="DELETE from book_like where book_id='{$isbn}'";
+	$connection->query($sql);
+	$sql="DELETE from book_favourite where book_id='{$isbn}'";
+	$connection->query($sql);
+	$sql="SELECT cover_photo from book where ISBN='{$isbn}'";
+	$coverResult=$connection->query($sql);
+	$cover_photo_path=$coverResult->fetch_assoc();
+	$file='C:\xampp\htdocs\BibliotekaOnline\images\books\\'.$cover_photo_path["cover_photo"];
+	unlink($file);
+	$sql="DELETE from book where ISBN='{$isbn}'";
+	$connection->query($sql);
+	echo "Libri u fshi me sukses";
+
+	exit();
+
+}
+
+
+
 if (isset($_POST["update"])){
 	$isbn=$_POST["isbn"];
 	$title=$_POST["title"];
@@ -21,7 +48,8 @@ echo "Title <br><input value='".$book["title"]."' readonly placeholder='Title' i
 echo "Quantity <br><input value='".$book["quantity"]."'readonly placeholder='Quantity' id='quantity'><button onclick=allowEdit('quantity')>Edit</button><br>";
 echo "Price <br><input value='".$book["price"]."'readonly placeholder='Price' id='price'><button onclick=allowEdit('price')>Edit</button><br>";
 echo "Reservation Points <br><input value='".$book["reservation_points"]."'readonly placeholder='Points' id='points'><button onclick=allowEdit('points')>Edit</button><br>";
-echo "<input type='button' name='submit' value='Update' onclick=updateBook()>";
+echo "<input type='button' name='submit' value='Update' onclick=updateBook()><br>";
+echo "<input type='button' name='submit' value='Delete' onclick=deleteBook()><br>";
 echo "<br>".$succes;
 echo "<script type='text/javascript' src='../scripts/librarianBookEditable.js'></script>";
 } 
