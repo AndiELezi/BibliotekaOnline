@@ -7,6 +7,7 @@
 
 ?>
 <?php 
+$months = array('1' =>"January" ,'2' =>"February",'3' =>"March",'4' =>"April",'5' =>"May",'6' =>"June",'7' =>"July",'8' =>"August",'9' =>"September",'10' =>"October",'11' =>"November",'12' =>"December");
 include 'functions/DBconnection.php';
 $sql="SELECT * FROM library_halls";
 $libraryHallResults=$connection->query($sql);
@@ -38,12 +39,12 @@ echo "</select>&nbsp";
 echo "<select name='month' onchange='monthChange(this.value)'>";
 echo "<option value='default'>muaji</option>";
 $i=1;
-while ($i<=12) {
+foreach ($months as $month) {
 	if($i<10){
-		echo "<option value='0".$i."'>".$i."</option>";
+		echo "<option value='0".$i."'>".$month."</option>";
 	}
 	else{
-		echo "<option value='".$i."'>".$i."</option>";
+		echo "<option value='".$i."'>".$month."</option>";
 	}
 	$i++;
 }
