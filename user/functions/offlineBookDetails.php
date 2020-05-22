@@ -32,7 +32,7 @@ $isbn=$_GET["isbn"];
 	else{
 		echo "<img id='like' onclick=\"likePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/likeEmpty.png'>";
 	}
-	echo "<br><span>".$book["likes"]."</span></div>";
+	echo "<br><span id='nrOfLikes'>".$book["likes"]."</span></div>";
 
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$isbn}'";
 	$favouriteResult=$connection->query($sql);

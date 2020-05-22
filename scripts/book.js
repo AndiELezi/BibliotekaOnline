@@ -24,24 +24,25 @@ function fullReview(userId){
 
 
 function deleteBook(bookId){
-	//copy funksion qe tcon te dhenen me post
-	//deleteBook.php
-		xmlhttp=new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function() {
+	var result = confirm("Are u sure u want to delete this reservation?");
+		if(result){
+			xmlhttp=new XMLHttpRequest();
+    		xmlhttp.onreadystatechange=function() {
    
-    if (this.readyState==4 && this.status==200) {
+    		if (this.readyState==4 && this.status==200) {
 
-      if(this.responseText!=""){
-       document.getElementById("deleteResponse").innerHTML=this.responseText;
-       window.location.href = "home.php";
+     		 if(this.responseText!=""){
+       			document.getElementById("deleteResponse").innerHTML=this.responseText;
+       			window.location.href = "home.php";
         
-      }
-    }
-  }
-  var data="id="+bookId;
- xmlhttp.open("POST","functions/deleteBook.php",true);
-  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-  xmlhttp.send(data);
+     			 }
+   			 	}
+ 			 }
+  		var data="id="+bookId;
+ 		xmlhttp.open("POST","functions/deleteBook.php",true);
+  		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  		xmlhttp.send(data);
+			}
 }
 
 
@@ -56,8 +57,11 @@ if(like=="http://localhost/BibliotekaOnline/images/app/likeEmpty.png"){
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
    
-      
+            var nrOfLikes=parseInt(document.getElementById("nrOfLikes").innerHTML);
+            nrOfLikes++;
+            document.getElementById("nrOfLikes").innerHTML=nrOfLikes;
             document.getElementById("like").src="http://localhost/BibliotekaOnline/images/app/likeFilled.png";
+
         
         
       }
@@ -77,7 +81,9 @@ else if(like=="http://localhost/BibliotekaOnline/images/app/likeFilled.png"){
         xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
-      
+            var nrOfLikes=parseInt(document.getElementById("nrOfLikes").innerHTML);
+            nrOfLikes--;
+            document.getElementById("nrOfLikes").innerHTML=nrOfLikes;
             document.getElementById("like").src="http://localhost/BibliotekaOnline/images/app/likeEmpty.png";
         
         

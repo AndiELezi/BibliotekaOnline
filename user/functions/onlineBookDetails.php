@@ -31,7 +31,7 @@ $id=$_GET["id"];
 	else{
 		echo "<img id='like' onclick=\"likePressed('onlineBook','".$id."')\" src='/BibliotekaOnline/images/app/likeEmpty.png'>";
 	}
-	echo "<br><span>".$online_books["likes"]."</span></div>";
+	echo "<br><span id='nrOfLikes'>".$online_books["likes"]."</span></div>";
 
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$id}'";
 	$favouriteResult=$connection->query($sql);
