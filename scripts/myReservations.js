@@ -43,7 +43,9 @@ function showPlaceReservation() {
 
 function deleteBookReservation(bookId,userId) {
 
-	xmlhttp=new XMLHttpRequest();
+	var result = confirm("Are u sure u want to delete this reservation?");
+if (result) {
+   xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
@@ -57,9 +59,14 @@ function deleteBookReservation(bookId,userId) {
   xmlhttp.send(data);
 }
 
+	
+}
+
 
 function deletePlaceReservation(){
-	xmlhttp=new XMLHttpRequest();
+	var result = confirm("Are u sure u want to delete this reservation?");
+if (result) {
+   xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
@@ -71,4 +78,6 @@ function deletePlaceReservation(){
  xmlhttp.open("POST","functions/myPlaceReservation.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
+}
+	
 }

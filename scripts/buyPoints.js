@@ -3,8 +3,9 @@ var stripe = Stripe('pk_test_nxXAxP4aqo26J985bPx8SSgw00PC6490zt');
 
 function bliPaketen(paketa) {
 
-
-	xmlhttp=new XMLHttpRequest();
+	var result = confirm("Are you sure you want to buy this package?>");
+if (result) {
+   xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
       if(this.responseText!=""){
@@ -21,6 +22,9 @@ function bliPaketen(paketa) {
  xmlhttp.open("POST","functions/checkoutSession.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);
+}
+
+	
 
 }
 

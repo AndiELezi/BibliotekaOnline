@@ -132,7 +132,10 @@ function selectSeat(placeId){
 
 
 function reserve() {
-	if(!checkReservation()){
+	var result = confirm("Are sure u want to reserve this place?");
+if (result) {
+
+    	if(!checkReservation()){
 		document.getElementById("reservationResponse").innerHTML="<span class='error'>Ju lutem plotesoni te gjitha fushat dhe zgjidhni vendin qe deshironi te rezervoni</span>";
 		return;
 
@@ -159,6 +162,7 @@ function reserve() {
 
 
 
+		}
 	}
 	
 }

@@ -27,7 +27,9 @@ function kerko(str) {
 
 $(document).ready(function(){
   $("#rezervo").click(function(){
-    var isbn=$("#isbn").val();
+    var result = confirm("Are sure u want to reserve this book?");
+if (result) {
+     var isbn=$("#isbn").val();
     var dataRezervimit=$("#dataRezervimit").val();
     var dataRikthimit=$("#dataRikthimit").val();
     xmlhttp=new XMLHttpRequest();
@@ -47,5 +49,6 @@ $(document).ready(function(){
   xmlhttp.send(data);
   //ktu bojm na nje div me klas animimi   
   document.getElementById("test").innerHTML="loading";
+}
   });
 });

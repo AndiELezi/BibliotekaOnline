@@ -25,7 +25,7 @@
 
 
 
-<form method="POST" action="bookUpload.php" enctype="multipart/form-data">
+<form method="POST" action="bookUpload.php" enctype="multipart/form-data" onsubmit="return confirm('Are you sure you want to this book?');">
 titulli librit:<br><input type="text" name="title" value="<?php echo $title  ?>"><span><?php echo $errTitle  ?></span><br><br>
 pershkrimi librit:<br><textarea rows="4" name="description"><?php echo $description  ?></textarea><br><br>
 kategorite e librit:<span><?php echo $errCategory  ?><br>
