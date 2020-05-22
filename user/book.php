@@ -1,3 +1,11 @@
+<?php 
+session_start();
+	if(!isset($_SESSION["username"])){
+		header("Location:login.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +16,6 @@
 <body>
 
 <?php
-session_start();
 include 'functions/DBconnection.php';
 $username=$_SESSION["username"];
 $sql="SELECT * from users where username='$username'";

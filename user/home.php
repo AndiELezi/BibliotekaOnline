@@ -1,5 +1,13 @@
+<?php 
+
+	session_start();
+	if(!isset($_SESSION["username"])){
+		header("Location:login.php");
+	}
+
+?>
+
 <?php
-session_start();
 //kjo ktu m duket e perseritur shum her...me mir ta vendosim ne nje file tjt dhe i japim include
 		
 	include "functions/DBconnection.php"; 

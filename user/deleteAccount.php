@@ -1,3 +1,12 @@
+<?php 
+
+	session_start();
+	if(!isset($_SESSION["username"])){
+		header("Location:login.php");
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +15,6 @@
 </head>
 <body>
 <?php 
-	session_start();
 	$username=$_SESSION["username"];
 	$password="";
 	$errPassword="";

@@ -1,3 +1,11 @@
+<?php 
+
+	session_start();
+	if(!isset($_SESSION["username"])){
+		header("Location:login.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +15,6 @@
 <body>
 	<link rel="stylesheet" type="text/css" href="../styles/myBooks.css">
 	<?php 
-		session_start();
 		include "functions/DBconnection.php";
 		include 'header.php';
 	 ?>

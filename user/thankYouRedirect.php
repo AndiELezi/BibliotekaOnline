@@ -1,5 +1,12 @@
+<?php 
+
+	session_start();
+	if(!isset($_SESSION["username"])){
+		header("Location:login.php");
+	}
+
+?>
 <?php
-session_start();
 include 'functions/DBconnection.php';
 $username=$_SESSION["username"];
 $paketa=$_POST["paketa"];
