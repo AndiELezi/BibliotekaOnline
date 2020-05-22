@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2020 at 02:19 AM
+-- Generation Time: May 22, 2020 at 02:37 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -381,7 +381,8 @@ CREATE TABLE `hall_structure` (
 
 INSERT INTO `hall_structure` (`structure_id`, `library_hall`, `row_numbers`, `separation_1`, `separation_2`, `separation_3`, `separation_4`, `separation_5`) VALUES
 (1, 1, 5, 3, 3, 4, NULL, NULL),
-(2, 2, 5, 2, 2, 3, 3, NULL);
+(2, 2, 5, 2, 2, 3, 3, NULL),
+(3, 3, 6, 4, 5, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -402,8 +403,9 @@ CREATE TABLE `library_halls` (
 --
 
 INSERT INTO `library_halls` (`id`, `name`, `capacity`, `open_seats`, `librarian_id`) VALUES
-(1, 'salla1', 50, 50, 1),
-(2, 'salla2', 50, 50, 15);
+(1, 'Salla 1', 50, 50, 1),
+(2, 'Salla 2', 50, 50, 15),
+(3, 'Salla 3', 60, 60, 12);
 
 -- --------------------------------------------------------
 
@@ -839,13 +841,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `hall_structure`
 --
 ALTER TABLE `hall_structure`
-  MODIFY `structure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `structure_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `library_halls`
 --
 ALTER TABLE `library_halls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `online_books`
