@@ -1,3 +1,4 @@
+
 <?php 
 $username=$_SESSION["username"];
 		$sql="SELECT `name`,`surname`,`points`,`profile_photo` FROM users WHERE username='{$username}'";
