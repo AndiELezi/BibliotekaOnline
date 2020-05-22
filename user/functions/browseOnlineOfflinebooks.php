@@ -96,7 +96,7 @@ $sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories"
 
 
 					if($pageNumber>$nrFaqeveTeLibraveOnline || $onlineBookNumber==0){
-							if($onlineBookNumber==0){
+							if($_SESSION["i"]==0){
 								$_SESSION["i"]=10;
 							}
 						$startNumber=($pageNumber*$numberPerPage)-($nrFaqeveTeLibraveOnline*$numberPerPage)-$numberPerPage+($numberPerPage-$_SESSION["i"]);
