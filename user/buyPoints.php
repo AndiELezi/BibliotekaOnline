@@ -19,6 +19,12 @@
 	<title></title>
 </head>
 <body>
+	<?php
+
+	 include 'functions/DBconnection.php';
+	 include 'header.php'; 
+
+	 ?>
 	
 	<div>Paketa 1<br>
 		Sasia e pikeve:100<br>
