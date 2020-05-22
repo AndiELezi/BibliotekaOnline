@@ -7,6 +7,16 @@ include 'DBconnection.php';
 
 
 if($_POST["isbn"]!=""){
+if(strtotime($_POST["dataRezervimit"])<strtotime(Date("Y-m-d"))){
+			echo "Data e Rezervimit nuk mund te jete me e vogel se dita e sotme";
+			exit();
+	}	
+
+if(strtotime($_POST["dataRezervimit"])>strtotime($_POST["dataRikthimit"])){
+			echo "Data e Rikthimit nuk mund te jete me e vogel se dataRezervimit";
+			exit();
+	}	
+
 $username=$_SESSION["username"];
 $isbn=$_POST["isbn"];
 $sql="SELECT id,points FROM users WHERE username='{$username}'";

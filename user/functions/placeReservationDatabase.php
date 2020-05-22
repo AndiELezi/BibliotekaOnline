@@ -1,5 +1,11 @@
 <?php 
 session_start();
+$fillimiRezervimit="2020-".$_POST["month"]."-".$_POST["date"]." ".$_POST["startTime"].":00";
+if(strtotime($fillimiRezervimit)<strtotime(Date("Y-m-d H:i:s"))){
+		echo "<span class='error'>Data e fillimit te rezervimit nuk duhet te jete me e vogel se dita dhe ora  e momentit</span>";
+		exit();
+}
+
 include 'DBconnection.php';
 $pageResponse="";
 $pageError="";
