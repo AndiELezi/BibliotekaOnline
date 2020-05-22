@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_GET["id"])){
+	echo "You dont have acces here";
+	exit();
+}
 
 $id=$_GET["id"];
 	$userId=$userData["id"];

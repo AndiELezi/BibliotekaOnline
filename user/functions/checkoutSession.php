@@ -1,5 +1,8 @@
 <?php
-  
+  if(!isset($_POST["paketa"])){
+  echo "You dont have acces here";
+  exit();
+}
   $paketaClient=$_POST["paketa"];
   $emri;
   $pagesa;

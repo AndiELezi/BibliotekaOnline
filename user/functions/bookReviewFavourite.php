@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_POST["favourite"])){
+	echo "You dont have acces here";
+	exit();
+}
 $favourite=$_POST["favourite"];
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$bookId}'";
 	$reviewResult=$connection->query($sql);

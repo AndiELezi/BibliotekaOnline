@@ -3,7 +3,7 @@ var stripe = Stripe('pk_test_nxXAxP4aqo26J985bPx8SSgw00PC6490zt');
 
 function bliPaketen(paketa) {
 
-	var result = confirm("Are you sure you want to buy this package?>");
+	var result = confirm("Are you sure you want to buy this package?");
 if (result) {
    xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {

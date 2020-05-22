@@ -1,5 +1,8 @@
 <?php 
-
+if(!isset($_POST["aksesimi"])){
+	echo "You dont have acces here";
+	exit();
+}
 
 session_start();
 $errMessage="";

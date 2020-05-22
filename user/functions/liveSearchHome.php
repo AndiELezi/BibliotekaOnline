@@ -1,4 +1,8 @@
 <?php 
+if(!isset($_POST["searchQuery"])){
+	echo "You dont have acces here";
+	exit();
+}
 include "DBconnection.php"; 
 $pageResult="";
 $pageError="";

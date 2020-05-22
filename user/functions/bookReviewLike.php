@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_POST["like"])){
+	echo "You dont have acces here";
+	exit();
+}
 $like=$_POST["like"];
 	$sql="SELECT * FROM book_like WHERE user_id='{$userId}' AND book_id='{$bookId}'";
 	$reviewResult=$connection->query($sql);

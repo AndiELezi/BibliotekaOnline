@@ -1,4 +1,9 @@
+
 <?php 
+if(!isset($_POST["pageNr"])){
+	echo "You dont have acces here";
+	exit();
+}
 session_start();
 include 'DBconnection.php';
 $numberPerPage=10;

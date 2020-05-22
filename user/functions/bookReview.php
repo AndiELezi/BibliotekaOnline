@@ -1,5 +1,12 @@
 
 <?php 
+if(!isset($_POST["like"]) && !isset($_POST["favourite"]) && !isset($_POST["editReview"]) && !isset($_POST["delete"]) && !isset($_POST["review"]) ){
+
+			echo "You dont have acess here";
+			exit();			
+}
+
+
 session_start();
 include 'DBconnection.php';
 	$username=$_SESSION["username"];

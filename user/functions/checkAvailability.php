@@ -1,4 +1,8 @@
 <?php 
+if(!isset($_POST["username"]) && !isset($_POST["email"])){
+	echo "You dont have acces here";
+	exit();
+}
 
 if(!empty($_POST["username"])){
 	

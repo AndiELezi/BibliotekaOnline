@@ -1,7 +1,10 @@
 
 
 <?php 
-
+if(!isset($_POST["default"])){
+	echo "You dont have acces here";
+	exit();
+}
 
 
 

@@ -1,4 +1,8 @@
 <?php
+if(!isset($_POST["bookId"])){
+	echo "You dont have acces here";
+	exit();
+}
 session_start();
 $pageResult="";
 $numberOfReviews=3;

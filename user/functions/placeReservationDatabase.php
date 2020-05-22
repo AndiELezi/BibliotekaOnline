@@ -1,4 +1,7 @@
-<?php 
+<?php if(!isset($_POST["month"])){
+	echo "You dont have acces here";
+	exit();
+}
 session_start();
 $fillimiRezervimit="2020-".$_POST["month"]."-".$_POST["date"]." ".$_POST["startTime"].":00";
 if(strtotime($fillimiRezervimit)<strtotime(Date("Y-m-d H:i:s"))){

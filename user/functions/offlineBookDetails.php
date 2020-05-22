@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_GET["isbn"])){
+	echo "You dont have acces here";
+	exit();
+}
 
 $isbn=$_GET["isbn"];
 	$sql="SELECT * from book WHERE isbn='{$isbn}'";

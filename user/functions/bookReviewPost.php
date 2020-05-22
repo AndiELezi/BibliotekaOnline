@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_POST["review"])){
+	echo "You dont have acces here";
+	exit();
+}
 $review=$_POST["review"];
 	$sql="SELECT * FROM review WHERE user_id='{$userId}' AND book_id='{$bookId}'";
 	$reviewResult=$connection->query($sql);

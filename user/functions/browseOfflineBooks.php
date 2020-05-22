@@ -1,4 +1,8 @@
 <?php
+if(!isset($_POST["category"])){
+	echo "You dont have acces here";
+	exit();
+}
 $category=$_POST["category"];
 	$author=$_POST["author"];
 	$publishHouseId=$_POST["publishHouse"];

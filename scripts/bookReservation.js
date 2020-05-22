@@ -43,7 +43,7 @@ if (result) {
       }
     }
   }
-  var data='isbn='+isbn+"&dataRezervimit="+dataRezervimit+"&dataRikthimit="+dataRikthimit;
+  var data='isbn='+isbn+"&dataRezervimit="+dataRezervimit+"&dataRikthimit="+dataRikthimit+"&aksesimi=true";
   xmlhttp.open("POST","functions/bookReservationDatabase.php",true);
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.send(data);

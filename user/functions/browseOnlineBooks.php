@@ -1,4 +1,8 @@
 <?php
+if(!isset($_POST["category"])){
+	echo "You dont have acces here";
+	exit();
+}
 $category=$_POST["category"];
 	$user=$_POST["user"];
 	$sqlOnline="SELECT DISTINCT id,cover_photo,title FROM v_online_books_categories";
