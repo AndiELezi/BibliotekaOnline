@@ -37,13 +37,14 @@ $isbn=$_GET["isbn"];
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$isbn}'";
 	$favouriteResult=$connection->query($sql);
 
+	echo "<div>";
 	if($favouriteResult->num_rows>0){
 		 echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
 	}
 	else{
 		echo "<img id='favourite' onclick=\"favouritePressed('offlineBook','".$isbn."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
 	}
-
+	echo "<br><span>&nbsp</span></div>";
 	echo "</div></div>";
 
 

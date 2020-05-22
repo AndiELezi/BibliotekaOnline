@@ -17,8 +17,8 @@ body, div{
 	height: 400px;
 }
 
-.likeFavourite{
-	background:transparent;
+.cover_section div{
+	background: transparent;
 }
 
 .likeFavourite div{
@@ -26,8 +26,8 @@ body, div{
 }
 
 .likeFavourite img{
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 42px;
+	margin-right: 39px;
 }
 
 .likeFavourite img:hover{
@@ -39,9 +39,12 @@ body, div{
 	text-align: center;
 }
 
+.likes img{
+	height: 47px;
+}
+
 .likes span{
-	color: #d9dadd;;
-	position: absolute;
+	color: #d9dadd;
 }
 
 .details{
@@ -88,12 +91,51 @@ body, div{
 	background-color: #4e697d;
 	padding: 10px;
 	margin-top:20px;
-	width: 100px;
+	width: 200px;
 	border-radius: 12px;
+	display: inline-block;
+	cursor: pointer;
 }
 
 .details a div:hover{
 	color: #183d59;
 	background-color: #d9dadd;
 	box-shadow: 0 0 25px #377096;
+}
+
+.details form{
+	display: inline-block;
+	margin: 20px;
+}
+
+
+.details form input[type=submit]{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	padding: 10px;
+	margin-top:20px;
+	width: 200px;
+	height: 43px;
+	font-size: 20px;
+	border-radius: 12px;
+	border:none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.details form input[type=submit]:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+.details #delete{
+	color:red;
+	background-color: #d9dadd;
+}
+
+.details #delete:hover{
+	background-color: red;
+	color: white;
 }

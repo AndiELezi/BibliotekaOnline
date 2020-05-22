@@ -35,14 +35,15 @@ $id=$_GET["id"];
 
 	$sql="SELECT * FROM book_favourite WHERE user_id='{$userId}' AND book_id='{$id}'";
 	$favouriteResult=$connection->query($sql);
+	echo "<div>";
 	if($favouriteResult->num_rows>0){
 		 echo "<img id='favourite' onclick=\"favouritePressed('onlineBook','".$id."')\" src='/BibliotekaOnline/images/app/favouriteFilled.png'>";
 	}
 	else{
 		 echo "<img id='favourite' onclick=\"favouritePressed('onlineBook','".$id."')\" src='/BibliotekaOnline/images/app/favouriteEmpty.png'>";
 	}
-
-	echo "</div></div>";
+	echo "<br><span>&nbsp</span></div>";
+	echo "</div></div></div>";
 
 /***************************************/
 
@@ -64,9 +65,36 @@ $id=$_GET["id"];
 		echo "<li>".$bookUser["name"]. " ".$bookUser["surname"]."</li>";
 	}
 	echo "</ul></span>";
-	echo "</div></div><br><br><br><br>";
+	
 
 	$bookPath=$online_books["book_path"];
+
+	if(isset($_GET["download"])){
+
+		include 'functions/downloadBookFunction.php';
+
+	}
+
+  
+
+	echo "<br>";
+
+	echo "<a href='/BibliotekaOnline/eBooks/".$bookPath."'><div>Shiko online</div></a>";
+
+	echo "<form method='GET'>";
+ 	echo "<input type='submit'  name='download' value='Download'> ";
+ 	echo "<input type='hidden' name='id' value='".$id."'>";
+ 	echo "</form>";
+ 	$sql="SELECT name,username from v_user_online_books where book_id='{$id}'";
+	$resultOnlineBookUser=$connection->query($sql);
+	$bookUser=$resultOnlineBookUser->fetch_assoc();
+ 	if ($_SESSION["username"]==$bookUser["username"]){
+ 		echo "<a onclick='deleteBook(".$id.")'><div id='delete'>Delete</div></a>";
+
+ 	}
+ 	echo "<br><br>";
+ 	echo "</div></div>";
+ 	
 
 	
 ?>
