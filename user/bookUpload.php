@@ -33,11 +33,6 @@ while ($i=$categoriesResult->fetch_assoc()) {
   ?>
 
 
-
-<!--<input type="checkbox" name="category[]" value="romance">romance<br>
-<input type="checkbox" name="category[]" value="mystery">mystery<br>
-<input type="checkbox" name="category[]" value="comedy">comedy<br>-->
-<input type="checkbox" name="category[]" value="adventure">adventure<br><br>
 foto e librit:<input type="file" name="cover_photo"><span><?php echo $errCoverPhoto  ?></span><br><br>
 libri:<input type="file" name="book"><span><?php echo $errBook  ?></span><br><br>
 <input type="submit" name="upload" value="upload">

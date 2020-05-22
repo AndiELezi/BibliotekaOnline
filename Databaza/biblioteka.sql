@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 11:56 PM
+-- Generation Time: May 22, 2020 at 02:19 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -234,20 +234,6 @@ CREATE TABLE `book_favourite` (
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `book_favourite`
---
-
-INSERT INTO `book_favourite` (`id`, `book_id`, `user_id`, `favourite_time`, `book_type`) VALUES
-(13, '33', 15, '2020-05-18', 'onlineBook'),
-(14, '32', 15, '2020-05-18', 'onlineBook'),
-(15, '34', 15, '2020-05-18', 'onlineBook'),
-(16, '36', 15, '2020-05-18', 'onlineBook'),
-(17, '37', 15, '2020-05-18', 'onlineBook'),
-(18, '39', 15, '2020-05-18', 'onlineBook'),
-(19, '38', 15, '2020-05-18', 'onlineBook'),
-(20, '34', 19, '2020-05-20', 'onlineBook');
-
 -- --------------------------------------------------------
 
 --
@@ -278,76 +264,46 @@ CREATE TABLE `book_online_categories` (
 --
 
 INSERT INTO `book_online_categories` (`book_online_id`, `category_id`) VALUES
-(32, 2),
-(32, 7),
-(33, 5),
-(34, 2),
-(34, 1),
-(35, 5),
-(35, 7),
-(36, 5),
-(36, 7),
-(36, 1),
-(37, 2),
-(37, 1),
-(38, 2),
-(38, 1),
-(39, 2),
-(39, 5),
-(39, 7),
-(40, 2),
-(40, 5),
-(41, 5),
-(41, 1),
-(42, 2),
-(42, 5),
-(42, 7),
-(43, 2),
-(43, 7),
-(44, 2),
-(44, 1),
-(45, 5),
-(45, 7),
-(46, 5),
-(46, 1),
-(47, 2),
-(47, 1),
-(48, 2),
-(48, 7),
-(48, 1),
-(49, 2),
-(49, 5),
-(49, 7),
-(50, 5),
-(50, 1),
-(51, 7),
-(51, 1),
-(52, 2),
-(52, 1),
-(53, 5),
-(54, 7),
-(55, 2),
-(56, 1),
-(57, 5),
-(58, 2),
-(58, 5),
-(58, 7),
-(58, 1),
-(59, 5),
-(59, 7),
-(60, 2),
-(60, 5),
-(61, 2),
-(61, 7),
-(62, 6),
-(62, 3),
-(63, 7),
-(64, 7),
-(64, 5),
-(65, 5),
-(65, 2),
-(66, 5),
-(66, 2);
+(67, 1),
+(68, 1),
+(68, 5),
+(69, 1),
+(69, 6),
+(70, 2),
+(71, 5),
+(72, 1),
+(72, 5),
+(73, 4),
+(73, 7),
+(74, 1),
+(74, 7),
+(74, 2),
+(75, 1),
+(75, 7),
+(76, 1),
+(77, 4),
+(77, 1),
+(78, 1),
+(78, 5),
+(79, 1),
+(79, 3),
+(80, 1),
+(80, 2),
+(80, 6),
+(81, 1),
+(81, 5),
+(81, 6),
+(82, 4),
+(82, 1),
+(82, 5),
+(83, 1),
+(83, 5),
+(84, 1),
+(84, 5),
+(84, 6),
+(84, 3),
+(85, 4),
+(86, 4);
 
 -- --------------------------------------------------------
 
@@ -472,41 +428,26 @@ CREATE TABLE `online_books` (
 --
 
 INSERT INTO `online_books` (`id`, `user_id`, `title`, `publish_date`, `likes`, `cover_photo`, `description`, `book_path`, `monthly_likes`) VALUES
-(32, 15, 'a', '2020-04-23', 4, 'a1587664787.jpg', 'a', 'a1587664787.pdf', 0),
-(33, 15, 'b', '2020-04-23', 0, 'b1587664842.jpg', 'b', 'b1587664842.pdf', 0),
-(34, 15, 'c', '2020-04-23', 0, 'c1587664886.jpg', 'd', 'c1587664886.pdf', 0),
-(35, 15, 'banana', '2020-04-23', 0, 'banana1587664923.jpg', 'banana', 'banana1587664923.pdf', 0),
-(36, 15, 'hello', '2020-04-23', 0, 'hello1587664954.jpg', 'hello', 'hello1587664954.pdf', 0),
-(37, 15, 'f', '2020-04-23', 0, 'default.jpg', 'f', 'f1587665619.pdf', 0),
-(38, 15, 'i', '2020-04-23', 0, 'i1587665727.jpg', 'i', 'i1587665727.pdf', 0),
-(39, 15, 'test', '2020-04-23', 0, 'default.jpg', 'test', 'test1587665804.pdf', 0),
-(40, 19, 'book1', '2020-05-08', 0, 'book11588936181.png', 'libri 1', 'book11588936181.txt', 0),
-(41, 19, 'book2', '2020-05-08', 0, 'book21588936203.png', 'liber kot', 'book21588936203.txt', 0),
-(42, 19, 'book3', '2020-05-08', 0, 'book31588936231.png', 'liber kot 3', 'book31588936231.txt', 0),
-(43, 19, 'book4', '2020-05-08', 0, 'book41588936297.png', 'liber kot 4', 'book41588936297.txt', 0),
-(44, 19, 'book5', '2020-05-08', 0, 'book51588936317.png', 'liber kot 5', 'book51588936317.txt', 0),
-(45, 19, 'book6', '2020-05-08', 0, 'book61588936338.png', 'liber kot 6', 'book61588936338.txt', 0),
-(46, 19, 'book7', '2020-05-08', 0, 'book71588936357.png', 'liber kot 7', 'book71588936357.txt', 0),
-(47, 19, 'book8', '2020-05-08', 0, 'book81588936388.png', 'liber kot 8', 'book81588936388.txt', 0),
-(48, 19, 'book9', '2020-05-08', 0, 'book91588936419.png', 'liber kot 9\r\n', 'book91588936419.txt', 0),
-(49, 19, 'book10', '2020-05-08', 0, 'book101588936437.png', 'liber kot 10', 'book101588936437.txt', 0),
-(50, 20, 'book11', '2020-05-08', 0, 'book111588936557.png', 'liber kot 11', 'book111588936557.txt', 0),
-(51, 20, 'book12', '2020-05-08', 0, 'book121588936580.png', 'liber kot 12', 'book121588936580.txt', 0),
-(52, 20, 'book13', '2020-05-08', 0, 'book131588936607.png', 'liber kot 13', 'book131588936607.txt', 0),
-(53, 20, 'book14', '2020-05-08', 0, 'book141588936632.png', 'liber kot 14', 'book141588936632.txt', 0),
-(54, 20, 'book15', '2020-05-08', 0, 'book151588936651.png', 'liber kot 15', 'book151588936651.txt', 0),
-(55, 20, 'book16', '2020-05-08', 0, 'book161588936669.png', 'liber kot 16', 'book161588936669.txt', 0),
-(56, 20, 'book17', '2020-05-08', 0, 'book171588936687.png', 'liber kot 17', 'book171588936687.txt', 0),
-(57, 20, 'book18', '2020-05-08', 0, 'book181588936708.png', 'liber kot 18', 'book181588936708.txt', 0),
-(58, 20, 'book19', '2020-05-08', 0, 'book191588936728.png', 'liber kot 19', 'book191588936728.txt', 0),
-(59, 20, 'book20', '2020-05-08', 0, 'book201588936747.png', 'liber kot 20', 'book201588936747.txt', 0),
-(60, 15, 'BookTest', '2020-05-11', 0, 'BookTest1589214304.png', 'liber formati doc', 'BookTest1589214304.docx', 0),
-(61, 15, 'book25', '2020-05-18', 0, 'default.jpg', 'test', 'book251589799642.pdf', 0),
-(62, 19, 'liber me titull te gjate shume ta shikoj', '2020-05-20', 0, 'book221589978884.jpg', 'hue hui hia', 'book221589978884.pdf', 0),
-(63, 19, 'book23', '2020-05-20', 0, 'book231589978920.jpg', 'hue hui hia', 'book231589978920.pdf', 0),
-(64, 19, 'book24', '2020-05-20', 0, 'book241589978942.jpg', 'hue hui hia', 'book241589978942.pdf', 0),
-(65, 19, 'book25', '2020-05-20', 0, 'book251589978995.jpg', 'hue hui hia', 'book251589978995.pdf', 0),
-(66, 19, 'book26', '2020-05-20', 0, 'book261589979028.jpg', 'hue hui hia', 'book261589979028.pdf', 0);
+(67, 15, 'The Monk Who Sold His Ferrari', '2020-05-22', 0, 'The Monk Who Sold His Ferrari1590099788.jpg', 'The Monk Who Sold His Ferrari is a self-help classic telling the story of fictional lawyer Julian Mantle, who sold his mansion and Ferrari to study the seven virtues of the Sages of Sivana in the Himalayan mountains.', 'The Monk Who Sold His Ferrari1590099788.pdf', 0),
+(68, 15, 'The Girl With The Dragon Tatoo', '2020-05-22', 0, 'The Girl With The Dragon Tatoo1590100340.jpg', 'Harriet Vanger, a scion of one of Sweden’s wealthiest families disappeared over forty years ago. All these years later, her aged uncle continues to seek the truth. He hires Mikael Blomkvist, a crusading journalist recently trapped by a libel conviction, to investigate. He is aided by the pierced and tattooed punk prodigy Lisbeth Salander. ', 'The Girl With The Dragon Tatoo1590100340.pdf', 0),
+(69, 15, 'Kingdom Of Ash', '2020-05-22', 0, 'Kingdom Of Ash1590100715.jpg', 'Aelin Galathynius has vowed to save her people ― but at a tremendous cost. Locked within an iron coffin by the Queen of the Fae, Aelin must draw upon her fiery will as she endures months of torture.', 'Kingdom Of Ash1590100715.pdf', 0),
+(70, 15, 'The Great Gatsby', '2020-05-22', 0, 'The Great Gatsby1590101151.jpg', 'The Great Gatsby, F. Scott Fitzgerald\'s third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers.', 'The Great Gatsby1590101151.pdf', 0),
+(71, 15, 'Rediscovering the Kingdom', '2020-05-22', 0, 'Rediscovering the Kingdom1590101602.jpg', 'With spiritual perception and carefully crafted words Myles Munroe exposes the religious layers that have filtered out and obscured God\'s original plan for man. From the very beginning God\'s plan for His creation was centered on our being in relationship with Him', 'Rediscovering the Kingdom1590101602.pdf', 0),
+(72, 20, 'Heart Of Darkness', '2020-05-22', 0, 'Heart Of Darkness1590101959.jpg', 'Heart of Darkness, a novel by Joseph Conrad, was originally a three-part series in Blackwood\'s Magazine in 1899. It is a story within a story, following a character named Charlie Marlow, who recounts his adventure to a group of men onboard an anchored ship.', 'Heart Of Darkness1590101959.pdf', 0),
+(73, 20, 'One Hundred Years Of Solitude', '2020-05-22', 0, 'One Hundred Years Of Solitude1590102395.jpg', 'The brilliant, bestselling, landmark novel that tells the story of the Buendia family, and chronicles the irreconcilable conflict between the desire for solitude and the need for love—in rich, imaginative prose that has come to define an entire genre known as \"magical realism.\"', 'One Hundred Years Of Solitude1590102395.pdf', 0),
+(74, 20, 'Poetry For Students', '2020-05-22', 0, 'Poetry For Students1590102754.jpg', 'Give students the tools they need to make books and authors a meaningful part of their lives by introducing them to one of our \"For Students\" literary references. These resources are specially crafted to meet the curricular needs of high school and undergraduate college students and their teachers as well as the interests of general readers and researchers', 'Poetry For Students1590102754.pdf', 0),
+(75, 20, 'Beyond Good And Evil', '2020-05-22', 0, 'Beyond Good And Evil1590103018.jpg', 'Beyond Good and Evil confirmed Nietzsche\'s position as the towering European philosopher of his age. The work dramatically rejects the tradition of Western thought with its notions of truth and God, good and evil', 'Beyond Good And Evil1590103018.pdf', 0),
+(76, 20, 'Gulliver\'s Travels', '2020-05-22', 0, 'Gullivers Travels1590103237.jpg', 'For the last 250 years people everywhere have enjoyed reading about Lemuel Gulliver\'s travels in the strange countries of Lilliput and Brobdingnag. The people of these countries, with all their curiously human failings, come to life in Martin Aitchison\'s vivid illustrations. Here is a story to make you laugh - but to make you think, too.', 'Gullivers Travels1590103237.pdf', 0),
+(77, 20, 'Oliver Twist', '2020-05-22', 0, 'Oliver Twist1590103941.jpg', 'A gripping portrayal of London\'s dark criminal underbelly, published in Penguin Classics with an introduction by Philip Horne.', 'Oliver Twist1590103941.pdf', 0),
+(78, 19, 'The Last Of Mohicans', '2020-05-22', 0, 'The Last Of Mohicans1590104617.jpg', 'The world\'s best-loved children\'s stories set in large type for easy reading.', 'The Last Of Mohicans1590104617.pdf', 0),
+(79, 19, 'The Brothers Karamazov', '2020-05-22', 0, 'The Brothers Karamazov1590104981.jpg', 'The Brothers Karamasov is a murder mystery, a courtroom drama, and an exploration of erotic rivalry in a series of triangular love affairs involving the “wicked and sentimental” Fyodor Pavlovich Karamazov and his three sons―the impulsive and sensual Dmitri; the coldly rational Ivan; and the healthy, red-cheeked young novice Alyosha.', 'The Brothers Karamazov1590104981.pdf', 0),
+(80, 19, 'Anne Of Green Gables', '2020-05-22', 0, 'Anne Of Green Gables1590105164.jpg', 'As soon as Anne Shirley arrives at the snug white farmhouse called Green Gables, she is sure she wants to stay forever . . . but will the Cuthberts send her back to to the orphanage? Anne knows she\'s not what they expected—a skinny girl with fiery red hair and a temper to match.', 'Anne Of Green Gables1590105164.pdf', 0),
+(81, 19, 'David Copperfield', '2020-05-22', 0, 'David Copperfield1590105346.jpg', 'David Copperfield is the story of a young man\'s adventures on his journey from an unhappy and impoverished childhood to the discovery of his vocation as a successful novelist.', 'David Copperfield1590105346.pdf', 0),
+(82, 19, 'The Island Of Doctor Moreau', '2020-05-22', 0, 'The Island Of Doctor Moreau1590105638.jpg', 'Ranked among the classic novels of the English language and the inspiration for several unforgettable movies, this early work of H. G. Wells was greeted in 1896 by howls of protest from reviewers, who found it horrifying and blasphemous', 'The Island Of Doctor Moreau1590105638.pdf', 0),
+(83, 22, 'Tarzan Of The Apes', '2020-05-22', 0, 'Tarzan Of The Apes1590106129.jpg', '\r\nTarzan of the Apes is a novel written by Edgar Rice Burroughs, the first in a series of books about the title character Tarzan. It was first published in the pulp magazine All-Story Magazine in October, 1912.', 'Tarzan Of The Apes1590106129.pdf', 0),
+(84, 22, 'Dubliners', '2020-05-22', 0, 'Dubliners1590106264.jpg', 'This work of art reflects life in Ireland at the turn of the last century, and by rejecting euphemism, reveals to the Irish their unromantic realities. Each of the 15 stories offers glimpses into the lives of ordinary Dubliners, and collectively they paint a portrait of a nation.', 'Dubliners1590106264.pdf', 0),
+(85, 21, 'How To Sell Yourself', '2020-05-22', 0, 'How To Sell Yourself1590106464.jpg', 'No matter what field one may be in, there is a need to market oneself, and Girard, bestselling author of \"How to Sell Anything to Anybody,\" reveals important sales secrets for everyday life.', 'How To Sell Yourself1590106464.pdf', 0),
+(86, 21, 'How Successful People think', '2020-05-22', 0, 'How Successful People think1590106720.jpg', 'No matter what field one may be in, there is a need to market oneself, and Girard, bestselling author of \"How to Sell Anything to Anybody,\" reveals important sales secrets for everyday life.', 'How Successful People think1590106720.pdf', 0);
 
 -- --------------------------------------------------------
 
@@ -587,7 +528,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
 (15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 3510, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
 (19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 1004, 3, 'silenceeqjophuyktrafgliwds.jpg', 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
-(20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 0, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL);
+(20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 1000, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL),
+(21, 'Elvis', 'Ademi', 'venom', 'Elvis.Ademi@fshnstudent.ifno', '+355684934265', '$2y$10$vlrElUomCmzljewPzaXqm.n59Gi53N7hPzsiN1H80UAU29wYm/5Ou', '1998-12-06', 'Male', 0, 3, NULL, 1, 'khdruv9iocae4f60p2gnblqyx5sjmw73z81t', NULL),
+(22, 'Amaro', 'Kajo', 'cyrez', 'amaro.kajo@fshnstudent.info', '+355684934000', '$2y$10$F2L91ZTzT6FPjHdx5o1E4euD4pmhYoSoKPMHJeDwYt6vjIlxXs3Qm', '1998-02-06', 'Male', 0, 3, NULL, 1, 'nt43k6mg5lbhp0wzv8qrafj7ycedou921sxi', NULL);
 
 -- --------------------------------------------------------
 
@@ -884,7 +827,7 @@ ALTER TABLE `book_favourite`
 -- AUTO_INCREMENT for table `book_like`
 --
 ALTER TABLE `book_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -908,7 +851,7 @@ ALTER TABLE `library_halls`
 -- AUTO_INCREMENT for table `online_books`
 --
 ALTER TABLE `online_books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `publish_house`
@@ -926,7 +869,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
