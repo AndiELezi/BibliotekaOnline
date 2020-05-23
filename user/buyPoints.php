@@ -12,11 +12,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://js.stripe.com/v3/"></script>
 	<script type="text/javascript" src="../scripts/home.js"></script>
-	<script type="text/javascript" src="/BibliotekaOnline/scripts/buyPoints.js"></script>
+	<script type="text/javascript" src="../scripts/buyPoints.js"></script>
 
 		
 
-	<title></title>
+	<title>Buy more points</title>
+	<link rel="stylesheet" type="text/css" href="../styles/buyPoints.css">
 </head>
 <body>
 	<?php
@@ -25,24 +26,25 @@
 	 include 'header.php'; 
 
 	 ?>
+	<div class="package_wrap">
+	<div><h2>Paketa 1</h2><br>
+		Sasia e pikeve: <b>100</b><br>
+		Cmimi: <b>10$</b>
+		<br><button onclick="bliPaketen('paketa1')">Bli</button>
+	</div>
 	
-	<div>Paketa 1<br>
-		Sasia e pikeve:100<br>
-		Cmimi:10$;
+	<div><h2>Paketa 2</h2><br>
+		Sasia e pikeve: <b>500</b><br>
+		Cmimi: <b>40$</b>
+		<br><button onclick="bliPaketen('paketa2')">Bli</button>
 	</div>
-	<button onclick="bliPaketen('paketa1')">Bli</button><br><br>
-
-	<div>Paketa 2<br>
-		Sasia e pikeve:500<br>
-		Cmimi:40$;
+	
+	<div><h2>Paketa 3</h2><br>
+		Sasia e pikeve: <b>1000</b><br>
+		Cmimi: <b>75$</b>
+		<br><button onclick="bliPaketen('paketa3')">Bli</button>
 	</div>
-	<button onclick="bliPaketen('paketa2')">Bli</button><br><br>
-	<div>Paketa 3<br>
-		Sasia e pikeve:1000<br>
-		Cmimi:75$;
 	</div>
-	<button onclick="bliPaketen('paketa3')">Bli</button><br>
-
 
 	
 

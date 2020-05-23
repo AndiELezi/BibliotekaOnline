@@ -35,7 +35,9 @@ $sql="SELECT * FROM book_reservation WHERE user_id='{$userId}'";
 $result=$connection->query($sql);
 
 $i=0;
-$pageResult.="<table><tr><th>Number</th><th>bookId</th><th>Book Title</th><th>reservationTime</th><th>returnTime</th><th>delayFine</th></tr>";
+
+$pageResult.="<div class='book_reservation_wrap'>";
+$pageResult.="<table><tr><th>Number</th><th>Book ID</th><th>Book Title</th><th>Reservation Time</th><th>Return Time</th><th>Delay Fine</th><th></th></tr>";
 while ($bookReservation=$result->fetch_assoc()) {
 	$i++;
 	$bookId=$bookReservation["book_id"];
@@ -43,16 +45,16 @@ while ($bookReservation=$result->fetch_assoc()) {
 	$bookResult=$connection->query($sql);
 	$bookResultFetched=$bookResult->fetch_assoc();
 	$bookTitle=$bookResultFetched["title"];
-	$pageResult.="<tr><td>".$i."</td><td>".$bookReservation["book_id"]."</td><td>".$bookTitle."</td><td>".$bookReservation["reservation_time"]."</td><td>".$bookReservation["returnTime"]."</td><td>".$bookReservation["delay_fine"]."</td><td><a style='cursor:pointer' onclick=deleteBookReservation('".$bookReservation["book_id"]."','".$bookReservation["user_id"]."')".">delete</a></td></tr>";
+	$pageResult.="<tr><td>".$i."</td><td>".$bookReservation["book_id"]."</td><td class='title'>".$bookTitle."</td><td>".date('D / F / Y', strtotime($bookReservation["reservation_time"]))."</td><td>".date('D / F / Y', strtotime($bookReservation["returnTime"]))."</td><td>".$bookReservation["delay_fine"]."</td><td class='delete_reservation'><a style='cursor:pointer' onclick=deleteBookReservation('".$bookReservation["book_id"]."','".$bookReservation["user_id"]."')".">Delete</a></td></tr>";
 
 
 
 }
-$pageResult.="</table>";
+$pageResult.="</table></div>";
 
 
 if($i==0){
-	$pageErr.="nuk ka rezervime";
+	$pageErr.="<b>Nuk ka rezervime<b>";
 }
 
 

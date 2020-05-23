@@ -24,17 +24,19 @@ $hallResult=$connection->query($sql);
 $hallResultFetched=$hallResult->fetch_assoc();
 $hallName=$hallResultFetched["name"];
 
-$pageResult.="<span>Emri Salles:".$hallName."</span><br>";
-$pageResult.="<span>Nr i vendit:".$placeReservation["seat_number"]."</span><br>";
-$pageResult.="<span>Koha e fillimit:".$placeReservation["reservation_start_time"]."</span><br>";
-$pageResult.="<span>Koha e Mbarimit:".$placeReservation["reservation_end_time"]."</span><br>";
-$pageResult.="<a style='cursor:pointer' onclick='deletePlaceReservation()'>delete</a>";
+$pageResult.="<div class='place_reservation_wrap'><table>";
+$pageResult.="<tr><th>Hall:</th> <td>".$hallName."</td></tr>";
+$pageResult.="<tr><th>Seat number:</th> <td>".$placeReservation["seat_number"]."</td></tr>";
+$pageResult.="<tr><th>Start time:</th> <td>".date('D / F / Y H:i', strtotime($placeReservation["reservation_start_time"]))."</td></tr>";
+$pageResult.="<tr><th>End time:</th><td>".date('D / F / Y H:i', strtotime($placeReservation["reservation_end_time"]))."</td></tr></table>";
+$pageResult.="<br><a style='cursor:pointer' onclick='deletePlaceReservation()'><div>Delete</div></a>";
+$pageResult.="</div>";
 
 
 
 }
 else{
-	$pageError="ju nuk keni rezervime";
+	$pageError="<b>Nuk ka rezervime<b>";
 }
 
 if($pageError!=""){

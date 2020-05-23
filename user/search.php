@@ -62,13 +62,11 @@ $searchQuery=$_GET["searchQuery"];
 					while ($ok) {
 						
 						echo "<div class='online'>";
-						for($j=0;$j<4;$j++){
+						for($j=0;$j<5;$j++){
 						
 							if($i=$onlineBooksResult->fetch_assoc()){
-								echo "<a href='book.php?id=".$i["id"]."'>"."<img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'>"."</a>";
-								echo $i["title"];
-								echo "<br>";
-								
+								echo "<a href='book.php?id=".$i["id"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/onlineBooks/".$i["cover_photo"]."'><br>
+								<div>".$i["title"]."</div></div></a>";
 							}
 							else{
 								$ok=false;
@@ -93,12 +91,11 @@ $searchQuery=$_GET["searchQuery"];
 					while ($ok ) {
 						
 						echo "<div class='offline'>";
-						for($j=0;$j<4;$j++){
+						for($j=0;$j<5;$j++){
 						
 							if($i=$offlineBooksResult->fetch_assoc()){
-								echo "<a href='book.php?isbn=".$i["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>"."</a>";
-									echo $i["title"];
-									echo "<br>";
+								echo "<a href='book.php?isbn=".$i["ISBN"]."'>"."<div class='single_book'><img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'><br>
+								<div>".$i["title"]."</div></div></a>";
 							}
 							else{
 								$ok=false;
