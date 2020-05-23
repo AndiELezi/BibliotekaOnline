@@ -30,7 +30,8 @@ $bookResult=$connection->query($sql);
 $bookResultData=$bookResult->fetch_assoc();
 
 $pointsLeft=$userResultData["points"]-$bookResultData["reservation_points"];
-
+$delayFineCalculation=5+($bookResultData["reservation_points"]/10)+($bookResultData["price"]/10);
+$delayFine=intval($delayFineCalculation);
 
 //kotnrolli nqs e ka rezervuar njer kete liber
 $idPerdoruesit=$userResultData["id"];
@@ -49,7 +50,7 @@ if($pointsLeft>=0){
 				$book_idD=$isbn;
 				$reservation_dateD=$_POST["dataRezervimit"];
 				$return_dateD=$_POST["dataRikthimit"];
-				$delay_fineD=60;
+				$delay_fineD=$delayFine;
 				$stmt->execute();
 				//behet updetimi pikeve
 				$sql="UPDATE users SET points='{$pointsLeft}' WHERE username='{$username}'";

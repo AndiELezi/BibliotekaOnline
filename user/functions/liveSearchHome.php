@@ -6,7 +6,7 @@ if(!isset($_GET["searchQuery"])){
 include "DBconnection.php"; 
 $pageResult="";
 $pageError="";
-$desiredSearchNumber=5;
+$desiredSearchNumber=4;
 $onlineBooksResult;
 $offlineBooksResult;
 $searchQuery=$_GET["searchQuery"];
