@@ -23,7 +23,7 @@ if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && !isset($_POST["retu
 else if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && isset($_POST["returnBook"])){
 	$username=$_POST["username"];
 	$isbn=$_POST["bookIsbn"];
-	$sql="UPDATE book_reservation set taken=0 WHERE user_id=(SELECT id from users where username='{$username}') AND book_id='{$isbn}'";
+	$sql="DELETE FROM book_reservation WHERE user_id=(SELECT id from users where username='{$username}') AND book_id='{$isbn}'";
 	$connection->query($sql);
 	$pageResult="Libri u Rikthye me sukses" ;
 }
