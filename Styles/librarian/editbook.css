@@ -13,12 +13,13 @@ body,div{
 	background-color: rgba(55, 112, 150, 0.3);
 	padding: 30px;
 	border-radius: 13px;
-	width: 530px;
+	width: 700px;
 }
 
 
 .container input{
 	font-size: 18px;
+	width: 100%;
 	height: 30px;
 	padding-left: 10px;
 	border-radius: 12px;
@@ -83,7 +84,7 @@ span.error{
 input.btn{
 	width: 300px;
     height: 40px;
-    margin: 15px 100px 0px 100px;
+    margin: 15px 200px 0px 200px;
     cursor: pointer;
 }
 
