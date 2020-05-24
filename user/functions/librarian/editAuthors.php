@@ -71,6 +71,24 @@ body,div{
     text-align: center;
     color: #1aff1a;
 }
+.links a{
+	text-decoration: none;
+}
+.links div{
+	color:#d9dadd;
+	background-color: #4e697d;
+	padding: 10px;
+	border-radius: 13px;
+	width: 200px;
+	text-align: center;
+}
+
+.links div:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
 	</style>
 </head>
 <body>
@@ -108,7 +126,9 @@ echo "<br><br><button onclick='updateAuthors()'>Submit</button>";
   			<div id="editAuthor"></div>
 		</div>
 	</div>
-	<a href="../../librarian/home.php">Shko Tek menuja</a><br>
-	<a href="../../librarian/librarianAddBook.php">Shto nje Liber tjeter</a>
+	<div class="links">
+	<a href="../../librarian/home.php"><div>Shko Tek menuja</div></a><br>
+	<a href="../../librarian/librarianAddBook.php"><div>Shto nje Liber tjeter</div></a>
+	</div>
 </body>
 </html>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2020 at 02:55 PM
+-- Generation Time: May 25, 2020 at 12:46 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -533,7 +534,8 @@ INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `pa
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 1000, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL),
 (21, 'Elvis', 'Ademi', 'venom', 'Elvis.Ademi@fshnstudent.ifno', '+355684934265', '$2y$10$vlrElUomCmzljewPzaXqm.n59Gi53N7hPzsiN1H80UAU29wYm/5Ou', '1998-12-06', 'Male', 0, 3, NULL, 1, 'khdruv9iocae4f60p2gnblqyx5sjmw73z81t', NULL),
 (22, 'Amaro', 'Kajo', 'cyrez', 'amaro.kajo@fshnstudent.info', '+355684934000', '$2y$10$F2L91ZTzT6FPjHdx5o1E4euD4pmhYoSoKPMHJeDwYt6vjIlxXs3Qm', '1998-02-06', 'Male', 0, 3, NULL, 1, 'nt43k6mg5lbhp0wzv8qrafj7ycedou921sxi', NULL),
-(23, 'Biblioteka', 'Online', 'system', 'Horizone.Event@gmail.com', NULL, '$2y$10$VMtBjvKkdFXdDHcVVf20ZutGMMC2xZpCyjhHPHbuD5vZLmfZCGJQK', '2000-01-01', 'Other', 0, 3, NULL, 1, 'e0bogtks6il3xpj91qdrm27yvn84acw5fuzh', NULL);
+(23, 'Biblioteka', 'Online', 'system', 'Horizone.Event@gmail.com', NULL, '$2y$10$VMtBjvKkdFXdDHcVVf20ZutGMMC2xZpCyjhHPHbuD5vZLmfZCGJQK', '2000-01-01', 'Other', 0, 3, NULL, 1, 'e0bogtks6il3xpj91qdrm27yvn84acw5fuzh', NULL),
+(24, 'Librarian', 'Test', 'librarian', 'andi.elezi@fshnstudent.info', NULL, '$2y$10$A/9WLSQ0Ffq/m9C7.l1GOuAiPrDaeTF6of8jgIz9kjLcgLZBUtvQG', '2020-01-01', 'Male', 0, 2, NULL, 1, 'wjgfnc483vmoekyxha07p9tisbzr6qd5u12l', NULL);
 
 -- --------------------------------------------------------
 
@@ -824,13 +826,13 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book_favourite`
 --
 ALTER TABLE `book_favourite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `book_like`
 --
 ALTER TABLE `book_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -872,7 +874,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user_rights`
