@@ -44,7 +44,10 @@
 		Cmimi: <b>75$</b>
 		<br><button onclick="bliPaketen('paketa3')">Bli</button>
 	</div>
+	<br>
+	<div id="loader"></div>
 	</div>
+
 
 	
 

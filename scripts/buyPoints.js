@@ -5,6 +5,7 @@ function bliPaketen(paketa) {
 
 	var result = confirm("Are you sure you want to buy this package?");
 if (result) {
+  document.getElementById("loader").style.visibility="visible";
    xmlhttp=new XMLHttpRequest();
     xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {
