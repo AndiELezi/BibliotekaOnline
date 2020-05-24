@@ -13,12 +13,14 @@ session_start();
 	<?php
 	$username="";
 	$password="";
+	$userRights;
 	$errUsername="";
 	$errPassword="";
 	$isCorrect=false;
 	$isActivated=false;
 
 	function checkCredentials($usernameToCheck,$passwordToCheck){
+		global $userRights;
 		global $connection;
 		global $errUsername;
 		global $errPassword;
@@ -36,12 +38,13 @@ session_start();
 				}
 				else{
 					$isCorrect=true;
-					$sql="SELECT activationStatus FROM users WHERE username='{$usernameToCheck}'";
+					$sql="SELECT activationStatus, user_rights FROM users WHERE username='{$usernameToCheck}'";
 					$result=$connection->query($sql);
 					$activationStatus=$result->fetch_assoc();
 					if($activationStatus["activationStatus"]==1){
 						$isActivated=true;
 					}
+					$userRights=$activationStatus["user_rights"];
 				}
 		}
 		else{
@@ -69,7 +72,12 @@ session_start();
 			if($isCorrect && $isActivated){
 				$connection->close();
 				$_SESSION["username"]=$_POST["username"];
-				header("Location: home.php");
+				if($userRights==3){
+					header("Location: home.php");
+				}
+				else{
+					header("Location: librarian/home.php");
+				}
 			}
 
 			else if($isCorrect && !$isActivated){

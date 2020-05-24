@@ -11,12 +11,12 @@ include 'DBconnection.php';
 
 if($_POST["isbn"]!=""){
 if(strtotime($_POST["dataRezervimit"])<strtotime(Date("Y-m-d"))){
-			echo "Data e Rezervimit nuk mund te jete me e vogel se dita e sotme";
+			echo "<span class='error'>Data e Rezervimit nuk mund te jete me e vogel se dita e sotme</span>";
 			exit();
 	}	
 
 if(strtotime($_POST["dataRezervimit"])>strtotime($_POST["dataRikthimit"])){
-			echo "Data e Rikthimit nuk mund te jete me e vogel se dataRezervimit";
+			echo "<span class='error'>Data e Rikthimit nuk mund te jete me e vogel se dataRezervimit</span>";
 			exit();
 	}	
 
@@ -99,10 +99,10 @@ else{
 
 
 if($errMessage!=""){
-	echo $errMessage;
+	echo "<span class='error'>".$errMessage."</span>";
 }
 else{
-	echo "Rezervimi u krye me sukses";
+	echo "<span class='success'>Rezervimi u krye me sukses</span>";
 }
 
 

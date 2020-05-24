@@ -10,7 +10,7 @@ $sql="SELECT ISBN,cover_photo,title FROM book WHERE title LIKE \"%{$searchQuery}
 $result=$connection->query($sql);
 $bookResults="";
 while ($i=$result->fetch_assoc()) {
-	$bookResults.="<a href='bookReservation.php?isbn=".$i["ISBN"]."'>"."<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>".$i["title"]."</a>"."<br>";
+	$bookResults.="<a href='bookReservation.php?isbn=".$i["ISBN"]."'><div>"."<img src='/BibliotekaOnline/images/books/".$i["cover_photo"]."'>"."<span>".$i["title"]."<br><br></span></div><hr></a>";
 
 }
 echo $bookResults;

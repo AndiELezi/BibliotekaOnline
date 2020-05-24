@@ -19,7 +19,7 @@ $sql="SELECT title,cover_photo,reservation_points from book WHERE ISBN='{$isbn}'
 $result=$connection->query($sql);
 $book=$result->fetch_assoc();
 $reservation_points=$book["reservation_points"];
-$selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_photo"]."'>".$book["title"]."<br>"."Piket per reservimin e librit:".$reservation_points."</div>";
+$selectedBook="<div class='single_book'>"."<label>Reservation points: ".$reservation_points."</label><img src='/BibliotekaOnline/images/books/".$book["cover_photo"]."'><div>".$book["title"]."</div>"."</div>";
 
 }
 
@@ -28,29 +28,34 @@ $selectedBook="<div>"."<img src='/BibliotekaOnline/images/books/".$book["cover_p
  <!DOCTYPE html>
  <html>
  <head>
- 	<title></title>
+ 	<title>Reserve a book</title>
+ 	<link rel="stylesheet" type="text/css" href="../styles/bookReservation.css">
  </head>
  <body>
  	<?php  include 'header.php'; ?>
  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- 	Kerkoni per librin:
- 	<input type="text" name="search" onkeyup="kerko(this.value)" autocomplete="off"><br>
- 	<div id="rezultatet"></div><br>
- 	or browse for a book:<a href="browse.php?bookType=offline">Browse</a><br>
- 	
- 	<form>
- 	Libri zgjedhur:<?php echo $selectedBook ?><br>
- 	vendosni daten qe deshironi per te reservuar kete liber:
- 	<input type="date" name="dataRezervimit" id="dataRezervimit" required><br>
- 	<?php echo "<input type='text' id='isbn' name='isbn' value='".$isbn."'"."style='display:none'>" ?>
- 	vendosni daten qe deshironi te ktheni librin:
- 	<input type="date" name="dataRikthimit" id="dataRikthimit" required ><br>
- 	<input type="button" id="rezervo" name="Reservo" value="Reservo">
-	</form><br>
-	<div id="pergjigjaRezervimit"></div>
-	<div id="test"></div>
+ 	<div class="results">
+ 		<div id="rezultatet"></div><br>
+ 		<div id="selectedBook" class="selectedBook"><?php echo $selectedBook ?></div>
+ 	</div>
+
+ 	<div class="form_wrap">
+ 	<input type="text" name="search" onkeyup="kerko(this.value)" autocomplete="off" placeholder="Search for a book"><br><br>
+ 	 <a href="browse.php?bookType=offline">Or Browse for a book</a>
+ 	<br><br>
+ 		<form>
+ 			<label>Select reservation date: </label>
+ 			<input type="date" name="dataRezervimit" id="dataRezervimit" required><br>
+ 			<?php echo "<input type='text' id='isbn' name='isbn' value='".$isbn."'"."style='display:none'>" ?><br><br>
+ 			<label>Select return date: </label>
+ 			<input type="date" name="dataRikthimit" id="dataRikthimit" required ><br><br>
+ 			<input type="button" id="rezervo" name="Reservo" value="Reserve">
+		</form><br>
+		<span id="pergjigjaRezervimit"></span>
+		<div id="test"></div>
+	</div>
 	<script type="text/javascript" src="../scripts/home.js"></script>
-<script type="text/javascript" src="/BibliotekaOnline/scripts/bookReservation.js"></script>
+<script type="text/javascript" src="../scripts/bookReservation.js"></script>
  
  </body>
  </html>

@@ -50,11 +50,18 @@ $searchQuery=$_GET["searchQuery"];
 <body>
 	<?php  include 'header.php'; ?>
 
-
-<!----------online-------------------->
-<input type="radio" id="online" name="tipi" value="online" onchange="ndryshoDiv(-1)" checked >Online
-<input type="radio" id="offline" name="tipi" value="offline" onchange="ndryshoDiv(1)" >Offline
-
+<div class="radio_btn">
+<label class="container">Online
+	<input type="radio" id="online" name="tipi" value="online" onchange="ndryshoDiv(-1)" checked >
+	<span class="checkmark"></span>
+</label>
+<label class="container">Offline
+	<input type="radio" id="offline" name="tipi" value="offline" onchange="ndryshoDiv(1)" >
+	<span class="checkmark"></span>
+</label>
+</div>
+		<div class="result_wrap">
+			<!----------online-------------------->
 			<div>
 				<?php
 				 $ok=true;
@@ -109,8 +116,9 @@ $searchQuery=$_GET["searchQuery"];
 				  ?>
 
 			</div>	
-			<button onclick="slide(-1)">prev</button>
-			<button onclick="slide(1)">next</button>
+			<a class="prev" onclick="slide(-1)">&#10094;</a>
+			<a class="next" onclick="slide(1)">&#10095;</a>
+		</div>
 </body>
 <script type="text/javascript" src="../scripts/home.js"></script>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/search.js"></script>
@@ -119,11 +127,5 @@ $searchQuery=$_GET["searchQuery"];
 
 <?php
 }
-else if(isset($_GET["AdvanceSearch"])){
-	//kjo do jet per rastin kur behet nje kerkim i avancuar qe do na vij nga faqja avanceSearch.php po se kam menduar se ca paramatrash do ket tn per tn
 
-}
-
-
-
- ?>
+?>

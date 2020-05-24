@@ -1,0 +1,170 @@
+body, div{
+	background-color: #183d59;
+}
+
+
+.form_wrap{
+	margin: 35px 35px 0px 150px;
+	width: 400px;
+	height: 455px;
+	color: #d9dadd;
+	background-color: rgba(55, 112, 150, 0.3);
+	border-radius: 15px;
+	padding: 15px 30px;
+	text-align: left;
+	display: inline-block;
+}
+
+
+.form_wrap a{
+	color: #d9dadd;
+	background-color: #4e697d;
+	border-radius: 12px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+.form_wrap a:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+.form_wrap label{
+	line-height: 50px;
+}
+
+.form_wrap input[type=text]{
+	margin-top:40px;
+	margin-bottom: 25px;
+}
+
+.form_wrap input{ 
+	font-size: 18px;
+	width: 100%;
+	height: 30px;
+	padding-left: 10px;
+	border-radius: 12px;
+	border:none;
+	color:#d9dadd;
+	background-color: #4e697d;
+}
+
+.form_wrap input::placeholder{
+	color:#b7bccc;
+}
+
+.form_wrap input[type=date]{
+	width: 200px;
+	float: right;
+}
+
+
+.form_wrap input[type=button]{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin:7px;
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	border-radius: 12px;
+	border:none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.form_wrap input[type=button]:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+.form_wrap label a{
+	color:#0080d6;
+	font-weight: bold;
+}
+
+.form_wrap .error{
+	color: #ff5757;
+}
+
+.form_wrap .success{
+	color: #44ff44;
+}
+
+
+
+.results{
+	float: right;
+	width: 400px;
+	margin: 15px 150px 15px 0px;
+}
+
+#rezultatet{
+	position: fixed;
+	width: 410px;
+	box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+	background-color: #f1f1f1;
+}
+
+
+#rezultatet div{
+	background-color: #f1f1f1;
+	padding: 7px;
+	padding-bottom: 2px;
+}
+
+#rezultatet div:hover{
+	background-color: #ddd;
+}
+
+#rezultatet span, #rezultatet img{
+	display: inline-block;
+}
+
+#rezultatet img{
+	width: 70px;
+	height: 105px;
+}
+
+#rezultatet span{
+	color: #0080d6;
+	position: absolute;
+	padding-left: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+.single_book{
+	background-color: rgba(55, 112, 150, 0.3);
+	padding: 20px;
+	border-radius: 20px;
+	display: inline-block;
+  	width: 270px;
+  	height: 450px;
+  	position: relative;
+}
+
+.single_book label{
+	padding: 0px 50px;
+	color: white;
+}
+
+.single_book img{
+	vertical-align: middle;
+  	width: 225px;
+  	height: 350px;
+  	padding: 0px 25px;
+}
+
+.single_book div{
+	padding-top: 15px;
+	padding-left: 25px;
+	padding-right: 5px;
+	position: absolute;
+	color: #d9dadd;
+	font-size: larger;
+	background: transparent;
+}
