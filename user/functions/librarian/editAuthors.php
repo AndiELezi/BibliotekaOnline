@@ -108,5 +108,7 @@ echo "<br><br><button onclick='updateAuthors()'>Submit</button>";
   			<div id="editAuthor"></div>
 		</div>
 	</div>
+	<a href="../../librarian/home.php">Shko Tek menuja</a><br>
+	<a href="../../librarian/librarianAddBook.php">Shto nje Liber tjeter</a>
 </body>
 </html>
