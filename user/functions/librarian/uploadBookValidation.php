@@ -9,8 +9,8 @@ if(isset($_POST["upload"])){
 
 	if(!empty($_POST["isbn"])){
 		
-		if(strlen($_POST["isbn"])==13){
-			$isbn=$_POST["isbn"];
+		if(strlen(str_replace(" ","", $_POST["isbn"]))==13){
+			$isbn=str_replace(" ","", $_POST["isbn"]);
 		}
 		else{
 			$errIsbn="ISBN duhet te ket 13 shifra";
