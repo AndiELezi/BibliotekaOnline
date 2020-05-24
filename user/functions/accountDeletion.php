@@ -50,5 +50,5 @@
 	$sql="DELETE FROM users WHERE id='{$userID}'";
 	$connection->query($sql);
 	echo "Account deleted successfully";
-	header( "refresh:2;url=logout.php");
+	header( "Location: logout.php");
 ?>

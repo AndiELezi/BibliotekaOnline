@@ -38,12 +38,12 @@ if(in_array($fileExtension,$allowed)){
 		}
 
 	else{
-		//dicka nqs ndodh gabim n uplodim;
+		header("Location://localhost/BibliotekaOnline/user/profile.php");
 		}	
 	}
 
 else{
-		//dicka nqs ndodh gabim n formatin e fotos;
+		header("Location://localhost/BibliotekaOnline/user/profile.php");
 	}
 
 }

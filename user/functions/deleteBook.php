@@ -1,8 +1,5 @@
 <?php
-if(!isset($_POST["id"])){
-	echo "You dont have acces here";
-	exit();
-}
+
 include 'DBconnection.php';
 if(isset($_POST["id"])){
 	$id=$_POST["id"];

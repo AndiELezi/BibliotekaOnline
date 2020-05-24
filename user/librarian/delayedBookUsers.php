@@ -9,7 +9,7 @@
 include '../functions/DBconnection.php';
 $date=date("Y-m-d");
 $pageNr=$_GET["pageNr"];
-$numberPerPage=2;
+$numberPerPage=8;
 $startPage=$pageNr*$numberPerPage-$numberPerPage;
 $sql="SELECT COUNT(*) as totali FROM book_reservation where returnTime<='{$date}' AND taken=1";
 $totalResult=$connection->query($sql);

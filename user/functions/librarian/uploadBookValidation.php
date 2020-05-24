@@ -14,6 +14,7 @@ if(isset($_POST["upload"])){
 		}
 		else{
 			$errIsbn="ISBN duhet te ket 13 shifra";
+			$isOk=0;
 		}
 	}
 	else{

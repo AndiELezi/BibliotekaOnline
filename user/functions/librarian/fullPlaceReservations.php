@@ -2,7 +2,7 @@
 include '../DBconnection.php';
 
 $pageNr=$_POST["pageNr"];
-$numberPerPage=2;
+$numberPerPage=8;
 $queryStart=$pageNr*$numberPerPage-$numberPerPage;
 $startDate=$_POST["startDate"];
 $endDate=$_POST["endDate"];

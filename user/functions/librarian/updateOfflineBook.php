@@ -53,7 +53,7 @@ echo "<input type='button' name='submit' value='Delete' onclick=deleteBook()><br
 echo "<br>".$succes;
 echo "<script type='text/javascript' src='../scripts/librarianBookEditable.js'></script>";
 } 
-else if ($bookDetails->num_rows=0) {
+else if ($bookDetails->num_rows==0) {
 	echo "S'ka Rezultate";
 }
 
