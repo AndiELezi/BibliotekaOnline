@@ -11,10 +11,10 @@ if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && !isset($_POST["retu
 	$reservationResult=$connection->query($sql);
 	if($reservationResult->num_rows>0){
 		$reservationResultFetched=$reservationResult->fetch_assoc();
-	$pageResult.="userID:".$reservationResultFetched["userID"]."<br>"."username:".$reservationResultFetched["username"]."<br>"."Emri:".$reservationResultFetched["name"]."<br>"."SMbiemri:".$reservationResultFetched["surname"]."<br>"."ISBN:".$reservationResultFetched["ISBN"]."<br>"."Titulli:".$reservationResultFetched["title"]."<br>"."<button onclick=returnBook('".$username."','".$isbn."')>Rikthe Librin</button>";
+	$pageResult.="<div>User ID:<b>".$reservationResultFetched["userID"]."</b><br>"."Username:<b>".$reservationResultFetched["username"]."</b><br>"."Emri:<b>".$reservationResultFetched["name"]."</b><br>"."Mbiemri:<b>".$reservationResultFetched["surname"]."</b><br>"."ISBN:<b>".$reservationResultFetched["ISBN"]."</b><br>"."Titulli:<b>".$reservationResultFetched["title"]."</b></div><br>"."<button onclick=returnBook('".$username."','".$isbn."')>Rikthe Librin</button>";
 	}
 	else{
-		$pageResult="Nuk Ka Rezervim me kete username dhe liber";
+		$pageResult="<span class='error'>Nuk Ka Rezervim me kete username dhe liber</span>";
 	}
 	
 
@@ -25,7 +25,7 @@ else if(isset($_POST["username"]) && isset($_POST["bookIsbn"]) && isset($_POST["
 	$isbn=$_POST["bookIsbn"];
 	$sql="DELETE FROM book_reservation WHERE user_id=(SELECT id from users where username='{$username}') AND book_id='{$isbn}'";
 	$connection->query($sql);
-	$pageResult="Libri u Rikthye me sukses" ;
+	$pageResult="<span class='success'>Libri u Rikthye me sukses</span>" ;
 }
 
 

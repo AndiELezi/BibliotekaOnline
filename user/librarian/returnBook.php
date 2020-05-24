@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Return book</title>
+	<link rel="stylesheet" type="text/css" href="../../styles/librarian/takeGiveBook.css">
 </head>
 <body>
-	enter username:<input type="text" name="username" id="username"><br>
-	enter book ISBN:<input type="text" name="bookIsbn" id="bookIsbn"><br>
-	<button onclick="kerkoRezervim()">Kerko</button><br>
-	<div id="returnBookResult"></div>
-	<div id="returnBookConfirmedResult"></div>
+	<div class="wrap">
+		<div class="container">
+			<span>Enter username:</span><input type="text" name="username" id="username"><br>
+			<span>Enter book ISBN:</span><input type="text" name="bookIsbn" id="bookIsbn"><br>
+			<button onclick="kerkoRezervim()">Kerko</button><br>
+			<div id="returnBookResult" class="result"></div>
+			<span id="returnBookConfirmedResult"></span>
+		</div>
+	</div>
 
 </body>
 <script type="text/javascript" src="/BibliotekaOnline/scripts/returnBook.js"></script>

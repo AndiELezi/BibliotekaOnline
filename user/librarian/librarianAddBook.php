@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Add a book</title>
+	<link rel="stylesheet" type="text/css" href="../../styles/bookUpload.css">
 </head>
 <body>
 	<?php  
@@ -13,17 +14,24 @@
 		include "../functions/librarian/uploadBookValidation.php";
 
 	?>
-
+<div class="form_wrap">
 	<form method="post" enctype="multipart/form-data">
-		isbn: <br> <input type="text" name="isbn" value="<?php echo $isbn ?>"><span><?php echo $errIsbn  ?></span><br><br>
-		shtepia botuese: <br> <input type="text" name="publishHouse" value="<?php echo $publishHouse ?>"><span><?php echo $errPublishHouse  ?></span><br><br>
-		Sasia Librave: <br> <input type="number" name="quantity" value="<?php echo $quantity ?>"><span><?php echo $errQuantity  ?></span><br><br>
-		Piket e Rezervimit: <br> <input type="number" name="reservationPoints" value="<?php echo $reservationPoints ?>"><span><?php echo $errReservationPoints  ?></span><br><br>
-		Cmimi Librit: <br> <input type="number" name="price" value="<?php echo $price ?>"><span><?php echo $errPrice  ?></span><br><br>
-		titulli librit:<br><input type="text" name="title" value="<?php echo $title  ?>"><span><?php echo $errTitle  ?></span><br><br>
-		pershkrimi librit:<br><textarea rows="4" name="description"><?php echo $description  ?></textarea><br><br>
-		Autoret:<br><textarea rows="4" name="author"><?php echo $author  ?></textarea><br><br>
-		kategorite e librit:<span><?php echo $errAuthor  ?><br>
+		<input type="text" name="isbn" value="<?php echo $isbn ?>" placeholder="ISBN">
+		<span class="error"><?php echo $errIsbn  ?></span><br><br>
+		<input type="text" name="publishHouse" value="<?php echo $publishHouse ?>" placeholder="shtepia botuese">
+		<span class="error"><?php echo $errPublishHouse  ?></span><br><br>
+		<input type="number" name="quantity" value="<?php echo $quantity ?>" placeholder="Sasia Librave">
+		<span class="error"><?php echo $errQuantity  ?></span><br><br>
+		<input type="number" name="reservationPoints" value="<?php echo $reservationPoints ?>" placeholder="Piket e Rezervimit">
+		<span class="error"><?php echo $errReservationPoints  ?></span><br><br>
+		<input type="number" name="price" value="<?php echo $price ?>" placeholder="Cmimi Librit">
+		<span class="error"><?php echo $errPrice  ?></span><br><br>
+		<input type="text" name="title" value="<?php echo $title  ?>" placeholder="Titulli librit">
+		<span class="error"><?php echo $errTitle  ?></span><br><br>
+		<textarea rows="4" name="description" placeholder="pershkrimi librit"><?php echo $description  ?></textarea><br><br>
+		<textarea rows="4" name="author" placeholder="Autoret"><?php echo $author  ?></textarea>
+		<span class="error"><?php echo $errAuthor  ?></span><br><br>
+		kategorite e librit:<br>
 		<?php
 			include '../functions/DBconnection.php';
 			$sql="SELECT description FROM categories ORDER BY description";
@@ -33,12 +41,13 @@
 				}
 
   	?>
+  		<span class="error"><?php echo $errCategory  ?></span><br>
 		publication year: <input type="date" name="publication_year"> <br> <br>
 		foto e librit:<input type="file" name="cover_photo"><span><?php echo $errCoverPhoto  ?></span><br><br>
 		<input type="submit" name="upload" value="upload">
 		<br>
+		<span><?php echo $successMsg  ?></span>
 	</form>
-	<br>
-	<span><?php echo $successMsg  ?></span>
+</div>
 </body>
 </html>

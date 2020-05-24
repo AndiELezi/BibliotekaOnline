@@ -35,7 +35,7 @@ else{
 	$nrFaqeve=$totali/$numberPerPage;
 }
 echo "<table>";
-echo "<tr><th>user id</th><th>library hall id</th><th>start time</th><th>end time</th><th>seat number</th></tr>";
+echo "<tr><th>user ID</th><th>Library hall ID</th><th>Start time</th><th>End time</th><th>Seat number</th></tr>";
 $sql.=" LIMIT $queryStart,$numberPerPage ";
 $reservationResult=$connection->query($sql);
 while ($i=$reservationResult->fetch_assoc()) {
@@ -43,11 +43,12 @@ while ($i=$reservationResult->fetch_assoc()) {
 	
 }
 echo "</table>";
-echo "<br>";
+echo "<br><br><hr>";
+echo "<div class='nav_links'>";
 $i=1;
 while ($i <= $nrFaqeve) {
 	if($i==$pageNr){
-		echo "<a style='color:red' onclick=changePageNr(".$i.")>".$i."</a> ";
+		echo "<a id='currentPageLink' onclick=changePageNr(".$i.")>".$i."</a> ";
 	}
 	else{
 		echo "<a onclick=changePageNr(".$i.")>".$i."</a> ";
@@ -55,5 +56,7 @@ while ($i <= $nrFaqeve) {
 
 	$i++;
 }
+
+echo "</div>";
 
 ?>
