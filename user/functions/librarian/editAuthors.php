@@ -3,8 +3,79 @@
 <head>
 	<script type="text/javascript" src="/BibliotekaOnline/scripts/editAuthors.js"></script>
 	<title></title>
+<style type="text/css">
+body,div{
+	background-color: #183d59;
+	font-family: sans-serif;
+}
+.wrap{
+	margin: 60px;
+	text-align: center;
+}
+
+.container{
+	display: inline-block;
+	text-align: left;
+	background-color: rgba(55, 112, 150, 0.3);
+	padding: 30px;
+	border-radius: 13px;
+	width: 500px;
+}
+
+.container h2{
+	color:#2eabff;
+	font-weight: normal
+}
+
+
+.container input{
+	font-size: 18px;
+	height: 30px;
+	width: 340px;
+	padding-left: 10px;
+	border-radius: 12px;
+	border:none;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin-left: 10px;
+	float: right;
+	
+}
+.container span{
+	color: #d9dadd;
+	line-height: 50px;
+}
+
+.container button{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin:7px;
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	border-radius: 12px;
+	border:none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.container button:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+#editAuthor{
+	background: transparent;
+    text-align: center;
+    color: #1aff1a;
+}
+	</style>
 </head>
 <body>
+	<div class="wrap">
+		<div class="container">
 <?php
 
 include '../DBconnection.php';
@@ -21,10 +92,10 @@ foreach ($authors as $autori) {
 	$authorBirthday=$authorResultFetched["birthday"];
 	$authorBirthPlace=$authorResultFetched["birthplace"];
 	$authorContact=$authorResultFetched["contact"];
-	echo "<h2>Plotesoni Te dhenat per autorin ".$autori."</h2><br><br>";
-	echo "Vendlindja:<input type='text' name='birthplace$i' value='$authorBirthPlace'>";
-	echo "Kontakti:<input type='text' name='contact$i' value='$authorContact'>";
-	echo "Datelindja:<input type='date' name='birthday$i' value='$authorBirthday'>";
+	echo "<h2>Plotesoni Te dhenat per autorin: <b>".$autori."</b></h2><br><br>";
+	echo "<span>Vendlindja:</span><input type='text' name='birthplace$i' value='$authorBirthPlace'><br>";
+	echo "<span>Kontakti:</span><input type='text' name='contact$i' value='$authorContact'><br>";
+	echo "<span>Datelindja:</span><input type='date' name='birthday$i' value='$authorBirthday'><br>";
 	echo "<input type='hidden' name='id$i' value='$authorId' >";
 	$i++;
 }
@@ -34,6 +105,8 @@ echo "<br><br><button onclick='updateAuthors()'>Submit</button>";
 
 
   ?>
-  <div id="editAuthor"></div>
+  			<div id="editAuthor"></div>
+		</div>
+	</div>
 </body>
 </html>

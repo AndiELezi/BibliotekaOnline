@@ -20,7 +20,7 @@ if(isset($_POST["delete"])){
 	unlink($file);
 	$sql="DELETE from book where ISBN='{$isbn}'";
 	$connection->query($sql);
-	echo "Libri u fshi me sukses";
+	echo "<span> class='success'>Libri u fshi me sukses</span>";
 
 	exit();
 
@@ -36,7 +36,7 @@ if (isset($_POST["update"])){
 	$reservation_points=$_POST["reservation_points"];
 	$sql="UPDATE book set title='{$title}',quantity='{$quantity}',price='{$price}',reservation_points='{$reservation_points}' where ISBN='{$isbn}'";
 	$connection->query($sql);
-	$succes.="<span>Libri u updatu me sukses</span>";
+	$succes.="<span class='success'>Libri u updatu me sukses</span>";
 }
 $isbn=$_POST["isbn"];
 $sql="SELECT title,quantity,price,reservation_points from book where ISBN='{$isbn}'";
@@ -44,17 +44,17 @@ $bookDetails=$connection->query($sql);
 if($bookDetails->num_rows>0){
 $book=$bookDetails->fetch_assoc();
 
-echo "Title <br><input value='".$book["title"]."' readonly placeholder='Title' id='title'><button onclick=allowEdit('title')>Edit</button><br>";
-echo "Quantity <br><input value='".$book["quantity"]."'readonly placeholder='Quantity' id='quantity'><button onclick=allowEdit('quantity')>Edit</button><br>";
-echo "Price <br><input value='".$book["price"]."'readonly placeholder='Price' id='price'><button onclick=allowEdit('price')>Edit</button><br>";
-echo "Reservation Points <br><input value='".$book["reservation_points"]."'readonly placeholder='Points' id='points'><button onclick=allowEdit('points')>Edit</button><br>";
-echo "<input type='button' name='submit' value='Update' onclick=updateBook()><br>";
-echo "<input type='button' name='submit' value='Delete' onclick=deleteBook()><br>";
+echo "<hr><span>Title</span><input value='".$book["title"]."' readonly placeholder='Title' id='title'><button onclick=allowEdit('title')>Edit</button><br>";
+echo "<span>Quantity</span><input value='".$book["quantity"]."'readonly placeholder='Quantity' id='quantity'><button onclick=allowEdit('quantity')>Edit</button><br>";
+echo "<span>Price</span><input value='".$book["price"]."'readonly placeholder='Price' id='price'><button onclick=allowEdit('price')>Edit</button><br>";
+echo "<span>Reservation Points</span><input value='".$book["reservation_points"]."'readonly placeholder='Points' id='points'><button onclick=allowEdit('points')>Edit</button><br>";
+echo "<input class='btn' type='button' name='submit' value='Update' onclick=updateBook()><br>";
+echo "<input class='btn delete' type='button' name='submit' value='Delete' onclick=deleteBook()><br>";
 echo "<br>".$succes;
 echo "<script type='text/javascript' src='../scripts/librarianBookEditable.js'></script>";
 } 
 else if ($bookDetails->num_rows==0) {
-	echo "S'ka Rezultate";
+	echo "<span class='error'>S'ka Rezultate</span>";
 }
 
 ?>

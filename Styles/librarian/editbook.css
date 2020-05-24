@@ -1,0 +1,104 @@
+body,div{
+	background-color: #183d59;
+	font-family: sans-serif;
+}
+
+.wrap{
+	margin: 60px;
+	text-align: center;
+}
+
+.container{
+	display: inline-block;
+	background-color: rgba(55, 112, 150, 0.3);
+	padding: 30px;
+	border-radius: 13px;
+	width: 530px;
+}
+
+
+.container input{
+	font-size: 18px;
+	height: 30px;
+	padding-left: 10px;
+	border-radius: 12px;
+	border:none;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin-left: 10px;
+}
+.container span{
+	color: #d9dadd;
+	line-height: 50px;
+}
+
+.container button{
+	text-align: center;
+	color:#d9dadd;
+	background-color: #4e697d;
+	margin:7px;
+	width: 120px;
+	height: 33px;
+	font-size: 18px;
+	border-radius: 12px;
+	border:none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.container button:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+#rezultati{
+	color: #d9dadd;
+	text-align: left;
+	padding: 10px;
+	background-color: transparent;
+}
+
+#rezultati button{
+	float: right;
+}
+
+#rezultati div{
+	text-align: left;
+	background-color: transparent;
+}
+
+#rezultati b{
+	line-height: 30px;
+}
+
+span.success{
+	color: #5afd5a;
+}
+
+span.error{
+	color: #ff5757;
+}
+
+input.btn{
+	width: 300px;
+    height: 40px;
+    margin: 15px 100px 0px 100px;
+    cursor: pointer;
+}
+
+input.btn:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}
+
+input.delete{
+	color:red;
+	background-color: #d9dadd;
+}
+
+input.delete:hover{
+	background-color: red;
+	color: white;
+}

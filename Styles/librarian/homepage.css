@@ -1,0 +1,35 @@
+body,div{
+	background-color: #183d59;
+	font-family: sans-serif;
+}
+
+.wrap{
+	text-align: center;
+	margin: 30px;
+}
+.container{
+	padding: 40px;
+	border-radius: 15px;
+	background-color: rgba(55, 112, 150, 0.3);
+	display: inline-block;
+	text-align: left;
+}
+
+.container a{
+	text-decoration: none;
+}
+
+.container div{
+	text-align: center;
+	background-color: transparent;
+	color:#d9dadd;
+	background-color: #4e697d;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+.container div:hover{
+	color: #183d59;
+	background-color: #d9dadd;
+	box-shadow: 0 0 25px #377096;
+}

@@ -12,13 +12,13 @@ $sql="SELECT users.id,users.name,users.surname,users.email,hall_booking.reservat
 $result=$connection->query($sql);
 if($result->num_rows>0){
 	$userResult=$result->fetch_assoc();
-	echo "User ID:".$userResult["id"];
-	echo "<br>Emri:".$userResult["name"];
-	echo "<br>Mbiemri:".$userResult["surname"];
-	echo "<br>E-mail:".$userResult["email"];
-	echo "<br>Fillimi Rezervimit:".$userResult["reservation_start_time"];
-	echo "<br>Perfundimi Rezervimit:".$userResult["reservation_end_time"];
-	echo "<br><button onclick=fshiRezervimin('".$userResult["id"]."')>Fshi Rezervimin</button>";
+	echo "<br><span>User ID:<b>".$userResult["id"]."</b></span>";
+	echo "<br><span>Emri:<b>".$userResult["name"]."</b></span>";
+	echo "<br><span>Mbiemri<b>:".$userResult["surname"]."</b></span>";
+	echo "<br><span>E-mail<b>:".$userResult["email"]."</b></span>";
+	echo "<br><span>Fillimi Rezervimit:<b>".$userResult["reservation_start_time"]."</b></span>";
+	echo "<br><span>Perfundimi Rezervimit:<b>".$userResult["reservation_end_time"]."</b></span>";
+	echo "<br><button onclick=fshiRezervimin('".$userResult["id"]."')>Fshi Rezervimin</button><br><br>";
 }
 
 echo $delete;
