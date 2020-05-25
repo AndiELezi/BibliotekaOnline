@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2020 at 12:46 AM
+-- Generation Time: May 25, 2020 at 12:42 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -89,7 +88,7 @@ INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quant
 ('9780060742690', 'A Death in Belmont', '2007-02-01', 10, 26, 15, 0, 'ADeathinBelmont1590075314.jpg', 'The quiet suburb of Belmont, Massacuusetts, is in the grip of fear. The Boston Strangler murders have taken place nearby, and now there is another shocking sex crime, right in Belmont. The victim is Bessie Goldberg, a middle-aged woman who had hired a cleaning man to help out around the house on that fall day in 1963. He is a black man named Roy Smith. He did the appointed chores, collected his money and left a receipt on the kitchen table. Neighbors will say that he looked furtive when he walked down the street, that he was in a hurry, that he stopped to buy cigarettes, that he looked over his shoulder. They didn\'t see a black man in Belmont very often, so, of course, they noticed him. So the story went, and on these slender threads, and his own checkered history, Roy Smith is convicted of the Belmont murder and sent to prison.', 0, 0),
 ('9780061013515', 'The Perfect Storm: A True Story of Men Against the Sea', '2001-02-01', 8, 50, 4, 10, 'ThePerfectStormATrueStoryofMenAgainsttheSea1590074052.jpg', 'October 1991. It was \"the perfect storm\"--a tempest that may happen only once in a century--a nor\'easter created by so rare a combination of factors that it could not possibly have been worse. Creating waves ten stories high and winds of 120 miles an hour, the storm whipped the sea to inconceivable levels few people on Earth have ever witnessed. Few, except the six-man crew of the Andrea Gail, a commercial fishing boat tragically headed towards its hellish center.', 0, 0),
 ('9780062345219', 'Four: A Divergent Collection', '2015-01-05', 13, 3, 20, 0, 'FourADivergentCollection1590077852.jpg', 'Two years before Beatrice Prior made her choice, the sixteen-year-old son of Abnegation\'s faction leader did the same. Tobias\'s transfer to Dauntless is a chance to begin again. Here, he will not be called the name his parents gave him. Here, he will not let fear turn him into a cowering child.', 0, 0),
-('9780316024969', 'New Moon (The Twilight Saga)', '2015-01-05', 14, 20, 12, 0, 'NewMoonTheTwilightSaga1590078296.jpg', 'For Bella Swan, there is one thing more important than life itself: Edward Cullen. But being in love with a vampire is even more dangerous than Bella could ever have imagined. Edward has already rescued Bella from the clutches of one evil vampire, but now, as their daring relationship threatens all that is near and dear to them, they realize their troubles may be just beginning.', 0, 0),
+('9780316024969', 'New Moon (The Twilight Saga)', '2015-01-05', 14, 19, 12, 0, 'NewMoonTheTwilightSaga1590078296.jpg', 'For Bella Swan, there is one thing more important than life itself: Edward Cullen. But being in love with a vampire is even more dangerous than Bella could ever have imagined. Edward has already rescued Bella from the clutches of one evil vampire, but now, as their daring relationship threatens all that is near and dear to them, they realize their troubles may be just beginning.', 0, 0),
 ('9780316160209', 'Eclipse (Twilight)', '2017-01-05', 14, 20, 12, 20, 'EclipseTwilight1590078608.jpg', 'As Seattle is ravaged by a string of mysterious killings and a malicious vampire continues her quest for revenge, Bella once again finds herself surrounded by danger. In the midst of it all, she is forced to choose between her love for Edward and her friendship with Jacob-knowing that her decision has the potential to ignite the ageless struggle between vampire and werewolf.', 0, 0),
 ('9780316387842', 'The Chemist', '1888-03-05', 14, 20, 25, 50, 'TheChemist1590079060.jpg', 'She used to work for the U.S. government, but very few people ever knew that. An expert in her field, she was one of the darkest secrets of an agency so clandestine it doesn\'t even have a name. And when they decided she was a liability, they came for her without warning.', 0, 0),
 ('9780345240118', 'A Hole in Space', '1974-12-02', 23, 21, 15, 10, 'AHoleinSpace1590097740.jpg', '1974 story collection from Larry Niven. 1975 Locus Poll Award, Best Single Author Collection (Place: 2). Collects nine stories and one essay, including: Rammer, The Alibi Machine, The Last Days of the Permanent Floating Riot Club, A Kind of Murder, All the Bridges Rusting, There Is a Tide, Bigger Than Worlds (essay), $16,940.00, The Hole Man (winner, 1975 Hugo Award; 1975 Locus Poll Award, Best Short Story (Place: 2)), The Fourth Profession (nominated, 1972 Hugo Award).', 0, 0),
@@ -103,8 +102,8 @@ INSERT INTO `book` (`ISBN`, `title`, `publication_year`, `publish_house`, `quant
 ('9781416509639', 'Earthsea: Tehanu', '2004-11-06', 18, 30, 12, 30, 'EarthseaTehanu1590094427.jpg', 'Years ago, they had escaped together from the sinister Tombs of Atuan—she, an isolated young priestess; he, a powerful wizard. Now she is a farmer\'s widow, having chosen for herself the simple pleasures of an ordinary life. And he is a broken old man, mourning the powers lost to him through no choice of his own.', 0, 0),
 ('9781416998402', 'The Night of the Solstice', '2010-11-06', 19, 10, 5, 20, 'TheNightoftheSolstice1590094805.jpg', 'When Claudia Hodges-Bradley meets a fox, she knows it will be an extraordinary day. Not just any fox, this vixen is the magical familiar of the sorceress Morgana Shee. For years Morgana has guarded the solitary gate between Earth and the Wildworld, a shimmering parallel universe where legends still live. She alone holds the secret of the mirrors that serve as the last passage to enchantment. But Morgana has been betrayed and imprisoned in Wildworld, and the fox is determined to recruit the Hodges-Bradley kids for the rescue mission.', 0, 0),
 ('9781455520633', 'The Longest Ride', '1898-03-05', 15, 20, 25, 25, 'TheLongestRide1590079780.jpg', 'From the dark days of WWII to present-day North Carolina, this New York Times bestseller shares the lives of two couples overcoming destructive secrets and finding joy together', 0, 0),
-('9783770427062', 'Weathering With You', '2019-12-02', 21, 20, 10, 25, 'WeatheringWithYou1590096036.jpg', 'A high-school boy who has run away to Tokyo befriends a girl who appears to be able to manipulate the weather.', 0, 0),
-('9788491462538', 'Your Name', '2015-12-02', 20, 20, 10, 25, 'YourName1590095585.jpg', 'Mitsuha, a high school girl living in a rural town deep in the mountains, has a dream that she is a boy living an unfamiliar life in Tokyo. Taki, a high school boy living in Tokyo, dreams that he is a girl living in the mountains. As they realize they are changing places, their encounter sets the cogs of fate into motion. Written by director Makoto Shinkai, the work has become a global phenomenon!', 0, 0);
+('9783770427062', 'Weathering With You', '2019-12-02', 21, 20, 10, 25, 'WeatheringWithYou1590096036.jpg', 'A high-school boy who has run away to Tokyo befriends a girl who appears to be able to manipulate the weather.', 1, 1),
+('9788491462538', 'Your Name', '2015-12-02', 20, 19, 10, 25, 'YourName1590095585.jpg', 'Mitsuha, a high school girl living in a rural town deep in the mountains, has a dream that she is a boy living an unfamiliar life in Tokyo. Taki, a high school boy living in Tokyo, dreams that he is a girl living in the mountains. As they realize they are changing places, their encounter sets the cogs of fate into motion. Written by director Makoto Shinkai, the work has become a global phenomenon!', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -235,6 +234,14 @@ CREATE TABLE `book_favourite` (
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `book_favourite`
+--
+
+INSERT INTO `book_favourite` (`id`, `book_id`, `user_id`, `favourite_time`, `book_type`) VALUES
+(25, '9788491462538', 15, '2020-05-25', 'offlineBook'),
+(26, '9783770427062', 15, '2020-05-25', 'offlineBook');
+
 -- --------------------------------------------------------
 
 --
@@ -248,6 +255,18 @@ CREATE TABLE `book_like` (
   `like_time` date NOT NULL,
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_like`
+--
+
+INSERT INTO `book_like` (`id`, `book_id`, `user_id`, `like_time`, `book_type`) VALUES
+(29, '9788491462538', 15, '2020-05-25', 'offlineBook'),
+(30, '9783770427062', 15, '2020-05-25', 'offlineBook'),
+(31, '9788491462538', 20, '2020-05-25', 'offlineBook'),
+(32, '9788491462538', 19, '2020-05-25', 'offlineBook'),
+(33, '9788491462538', 22, '2020-05-25', 'offlineBook'),
+(34, '9788491462538', 21, '2020-05-25', 'offlineBook');
 
 -- --------------------------------------------------------
 
@@ -320,6 +339,14 @@ CREATE TABLE `book_reservation` (
   `delay_fine` int(11) NOT NULL,
   `taken` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_reservation`
+--
+
+INSERT INTO `book_reservation` (`user_id`, `book_id`, `reservation_time`, `returnTime`, `delay_fine`, `taken`) VALUES
+(15, '9780316024969', '2020-05-28', '2020-05-30', 6, 0),
+(15, '9788491462538', '2020-05-26', '2020-05-28', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -500,6 +527,16 @@ CREATE TABLE `review` (
   `book_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `user_id`, `book_id`, `review_time`, `description`, `book_type`) VALUES
+(60, 20, '9788491462538', '2020-05-25', 'super super super super liber', 'offlineBook'),
+(62, 19, '9788491462538', '2020-05-25', 'Please boycott the inevitable American remake. I know that Kimi No Na Wa made a lot of money so therefore I know automatically that the remake will come and it will be a Hollywood con job (think Ghost In The Shell SHUDDER).\n\nKimi No Na Wa to me is an extremely well written and well thought story with amazing visuals. The bond between the characters, even in animation was something else. It was beautiful.\n\nThe world does not need an American remake.', 'offlineBook'),
+(63, 22, '9788491462538', '2020-05-25', 'With that said, it is too bad that Hollywood has picked this up. Not that I will be watching that remake, but I cringe already at the thought of Hollywood hack and remake specialist giving this an American swirl. All the cliches of bad remaking and safe corporate changes will be applied. Aaaarrrggghh', 'offlineBook'),
+(66, 21, '9788491462538', '2020-05-25', 'With success comes cash hounds and mercenaries of course. Worst of them all is JJ Abrams from Hollywood. He has been given the task of remaking Kimi No Na Wa. OH NO! The feeling will disappear, the underlying sense of humanity will disappear, the story will be set in (I am guessing) Dallas Texas or some similar dump, the girl will be wearing long prairie skirt like a good Jewish girl and we will all ask why didnt Hollywood learn a lesson from the American remake of Ghost In The Shell which was a', 'offlineBook');
+
 -- --------------------------------------------------------
 
 --
@@ -529,7 +566,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `mobile`, `password`, `birthday`, `gender`, `points`, `user_rights`, `profile_photo`, `activationStatus`, `securityString`, `recoverPasswordToken`) VALUES
-(15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 3510, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
+(15, 'Andi', 'elezi', 'andi06121998', 'andielezi52@gmail.com', '+355684934250', '$2y$10$mCQdF6ERPR9K.oeifvG0DOdvXy./72eJgf6pma2BBpQuh74/N.J86', '1998-06-12', 'Male', 5485, 3, 'andi06121998gjfdioykhlsuwrepqta.jpg', 1, 'm3noby6hwfu80icjz2lktevsp71rdag4x5q9', NULL),
 (19, 'Ardit', 'Kallaku', 'silence', 'ardit.kallaku@fshnstudent.info', '+355681122334', '$2y$10$9F50q0p7pXOS.VQLkLoU1eXgKuKTfQRiC1I1vVDDZq13YyDpWXHV6', '2020-01-01', 'Male', 1004, 3, 'silenceeqjophuyktrafgliwds.jpg', 1, '45g28ob1a9wkl03x6njprevqdtficzmhusy7', NULL),
 (20, 'Artenc', 'Cerumi', 'techno', 'artenc.cerumi8891@gmail.com', '+35556949250', '$2y$10$AaNUNpkRHb8RoZrDBw9TeOmfiw15Ff3f5DY87ZXHAzzVPjwHMhq1u', '2020-01-01', 'Male', 1000, 3, NULL, 1, 'ds4lzngaqpm9e7516i2fcov8rxk30jytuhbw', NULL),
 (21, 'Elvis', 'Ademi', 'venom', 'Elvis.Ademi@fshnstudent.ifno', '+355684934265', '$2y$10$vlrElUomCmzljewPzaXqm.n59Gi53N7hPzsiN1H80UAU29wYm/5Ou', '1998-12-06', 'Male', 0, 3, NULL, 1, 'khdruv9iocae4f60p2gnblqyx5sjmw73z81t', NULL),
@@ -826,13 +863,13 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT for table `book_favourite`
 --
 ALTER TABLE `book_favourite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `book_like`
 --
 ALTER TABLE `book_like`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -868,7 +905,7 @@ ALTER TABLE `publish_house`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `users`
