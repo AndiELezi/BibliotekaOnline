@@ -14,7 +14,8 @@
 		<a href="editOfflineBook.php"><div>Ndrysho nje liber</div></a><br>
 		<a href="giveBook.php"><div>Jep nje Liber</div></a><br>
 		<a href="returnBook.php"><div>Kthe nje Liber</div></a><br>
-		<a href="librarianAddBook.php"><div>Shto nje Liber</div></a>
+		<a href="librarianAddBook.php"><div>Shto nje Liber</div></a><br>
+		<a href="../logout.php"><div>Log Out</div></a>
 	</div>
 </div>
 </body>
