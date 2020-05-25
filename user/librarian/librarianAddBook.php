@@ -43,7 +43,8 @@
   	?>
   		<span class="error"><?php echo $errCategory  ?></span><br>
 		publication year: <input type="date" name="publication_year"> <br> <br>
-		foto e librit:<input type="file" name="cover_photo"><span><?php echo $errCoverPhoto  ?></span><br><br>
+		foto e librit:<input type="file" name="cover_photo"><br><br>
+		<span class="error"><?php echo $errCoverPhoto  ?></span><br>
 		<input type="submit" name="upload" value="upload">
 		<br>
 		<span><?php echo $successMsg  ?></span>

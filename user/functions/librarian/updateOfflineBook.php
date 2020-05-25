@@ -20,7 +20,7 @@ if(isset($_POST["delete"])){
 	unlink($file);
 	$sql="DELETE from book where ISBN='{$isbn}'";
 	$connection->query($sql);
-	echo "<span> class='success'>Libri u fshi me sukses</span>";
+	echo "<span class='success'>Libri u fshi me sukses</span>";
 
 	exit();
 

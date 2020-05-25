@@ -32,5 +32,7 @@
 
 	}
 	//ktu esht nqs nk ka vendosur cover foto
-	else{}
+	else{
+		$errCoverPhoto="Duhet te vendosni cover photo";
+	}
 ?>
